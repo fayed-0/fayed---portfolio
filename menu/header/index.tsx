@@ -44,8 +44,8 @@ export default function Header({ backgroundImage }: Props) {
 
         {/* Text overlay on image for mobile/tablet (inside image box, 5px gap) */}
         <div className="lg:hidden absolute left-3 sm:left-4 md:left-5 right-3 sm:right-4 md:right-5 bottom-[40px] z-10 text-white">
-          <h1 className="font-['Inter'] font-semibold leading-tight text-2xl sm:text-3xl md:text-4xl">Fayed Abdul Hakim</h1>
-          <p className="mt-2 font-['Inter'] font-normal leading-snug text-sm sm:text-base md:text-lg">Student of Information System student at Universitas Multimedia Nusantara</p>
+          <h1 className="font-['Inter'] font-semibold leading-tight text-1xl sm:text-3xl md:text-4xl">Fayed Abdul Hakim</h1>
+          <p className="mt-2 font-['Inter'] font-normal leading-snug text-xs sm:text-base md:text-lg">Student of Information System student at Universitas Multimedia Nusantara</p>
         </div>
       </div>
 
@@ -60,7 +60,7 @@ export default function Header({ backgroundImage }: Props) {
 
 
       {/* Original desktop placement (unchanged) */}
-      <div className="hidden lg:block absolute left-[60px] top-[774px] text-white text-4xl font-medium font-['Inter']">Fayed Abdul Hakim</div>
+      <div className="hidden lg:block absolute left-[60px] top:[774px] text-white text-4xl font-medium font-['Inter']">Fayed Abdul Hakim</div>
       <div className="hidden lg:block absolute left-[60px] top-[833px] text-white text-2xl font-normal font-['Inter']">Student of Information System student at Universitas Multimedia Nusantara</div>
   {/* Spacer to keep header height (maintain ~80px over hero) */}
   <div className="h-[590px] sm:h-[710px] md:h-[830px] lg:h-[1008px]" />
