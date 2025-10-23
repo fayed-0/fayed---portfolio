@@ -136,21 +136,21 @@ export default function Project() {
 		<section className="w-full">
 			{/* Heading & subheading */}
 			<div className="mb-8">
-				<h2 className="text-3xl font-bold text-zinc-600 dark:text-zinc-100">Portfolio</h2>
-						<p className="mt-3 max-w-none text-xl text-zinc-500 dark:text-zinc-300">
+				<h2 className="text-2xl sm:text-3xl md:text-3xl font-bold text-zinc-600 dark:text-zinc-100">Portfolio</h2>
+						<p className="mt-3 max-w-none text-base sm:text-lg md:text-xl text-zinc-500 dark:text-zinc-300">
 					Explore a collection of my featured projects that showcase my passion for design, technology, and problem-solving. From developing dynamic web applications with React.js and Next.js to crafting intuitive UI/UX designs and data-driven dashboards, each project reflects my ability to turn ideas into meaningful digital experiences. Every work in this portfolio represents my commitment to creating functional, visually engaging, and user-centered solutions that make an impact.
 				</p>
 			</div>
 
 			{/* Filters */}
-			<div className="flex flex-wrap gap-6 text-zinc-500 dark:text-zinc-300">
+			<div className="flex flex-wrap gap-4 sm:gap-5 md:gap-6 text-zinc-500 dark:text-zinc-300">
 				{allCategories.map((c) => {
 					const isActive = c === active
 					return (
 						<button
 							key={c}
 							onClick={() => setActive(c)}
-							className={`text-xl font-semibold transition-colors ${
+							className={`text-base sm:text-lg md:text-xl font-semibold transition-colors ${
 								isActive ? 'text-zinc-900 dark:text-zinc-100' : 'hover:text-zinc-700 dark:hover:text-zinc-200'
 							}`}
 						>
@@ -161,7 +161,7 @@ export default function Project() {
 			</div>
 
 			{/* Grid */}
-			<ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+			<ul className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:grid-cols-3">
 				{filtered.map((p) => (
 					<li key={p.id} className="rounded-[10px] bg-zinc-500 dark:bg-zinc-700 p-2 shadow-sm">
 						<button
@@ -170,7 +170,7 @@ export default function Project() {
 							aria-label={`View ${p.title}`}
 							className="block w-full text-left"
 						>
-							<div className="relative h-72 rounded-[10px] bg-stone-300 overflow-hidden">
+							<div className="relative h-52 sm:h-60 md:h-64 lg:h-72 rounded-[10px] bg-stone-300 overflow-hidden">
 								{p.src ? (
 									<Image src={p.src} alt={p.title} fill className="object-cover" sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw" />
 								) : (
@@ -187,8 +187,8 @@ export default function Project() {
 									</svg>
 								</div>
 							</div>
-							<div className="mt-2 rounded-[8px] bg-zinc-600 dark:bg-zinc-600 p-4">
-								<p className="text-1xl font-semibold text-white dark:text-white">{p.title}</p>
+							<div className="mt-2 rounded-[8px] bg-zinc-600 dark:bg-zinc-600 p-3 sm:p-4">
+								<p className="text-sm sm:text-base md:text-lg font-semibold text-white dark:text-white">{p.title}</p>
 							</div>
 						</button>
 					</li>
@@ -205,7 +205,7 @@ export default function Project() {
 					onClick={() => setOpenId(null)}
 				>
 					<div
-						className="relative w-full max-w-6xl bg-zinc-900/30 rounded-xl ring-1 ring-white/15 overflow-hidden"
+						className="relative w-full max-w-6xl max-h-[90vh] overflow-hidden bg-zinc-900/30 rounded-xl ring-1 ring-white/15 flex flex-col"
 						onClick={(e) => e.stopPropagation()}
 					>
 						<button
@@ -216,9 +216,9 @@ export default function Project() {
 						>
 							✕
 						</button>
-						<div className="grid md:grid-cols-[600px_500px] gap-4 md:gap-6 p-3 md:p-5">
+						<div className="flex-1 min-h-0 grid md:grid-cols-[600px_500px] gap-4 md:gap-6 p-3 md:p-5 overflow-hidden">
 							{/* Left: preview frame */}
-							<div className="relative w-full md:w-[600px] aspect-[600/450] bg-zinc-900/20 rounded-lg overflow-hidden ring-2 ring-white/20">
+							<div className="relative w-full h-[38vh] md:w-[600px] md:h-auto md:aspect-[600/450] bg-zinc-900/20 rounded-lg overflow-hidden ring-2 ring-white/20">
                                 {opened?.src ? (
                                     <Image src={opened.src} alt={opened.title} fill className="object-cover" sizes="(min-width: 1024px) 600px, 100vw" />
                                 ) : (
@@ -231,10 +231,10 @@ export default function Project() {
                             </div>
 
 							{/* Right: description panel (500x450) */}
-							<div className="md:w-[500px] h-auto md:h-[450px] overflow-auto rounded-lg bg-zinc-800/60 p-5 ring-1 ring-white/10 text-zinc-100">
+							<div className="md:w-[500px] h-[38vh] md:h-[450px] overflow-y-auto rounded-lg bg-zinc-800/60 p-5 ring-1 ring-white/10 text-zinc-100">
 								<h3 className="text-2xl font-semibold">{opened.title}</h3>
 								{opened.description && (
-									<p className="mt-3 text-zinc-300 text-base sm:text-lg whitespace-pre-line">{opened.description}</p>
+									<p className="mt-3 text-zinc-300 text-sm sm:text-base md:text-lg whitespace-pre-line">{opened.description}</p>
 								)}
 								{/* Additional details can be added here if needed */}
 							</div>
@@ -246,7 +246,7 @@ export default function Project() {
 								href={opened.prototypeUrl || '#'}
 								target="_blank"
 								rel="noopener noreferrer"
-								className="block w-full md:w-[600px] rounded-xl border border-white/20 bg-zinc-900/70 text-white p-3 text-center text-base sm:text-lg font-semibold backdrop-blur-sm hover:bg-zinc-900/80 transition"
+								className="block w-full md:w-[600px] rounded-xl border border-white/20 bg-zinc-900/70 text-white p-3 text-center text-sm sm:text-base md:text-lg font-semibold backdrop-blur-sm hover:bg-zinc-900/80 transition"
 							>
 								View Prototype
 							</a>

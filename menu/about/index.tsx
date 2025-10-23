@@ -85,21 +85,20 @@ As an Information Systems student, I focus on the intersection of technology, de
 
 export default function About() {
 	const [openId, setOpenId] = useState<string | null>(null)
+	const toggle = (id: string) => setOpenId((prev) => (prev === id ? null : id))
 
-	const toggle = (id: string) => {
-		setOpenId((prev) => (prev === id ? null : id))
-	}
-
-			return (
-				<div className="relative w-full">
+	return (
+		<div className="relative w-full px-0">
 			{/* Title */}
-			<div className="mt-10 mb-6">
-				<h2 className="text-3xl font-bold text-zinc-600 dark:text-zinc-200">About</h2>
+			<div className="mt-10 mb-6 sm:mt-5 sm:mb-4">
+				<h2 className="text-xl sm:text-2xl md:text-2xl lg:text-2xl font-bold text-zinc-600 dark:text-zinc-200">
+					About
+				</h2>
 			</div>
 
-			<div className="grid grid-cols-1 gap-8 md:grid-cols-[384px_minmax(0,1fr)]">
+			<div className="grid grid-cols-1 gap-8 lg:grid-cols-[384px_minmax(0,1fr)]">
 				{/* Left image placeholder */}
-				<div className="relative h-[538px] rounded-[10px] bg-zinc-400 dark:bg-zinc-700">
+				<div className="relative h-[538px] rounded-[10px] bg-zinc-400 dark:bg-zinc-700 sm:h-[280px] md:h-[380px]">
 					<div className="absolute left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-1/2">
 						<div className="absolute left-[10.75px] top-[10.75px] h-16 w-16 outline outline-1 outline-offset-[-0.5px] outline-white" />
 						<div className="absolute left-[17.92px] top-[35.84px] h-5 w-12 bg-white" />
@@ -108,51 +107,51 @@ export default function About() {
 				</div>
 
 				{/* Right accordion */}
-						<div className="w-full">
-							<ul className="w-full divide-y divide-zinc-300/70 dark:divide-zinc-600">
+				<div className="w-full">
+					<ul className="w-full divide-y divide-zinc-300/70 dark:divide-zinc-600">
 						{items.map((item) => {
 							const isOpen = openId === item.id
 							return (
-								<li key={item.id} className="py-5">
+								<li key={item.id} className="py-5 sm:py-3">
 									<button
 										onClick={() => toggle(item.id)}
 										className="flex w-full items-center justify-between text-left"
-										aria-expanded={isOpen}
-										aria-controls={`content-${item.id}`}
 									>
-										<span className="text-2xl font-semibold text-zinc-600 dark:text-zinc-200">{item.title}</span>
+										<span className="text-lg sm:text-xl md:text-xl lg:text-xl font-semibold text-zinc-600 dark:text-zinc-200">
+											{item.title}
+										</span>
 										<span
-											className="text-2xl font-semibold text-zinc-500 transition-transform ease-out duration-300"
+											className="text-xl sm:text-xl md:text-xl lg:text-xl font-semibold text-zinc-500 transition-transform ease-out duration-300"
 											style={{ transform: isOpen ? 'rotate(45deg)' : 'rotate(0deg)' }}
 										>
 											+
 										</span>
 									</button>
 
-									{/* Smooth height transition container */}
 									<div
-										id={`content-${item.id}`}
 										className="grid transition-[grid-template-rows] duration-300 ease-out"
 										style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
 									>
 										<div className="overflow-hidden">
 											{(() => {
-												// Normalize accidental literal concatenation artifacts like:  + '\n\n' +
 												const raw = item.content as string
 												const normalized = raw.replace(/\+\s*['"]\\n\\n['"]\s*\+/g, '\n\n')
-												// Special renderer for Skills with progress bars
-												if (item.id === 'skills' && item.skills && item.skills.length > 0) {
+
+												if (item.id === 'skills' && item.skills?.length) {
 													return (
-														<div key="skills" className="pt-4 pr-[40px]">
+														<div className="pt-4 pr-[40px] sm:pr-2">
 															<ul className="space-y-4">
 																{item.skills.map((s, i) => (
 																	<li key={`${s.label}-${i}`}>
-																		<div className="mb-1 flex items-center justify-between text-sm sm:text-base">
+																		<div className="mb-1 flex items-center justify-between text-sm sm:text-xs md:text-sm">
 																			<span className="text-zinc-700 dark:text-zinc-200">{s.label}</span>
 																			<span className="text-zinc-500 dark:text-zinc-400">{s.value}%</span>
 																		</div>
-																		<div className="h-2 w-full rounded-full bg-zinc-300/80 dark:bg-zinc-700/80" role="progressbar" aria-valuenow={s.value} aria-valuemin={0} aria-valuemax={100} aria-label={s.label}>
-																			<div className="h-2 rounded-full bg-zinc-600 dark:bg-zinc-500" style={{ width: `${Math.min(Math.max(s.value, 0), 100)}%` }} />
+																		<div className="h-2 w-full rounded-full bg-zinc-300/80 dark:bg-zinc-700/80">
+																			<div
+																				className="h-2 rounded-full bg-zinc-600 dark:bg-zinc-500"
+																				style={{ width: `${s.value}%` }}
+																			/>
 																		</div>
 																	</li>
 																))}
@@ -164,7 +163,9 @@ export default function About() {
 												return normalized.split(/\n\n+/).map((para, idx) => (
 													<p
 														key={idx}
-															className={`text-zinc-600 dark:text-zinc-300 ${idx === 0 ? 'pt-4' : 'mt-4'} pr-[40px] ${item.id === 'experience' && (idx === 0 || para.startsWith('UI/UX Designer')) ? 'font-semibold' : ''} ${item.id === 'experience' && para.startsWith('UI/UX Designer') ? 'mt-6' : ''} ${item.id === 'project' && (idx === 0 || para.startsWith('Cendana Residential Community Website')) ? 'font-semibold' : ''} ${item.id === 'education' && idx === 0 ? 'font-semibold' : ''}`}
+														className={`text-zinc-600 dark:text-zinc-300 pr-[40px] sm:pr-2 text-sm sm:text-base md:text-base ${
+															idx === 0 ? 'pt-4' : 'mt-4'
+														}`}
 													>
 														{para}
 													</p>
@@ -181,4 +182,3 @@ export default function About() {
 		</div>
 	)
 }
-

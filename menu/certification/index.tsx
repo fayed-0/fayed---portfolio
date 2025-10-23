@@ -58,14 +58,14 @@ export default function Certification() {
 		<section className="w-full">
 			{/* Title and full-width description */}
 			<div className="mb-8">
-				<h2 className="text-3xl font-bold text-zinc-600 dark:text-zinc-100">Certificate</h2>
-				<p className="mt-3 text-xl text-zinc-500 dark:text-zinc-300">
+				<h2 className="text-2xl sm:text-3xl md:text-3xl font-bold text-zinc-600 dark:text-zinc-100">Certificate</h2>
+				<p className="mt-3 text-base sm:text-lg md:text-xl text-zinc-500 dark:text-zinc-300">
 					This section presents the certifications I have earned to enhance my competencies and deepen my understanding beyond academic learning. Each certification demonstrates my commitment to continuous self-improvement and my effort to expand my knowledge in web development, user experience design, and data analytics. Through these learning experiences, I strive to develop both the technical and analytical skills required to grow as a well-rounded professional.
 				</p>
 			</div>
 
-			{/* Grid 3x2 */}
-			<ul className="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+			{/* Grid 2 cols on mobile/tablet, 3 on desktop */}
+			<ul className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:grid-cols-3">
 				{items.map((p) => (
 					<li key={p.id} className="rounded-[10px] bg-zinc-500 dark:bg-zinc-700 p-2 shadow-sm">
 						<button
@@ -74,14 +74,14 @@ export default function Certification() {
 							aria-label={`View ${p.title}`}
 							className="block w-full text-left"
 						>
-							<div className="relative h-72 rounded-[10px] bg-stone-300 overflow-hidden">
+							<div className="relative h-44 sm:h-52 md:h-56 lg:h-64 rounded-[10px] bg-white overflow-hidden p-1 sm:p-1.5">
 								{/* certificate image */}
 								<Image
 									src={p.src}
 									alt={p.title}
 									fill
 									sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-									className="object-cover"
+									className="object-contain"
 									priority={false}
 								/>
 								{/* open icon */}
@@ -91,8 +91,8 @@ export default function Certification() {
 									</svg>
 								</div>
 							</div>
-							<div className="mt-2 rounded-[8px] bg-zinc-600 dark:bg-zinc-600 p-4">
-								<p className="text-1xl font-semibold text-white dark:text-white">{p.title}</p>
+							<div className="mt-2 rounded-[8px] bg-zinc-600 dark:bg-zinc-600 p-3 sm:p-4">
+								<p className="text-sm sm:text-base md:text-lg font-semibold text-white dark:text-white">{p.title}</p>
 							</div>
 						</button>
 					</li>
@@ -109,10 +109,10 @@ export default function Certification() {
 					onClick={() => setOpenId(null)}
 				>
 					<div
-						className="flex flex-col items-center gap-3"
+						className="w-full max-w-[900px] max-h-[90vh] overflow-hidden flex flex-col items-center gap-3"
 						onClick={(e) => e.stopPropagation()}
 					>
-						<div className="relative w-full sm:w-[900px] aspect-[900/680] bg-zinc-900/20 rounded-xl overflow-hidden ring-2 ring-white/25 dark:ring-white/20 shadow-2xl">
+							<div className="relative w-full h-[58vh] sm:h-[62vh] md:h-auto md:aspect-[900/680] bg-white rounded-xl overflow-hidden ring-2 ring-white/25 dark:ring-white/20 shadow-2xl p-2 sm:p-3">
 							<button
 								type="button"
 								aria-label="Close viewer"
@@ -125,12 +125,12 @@ export default function Certification() {
 								src={opened.src}
 								alt={opened.title}
 								fill
-								className="object-cover"
+									className="object-contain"
 								sizes="100vw"
 								priority
 							/>
 						</div>
-						<div className="w-full sm:w-[900px] rounded-xl border border-white/20 bg-zinc-900/70 text-white p-3 text-center text-base sm:text-lg font-semibold backdrop-blur-sm">
+						<div className="w-full rounded-xl border border-white/20 bg-zinc-900/70 text-white p-3 text-center text-sm sm:text-base md:text-lg font-semibold backdrop-blur-sm">
 							{opened.title}
 						</div>
 					</div>

@@ -12,16 +12,16 @@ export default function HomePage() {
       <Header />
   {/* Konsisten gap antar section: 160px */}
   <div className="space-y-[180px] mt-[120px] mb-[120px]">
-        <section id="about" className="mx-[60px]">
+        <section id="about" className="mx-[10px] lg:mx-[60px]">
           <About />
         </section>
-        <section id="portfolio" className="mx-[60px]">
+        <section id="portfolio" className="mx-[10px] lg:mx-[60px]">
           <Project />
         </section>
-        <section id="certification" className="mx-[60px]">
+        <section id="certification" className="mx-[10px] lg:mx-[60px]">
           <Certification />
         </section>
-        <section id="contact" className="mx-[60px]">
+        <section id="contact" className="mx-[10px] lg:mx-[60px]">
           <div className="rounded-2xl border bg-white dark:bg-zinc-800 p-8 shadow-sm">
             <h2 className="text-2xl font-semibold">Contact</h2>
             <p className="mt-2 text-gray-600">Silakan isi nanti sesuai kebutuhan.</p>
