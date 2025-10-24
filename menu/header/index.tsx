@@ -60,7 +60,7 @@ export default function Header({ backgroundImage }: Props) {
 
 
       {/* Original desktop placement (unchanged) */}
-      <div className="hidden lg:block absolute left-[60px] top:[774px] text-white text-4xl font-medium font-['Inter']">Fayed Abdul Hakim</div>
+      <div className="hidden lg:block absolute left-[60px] top-[774px] text-white text-4xl font-medium font-['Inter']">Fayed Abdul Hakim</div>
       <div className="hidden lg:block absolute left-[60px] top-[833px] text-white text-2xl font-normal font-['Inter']">Student of Information System student at Universitas Multimedia Nusantara</div>
   {/* Spacer to keep header height (maintain ~80px over hero) */}
   <div className="h-[590px] sm:h-[710px] md:h-[830px] lg:h-[1008px]" />

@@ -42,29 +42,29 @@ const items: Item[] = [
 		title: 'Project',
 		content: `E-Learning Website “Gejur” — Research Collaboration Project
 
-During my time at university, I collaborated with a lecturer and two teammates on a research project to develop an e-learning web application called Gejur, aimed at improving access to education for communities in East Nusa Tenggara (NTT). The platform was designed to provide an interactive and structured learning experience for users in remote areas with limited educational resources. I was responsible for the frontend development, building an engaging and responsive interface using Next.js and Tailwind CSS. I also implemented dynamic routing, reusable components, and adaptive layouts to ensure a seamless learning experience across all devices.
+			During my time at university, I collaborated with a lecturer and two teammates on a research project to develop an e-learning web application called Gejur, aimed at improving access to education for communities in East Nusa Tenggara (NTT). The platform was designed to provide an interactive and structured learning experience for users in remote areas with limited educational resources. I was responsible for the frontend development, building an engaging and responsive interface using Next.js and Tailwind CSS. I also implemented dynamic routing, reusable components, and adaptive layouts to ensure a seamless learning experience across all devices.
 
-Each course within the platform is divided into modules containing videos, pre- and post-quizzes, and completion certificates. Learners must complete quizzes successfully before unlocking the next module, encouraging active engagement and mastery of the material. Beyond its technical aspects, the project emphasized accessibility and simplicity, ensuring that learners in NTT could easily navigate and benefit from the platform. Through Gejur, our goal was to empower local communities by providing a digital learning solution that supports continuous education and skill development, even in areas with limited infrastructure.
+			Each course within the platform is divided into modules containing videos, pre- and post-quizzes, and completion certificates. Learners must complete quizzes successfully before unlocking the next module, encouraging active engagement and mastery of the material. Beyond its technical aspects, the project emphasized accessibility and simplicity, ensuring that learners in NTT could easily navigate and benefit from the platform. Through Gejur, our goal was to empower local communities by providing a digital learning solution that supports continuous education and skill development, even in areas with limited infrastructure.
 
-Cendana Residential Community Website — Campus Project
+			Cendana Residential Community Website — Campus Project
 
-As part of a university project, I developed a community website for the Cendana residential complex to improve communication and digital interaction among residents. I was responsible for the frontend development, building a responsive and user-friendly interface using Next.js and Tailwind CSS. The website allows residents to book shared facilities, such as community halls for neighborhood meetings or discussions, directly through the platform.
+			As part of a university project, I developed a community website for the Cendana residential complex to improve communication and digital interaction among residents. I was responsible for the frontend development, building a responsive and user-friendly interface using Next.js and Tailwind CSS. The website allows residents to book shared facilities, such as community halls for neighborhood meetings or discussions, directly through the platform.
 
-The system also includes additional features such as an internal marketplace where residents can sell and buy products within their community, and a reporting forum that enables users to submit issues like dirty water or damaged facilities. Each report automatically notifies the housing developer, ensuring quick responses and transparent communication. This project highlights my ability to transform community needs into functional and impactful web solutions through thoughtful design and development.`,
+			The system also includes additional features such as an internal marketplace where residents can sell and buy products within their community, and a reporting forum that enables users to submit issues like dirty water or damaged facilities. Each report automatically notifies the housing developer, ensuring quick responses and transparent communication. This project highlights my ability to transform community needs into functional and impactful web solutions through thoughtful design and development.`,
 	},
 	{
 		id: 'education',
 		title: 'Education',
 		content: `Multimedia Nusantara University
 
-Bachelor’s Degree in Information Systems
+			Bachelor’s Degree in Information Systems
 
-Aug 2022 – Present | Tangerang, Indonesia
+			Aug 2022 – Present | Tangerang, Indonesia
 
-GPA: 3,60/4.00
+			GPA: 3,60/4.00
 
-As an Information Systems student, I focus on the intersection of technology, design, and data analysis to build impactful digital solutions. My coursework covers Web Development, Database Systems, Data Warehousing, Information Systems Analysis and Design, Machine Learning, and Data Visualization — strengthening both my technical and analytical skills. Throughout my studies, I’ve worked on various academic and research projects, including the development of web-based applications and data-driven dashboards. Beyond academics, I apply my knowledge in the professional field through freelance UI/UX design, web development, and creative projects, bridging theory and real-world implementation.`
-	},
+			As an Information Systems student, I focus on the intersection of technology, design, and data analysis to build impactful digital solutions. My coursework covers Web Development, Database Systems, Data Warehousing, Information Systems Analysis and Design, Machine Learning, and Data Visualization — strengthening both my technical and analytical skills. Throughout my studies, I’ve worked on various academic and research projects, including the development of web-based applications and data-driven dashboards. Beyond academics, I apply my knowledge in the professional field through freelance UI/UX design, web development, and creative projects, bridging theory and real-world implementation.`
+				},
 	{
 		id: 'skills',
 		title: 'Skills',

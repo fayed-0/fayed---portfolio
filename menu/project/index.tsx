@@ -84,7 +84,7 @@ const projects: ProjectItem[] = [
 // Article
 	{
 		id: 6,
-		title: 'Unite for Equity – Community Empowerment Project',
+		title: 'Anti Sexual Violence and Gender Equality',
 		category: 'Article',
 		description: 'This project, titled “Promotion of Anti-Sexual Violence and Gender Equality for Students of SMP Nusantara 1 Karawaci Tangerang,” was a community outreach initiative aimed at raising awareness of sexual violence prevention and promoting gender equality among junior high school students. The program featured educational sessions, interactive discussions, a “Safekeeper” segment for anonymous sharing, and pre- and post-tests to assess comprehension. The results showed strong impact — 98% of students reported better understanding, 97% felt more confident identifying and addressing sexual violence, and 98% stated they could apply this knowledge in daily life. By integrating religious and humanistic values, this initiative successfully built empathy, awareness, and equality among students, aligning with Sustainable Development Goal (SDG) 5: Gender Equality through education and community collaboration.',
 		src: ImgArticle1,
@@ -163,35 +163,51 @@ export default function Project() {
 			{/* Grid */}
 			<ul className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:grid-cols-3">
 				{filtered.map((p) => (
-					<li key={p.id} className="rounded-[10px] bg-zinc-500 dark:bg-zinc-700 p-2 shadow-sm">
-						<button
-							type="button"
-							onClick={() => setOpenId(p.id)}
-							aria-label={`View ${p.title}`}
-							className="block w-full text-left"
-						>
-							<div className="relative h-52 sm:h-60 md:h-64 lg:h-72 rounded-[10px] bg-stone-300 overflow-hidden">
-								{p.src ? (
-									<Image src={p.src} alt={p.title} fill className="object-cover" sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw" />
-								) : (
-									<div className="absolute inset-0 grid place-items-center">
-										<div className="h-24 w-24 opacity-70">
-											<div className="h-full w-full outline outline-1 outline-zinc-400/50" />
-										</div>
+				<li key={p.id} className="rounded-[10px] bg-zinc-500 dark:bg-zinc-700 p-2 shadow-sm flex flex-col h-full">
+					<button
+						type="button"
+						onClick={() => setOpenId(p.id)}
+						aria-label={`View ${p.title}`}
+						className="flex flex-col w-full h-full text-left"
+					>
+						<div className="relative h-36 sm:h-48 md:h-72 lg:h-80 rounded-[10px] bg-stone-300 overflow-hidden">
+							{p.src ? (
+								<Image
+									src={p.src}
+									alt={p.title}
+									fill
+									className="object-cover"
+									sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+								/>
+							) : (
+								<div className="absolute inset-0 grid place-items-center">
+									<div className="h-24 w-24 opacity-70">
+										<div className="h-full w-full outline outline-1 outline-zinc-400/50" />
 									</div>
-								)}
-								{/* open in new icon */}
-								<div className="absolute right-3 border top-3 grid h-7 w-7 place-items-center rounded-full bg-white dark:bg-zinc-800 text-zinc-700 dark:text-white">
-									<svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
-										<path d="M7 17L17 7M7 7h10v10" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-									</svg>
 								</div>
+							)}
+
+							<div className="absolute right-3 border top-3 grid h-7 w-7 place-items-center rounded-full bg-white dark:bg-zinc-800 text-zinc-700 dark:text-white">
+								<svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
+									<path
+										d="M7 17L17 7M7 7h10v10"
+										fill="none"
+										stroke="currentColor"
+										strokeWidth="2"
+										strokeLinecap="round"
+										strokeLinejoin="round"
+									/>
+								</svg>
 							</div>
-							<div className="mt-2 rounded-[8px] bg-zinc-600 dark:bg-zinc-600 p-3 sm:p-4">
-								<p className="text-sm sm:text-base md:text-lg font-semibold text-white dark:text-white">{p.title}</p>
-							</div>
-						</button>
-					</li>
+						</div>
+
+						{/* Bagian teks dibuat flex-grow agar semua card sama tinggi */}
+						<div className="mt-2 flex flex-col flex-grow justify-start rounded-[8px] bg-zinc-600 dark:bg-zinc-600 p-3 sm:p-4">
+							<p className="text-sm sm:text-base md:text-lg font-semibold text-white dark:text-white">{p.title}</p>
+						</div>
+					</button>
+				</li>
+
 				))}
 			</ul>
 
@@ -205,7 +221,7 @@ export default function Project() {
 					onClick={() => setOpenId(null)}
 				>
 					<div
-						className="relative w-full max-w-6xl max-h-[90vh] overflow-hidden bg-zinc-900/30 rounded-xl ring-1 ring-white/15 flex flex-col"
+						className="relative w-full max-w-6xl max-h-[90vh] overflow-hidden bg-zinc-900/30 rounded-xl ring-1 ring-white/15 flex flex-col "
 						onClick={(e) => e.stopPropagation()}
 					>
 						<button
