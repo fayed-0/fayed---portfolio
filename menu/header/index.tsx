@@ -71,7 +71,7 @@ export default function Header({ backgroundImage }: Props) {
         {/* Text overlay on image for mobile/tablet (inside image box, 5px gap) */}
         <div className="lg:hidden absolute left-3 sm:left-4 md:left-5 right-3 sm:right-4 md:right-5 bottom-[40px] z-20 text-white">
           <h1 className="font-['Inter'] font-semibold leading-tight text-1xl sm:text-3xl md:text-4xl">Fayed Abdul Hakim</h1>
-          <p className="mt-2 font-['Inter'] font-normal leading-snug text-xs sm:text-base md:text-lg">Student of Information System student at Universitas Multimedia Nusantara</p>
+          <p className="mt-2 font-['Inter'] font-normal leading-snug text-xs sm:text-base md:text-lg">Information Systems Student at Universitas Multimedia Nusantara</p>
         </div>
       </div>
 
@@ -79,9 +79,9 @@ export default function Header({ backgroundImage }: Props) {
 
       {/* Original desktop placement (unchanged) */}
   <div className="hidden lg:block absolute left-[60px] top-[774px] text-white text-4xl font-medium font-['Inter'] z-20">Fayed Abdul Hakim</div>
-  <div className="hidden lg:block absolute left-[60px] top-[833px] text-white text-2xl font-normal font-['Inter'] z-20">Student of Information System student at Universitas Multimedia Nusantara</div>
-  {/* Spacer to keep header height (maintain ~80px over hero) */}
-  <div className="h-[590px] sm:h-[710px] md:h-[830px] lg:h-[1008px]" />
+  <div className="hidden lg:block absolute left-[60px] top-[833px] text-white text-2xl font-normal font-['Inter'] z-20">Information Systems Student at Universitas Multimedia Nusantara</div>
+  {/* Spacer to match hero height so following content sits tight under header */}
+  <div className="h-[510px] sm:h-[630px] md:h-[750px] lg:h-[928px]" />
     </header>
   )
 }

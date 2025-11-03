@@ -57,7 +57,7 @@ export default function Navbar() {
 
 	return (
 		<div className="fixed top-[5px] left-0 right-0 z-50">
-			<nav className="relative mx-[5px] sm:mx-[5px] md:mx-[5px] lg:mx-[60px] h-14 md:h-[60px] lg:h-[64px] rounded-[10px] bg-white/95 dark:bg-zinc-800/90 backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-zinc-800/70 flex items-center px-3 sm:px-4 md:px-6 lg:px-7 shadow-sm transition-colors duration-300 ease-out">
+			<nav className="relative mx-[5px] sm:mx-[5px] md:mx-[5px] lg:mx-[60px] h-14 md:h-[60px] lg:h-[64px] rounded-[10px] bg-[#F2EBDE]/95 dark:bg-zinc-800/90 backdrop-blur supports-[backdrop-filter]:bg-[#F2EBDE]/70 dark:supports-[backdrop-filter]:bg-zinc-800/70 flex items-center px-3 sm:px-4 md:px-6 lg:px-7 shadow-sm transition-colors duration-300 ease-out">
 				{/* Left brand */}
 				<div className="text-zinc-500 dark:text-zinc-200 text-base sm:text-lg md:text-xl lg:text-2xl font-bold transition-colors duration-300 ease-out">Portfolio</div>
 				{/* Center links */}
@@ -77,12 +77,12 @@ export default function Navbar() {
 				</ul>
 				{/* Right actions */}
 				<div className="hidden lg:flex items-center gap-4">
-					<a href="#contact" className="inline-flex h-10 items-center rounded-[10px] bg-zinc-600 dark:bg-zinc-600 px-4 text-white text-lg xl:text-xl font-medium hover:bg-zinc-500 dark:hover:bg-zinc-500 transition-colors duration-300 ease-out">Contact</a>
+					<a href="#contact" className="inline-flex h-10 items-center rounded-[10px] bg-[#58718D] dark:bg-zinc-600 px-4 text-white text-lg xl:text-xl font-medium hover:bg-zinc-500 dark:hover:bg-zinc-500 transition-colors duration-300 ease-out">Contact</a>
 					<button
 						onClick={toggleTheme}
 						aria-label="Toggle theme"
 						title={isDark ? 'Switch to light' : 'Switch to dark'}
-						className="h-10 w-10 rounded-[10px] border border-zinc-500/40 bg-zinc-600 dark:bg-zinc-600 text-white grid place-items-center hover:bg-zinc-500 dark:hover:bg-zinc-500 transition-colors duration-300 ease-out"
+						className="h-10 w-10 rounded-[10px] border border-zinc-500/40 bg-[#58718D] dark:bg-zinc-600 text-white grid place-items-center hover:bg-zinc-500 dark:hover:bg-zinc-500 transition-colors duration-300 ease-out"
 					>
 						{isDark ? '☾' : '☀︎'}
 					</button>
@@ -94,20 +94,20 @@ export default function Navbar() {
 						onClick={() => setOpen((v) => !v)}
 						aria-label="Toggle menu"
 						aria-expanded={open}
-						className="group h-10 w-10 rounded-[10px] bg-zinc-600 dark:bg-zinc-600 text-white grid place-items-center hover:bg-zinc-500 dark:hover:bg-zinc-500 transition"
+						className="group h-10 w-10 rounded-[10px] bg-[#58718D] dark:bg-zinc-600 text-white grid place-items-center hover:bg-zinc-500 dark:hover:bg-zinc-500 transition"
 					>
 						{/* Hamburger icon (animated to X) */}
 						<span className={`relative block h-3.5 w-5`}>
-							<span className={`absolute left-0 top-0 h-[2px] w-5 bg-white transition-transform ${open ? 'translate-y-[7px] rotate-45' : ''}`} />
-							<span className={`absolute left-0 top-[7px] h-[2px] w-5 bg-white transition-opacity ${open ? 'opacity-0' : 'opacity-100'}`} />
-							<span className={`absolute left-0 top-[14px] h-[2px] w-5 bg-white transition-transform ${open ? '-translate-y-[7px] -rotate-45' : ''}`} />
+							<span className={`absolute left-0 top-0 h-[2px] w-5 bg-[#F2EBDE] transition-transform ${open ? 'translate-y-[7px] rotate-45' : ''}`} />
+							<span className={`absolute left-0 top-[7px] h-[2px] w-5 bg-[#F2EBDE] transition-opacity ${open ? 'opacity-0' : 'opacity-100'}`} />
+							<span className={`absolute left-0 top-[14px] h-[2px] w-5 bg-[#F2EBDE] transition-transform ${open ? '-translate-y-[7px] -rotate-45' : ''}`} />
 						</span>
 						<span className="sr-only">Menu</span>
 					</button>
 				</div>
 
 				{/* Mobile/Tablet dropdown */}
-				<div className={`${open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} lg:hidden absolute left-0 right-0 top-full mt-2 rounded-[14px] sm:rounded-[16px] border border-zinc-200 dark:border-zinc-700 bg-white/95 dark:bg-zinc-800/95 shadow-lg transition-opacity duration-200 ease-out transition-colors`}
+				<div className={`${open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} lg:hidden absolute left-0 right-0 top-full mt-2 rounded-[14px] sm:rounded-[16px] border border-zinc-200 dark:border-zinc-700 bg-[#F2EBDE]/95 dark:bg-zinc-800/95 shadow-lg transition-opacity duration-200 ease-out transition-colors`}
 				>
 					<ul className="flex flex-col divide-y divide-zinc-200 dark:divide-zinc-700 text-zinc-700 dark:text-zinc-200">
 						<li>
@@ -124,7 +124,7 @@ export default function Navbar() {
 						<li><a onClick={() => setOpen(false)} className={`block px-5 py-3 text-sm sm:text-base ${active === 'portfolio' ? 'font-semibold' : ''}`} href="#portfolio">Portfolio</a></li>
 						<li><a onClick={() => setOpen(false)} className={`block px-5 py-3 text-sm sm:text-base ${active === 'certification' ? 'font-semibold' : ''}`} href="#certification">Certification</a></li>
 						<li className="px-5 py-3">
-							<a onClick={() => setOpen(false)} href="#contact" className="inline-flex w-full justify-center h-10 items-center rounded-[10px] bg-zinc-600 dark:bg-zinc-600 px-4 text-white text-sm sm:text-base font-medium hover:bg-zinc-500 dark:hover:bg-zinc-500 transition-colors duration-300 ease-out">Contact</a>
+							<a onClick={() => setOpen(false)} href="#contact" className="inline-flex w-full justify-center h-10 items-center rounded-[10px] bg-[#58718D] dark:bg-zinc-600 px-4 text-white text-sm sm:text-base font-medium hover:bg-zinc-500 dark:hover:bg-zinc-500 transition-colors duration-300 ease-out">Contact</a>
 						</li>
 					</ul>
 				</div>

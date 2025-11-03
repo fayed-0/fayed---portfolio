@@ -101,8 +101,8 @@ export default function About() {
 				<div className="relative h-[538px] rounded-[10px] bg-zinc-400 dark:bg-zinc-700 sm:h-[280px] md:h-[380px]">
 					<div className="absolute left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-1/2">
 						<div className="absolute left-[10.75px] top-[10.75px] h-16 w-16 outline outline-1 outline-offset-[-0.5px] outline-white" />
-						<div className="absolute left-[17.92px] top-[35.84px] h-5 w-12 bg-white" />
-						<div className="absolute left-[53.75px] top-[21.5px] h-2.5 w-2.5 bg-white" />
+						<div className="absolute left-[17.92px] top-[35.84px] h-5 w-12 bg-[#F2EBDE]" />
+						<div className="absolute left-[53.75px] top-[21.5px] h-2.5 w-2.5 bg-[#F2EBDE]" />
 					</div>
 				</div>
 
@@ -149,7 +149,7 @@ export default function About() {
 																		</div>
 																		<div className="h-2 w-full rounded-full bg-zinc-300/80 dark:bg-zinc-700/80">
 																			<div
-																				className="h-2 rounded-full bg-zinc-600 dark:bg-zinc-500"
+																				className="h-2 rounded-full bg-[#58718D] dark:bg-zinc-500"
 																				style={{ width: `${s.value}%` }}
 																			/>
 																		</div>

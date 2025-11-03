@@ -143,7 +143,7 @@ export default function Project() {
 			</div>
 
 			{/* Filters */}
-			<div className="flex flex-wrap gap-4 sm:gap-5 md:gap-6 text-zinc-500 dark:text-zinc-300">
+			<div className="flex flex-wrap justify-center gap-4 sm:gap-5 md:gap-6 text-zinc-500 dark:text-zinc-300">
 				{allCategories.map((c) => {
 					const isActive = c === active
 					return (
@@ -161,22 +161,22 @@ export default function Project() {
 			</div>
 
 			{/* Grid */}
-			<ul className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:grid-cols-3">
+			<ul className="mt-6 sm:mt-8 grid grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:grid-cols-3">
 				{filtered.map((p) => (
-				<li key={p.id} className="rounded-[10px] bg-zinc-500 dark:bg-zinc-700 p-2 shadow-sm flex flex-col h-full">
+				<li key={p.id} className="rounded-[10px] bg-[#58718D] dark:bg-zinc-700 p-2 shadow-sm transform transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-lg flex flex-col h-full">
 					<button
 						type="button"
 						onClick={() => setOpenId(p.id)}
 						aria-label={`View ${p.title}`}
 						className="flex flex-col w-full h-full text-left"
 					>
-						<div className="relative h-36 sm:h-48 md:h-72 lg:h-80 rounded-[10px] bg-stone-300 overflow-hidden">
+						<div className="relative h-36 sm:h-48 md:h-72 lg:h-80 rounded-[10px] bg-[#F2EBDE] overflow-hidden">
 							{p.src ? (
 								<Image
 									src={p.src}
 									alt={p.title}
 									fill
-									className="object-cover"
+									className="object-cover transition-transform duration-700 ease-in-out hover:scale-105"
 									sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
 								/>
 							) : (
@@ -187,7 +187,7 @@ export default function Project() {
 								</div>
 							)}
 
-							<div className="absolute right-3 border top-3 grid h-7 w-7 place-items-center rounded-full bg-white dark:bg-zinc-800 text-zinc-700 dark:text-white">
+							<div className="absolute right-3 border top-3 grid h-7 w-7 place-items-center rounded-full bg-[#F2EBDE] dark:bg-zinc-800 text-zinc-700 dark:text-white transition-all duration-300 ease-in-out hover:scale-110">
 								<svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
 									<path
 										d="M7 17L17 7M7 7h10v10"
@@ -202,7 +202,7 @@ export default function Project() {
 						</div>
 
 						{/* Bagian teks dibuat flex-grow agar semua card sama tinggi */}
-						<div className="mt-2 flex flex-col flex-grow justify-start rounded-[8px] bg-zinc-600 dark:bg-zinc-600 p-3 sm:p-4">
+						<div className="mt-2 flex flex-col flex-grow justify-start rounded-[8px] bg-[#58718D] dark:bg-zinc-600 p-3 sm:p-4">
 							<p className="text-sm sm:text-base md:text-lg font-semibold text-white dark:text-white">{p.title}</p>
 						</div>
 					</button>
@@ -228,7 +228,7 @@ export default function Project() {
 							type="button"
 							aria-label="Close viewer"
 							onClick={() => setOpenId(null)}
-							className="absolute right-3 top-3 z-10 h-9 w-9 rounded-full bg-white/90 dark:bg-zinc-800/90 text-zinc-800 dark:text-zinc-100 grid place-items-center hover:bg-white dark:hover:bg-zinc-700 border border-zinc-300 dark:border-zinc-600"
+							className="absolute right-3 top-3 z-10 h-9 w-9 rounded-full bg-[#F2EBDE]/90 dark:bg-zinc-800/90 text-zinc-800 dark:text-zinc-100 grid place-items-center hover:bg-[#F2EBDE] dark:hover:bg-zinc-700 border border-zinc-300 dark:border-zinc-600"
 						>
 							✕
 						</button>
