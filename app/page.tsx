@@ -11,7 +11,7 @@ export default function HomePage() {
       <Navbar />
       <Header />
   {/* Konsisten gap antar section */}
-  <div className="space-y-[64px] md:space-y-[100px] lg:space-y-[180px] mt-[64px] md:mt-[100px] lg:mt-[120px] mb-[64px] md:mb-[100px] lg:mb-[120px]">
+  <div className="space-y-[64px] md:space-y-[100px] lg:space-y-[180px] mt-[64px] md:mt-[100px] lg:mt-[120px] mb-0 md:mb-0 lg:mb-0">
         <section id="about" className="mx-[10px] lg:mx-[60px]">
           <About />
         </section>

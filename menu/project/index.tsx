@@ -161,7 +161,7 @@ export default function Project() {
 			</div>
 
 			{/* Grid */}
-			<ul className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:grid-cols-3">
+			<ul className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:grid-cols-3">
 				{filtered.map((p) => (
 				<li key={p.id} className="rounded-[10px] bg-zinc-500 dark:bg-zinc-700 p-2 shadow-sm flex flex-col h-full">
 					<button
