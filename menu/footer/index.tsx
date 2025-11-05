@@ -45,7 +45,7 @@ export default function Footer() {
 	const [openSocial, setOpenSocial] = useState<boolean>(false)
 
 	return (
-		<footer className="bg-light dark:bg-zinc-900 w-full flex flex-col md:flex-row justify-center items-stretch px-[10px] lg:px-[60px] pt-[64px] md:pt-[100px] lg:pt-[180px] pb-10 gap-[25px]">
+		<footer id="contact" className="bg-light dark:bg-zinc-900 w-full flex flex-col md:flex-row justify-center items-stretch px-[10px] lg:px-[60px] pt-[64px] md:pt-[100px] lg:pt-[180px] pb-10 gap-[25px]">
 			{/* Left Card (hidden on mobile) */}
 			<div className="hidden md:flex bg-accent dark:bg-zinc-700 rounded-[20px] p-10 w-[360px] md:w-[380px] flex-col gap-6 shadow-1">
 				<h2 className="text-zinc-100 dark:text-zinc-100 text-xl sm:text-2xl font-semibold">Social Media</h2>

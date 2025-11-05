@@ -136,7 +136,7 @@ export default function Project() {
 		<section className="w-full">
 			{/* Heading & subheading */}
 			<div className="mb-8">
-				<h2 className="text-2xl sm:text-3xl md:text-3xl font-bold text-zinc-600 dark:text-zinc-100">Portfolio</h2>
+				<h2 className="text-2xl sm:text-3xl md:text-3xl font-bold text-zinc-600 dark:text-zinc-100">PORTFOLIO</h2>
 						<p className="mt-3 max-w-none text-base sm:text-lg md:text-xl text-zinc-500 dark:text-zinc-300">
 					Explore a collection of my featured projects that showcase my passion for design, technology, and problem-solving. From developing dynamic web applications with React.js and Next.js to crafting intuitive UI/UX designs and data-driven dashboards, each project reflects my ability to turn ideas into meaningful digital experiences. Every work in this portfolio represents my commitment to creating functional, visually engaging, and user-centered solutions that make an impact.
 				</p>
@@ -221,7 +221,7 @@ export default function Project() {
 					onClick={() => setOpenId(null)}
 				>
 					<div
-						className="relative w-full max-w-6xl max-h-[90vh] overflow-hidden bg-zinc-900/30 rounded-xl ring-1 ring-white/15 flex flex-col "
+						className="relative w-full max-w-6xl max-h-[90vh] overflow-hidden bg-[#58718D]/80 dark:bg-zinc-900/30 rounded-xl ring-1 ring-white/15 flex flex-col "
 						onClick={(e) => e.stopPropagation()}
 					>
 						<button
@@ -247,10 +247,10 @@ export default function Project() {
                             </div>
 
 							{/* Right: description panel (500x450) */}
-							<div className="md:w-[500px] h-[38vh] md:h-[450px] overflow-y-auto rounded-lg bg-zinc-800/60 p-5 ring-1 ring-white/10 text-zinc-100">
-								<h3 className="text-2xl font-semibold">{opened.title}</h3>
+							<div className="md:w-[500px] h-[38vh] md:h-[450px] overflow-y-auto rounded-lg p-5 ring-1 ring-white/10 bg-[#274060] text-white dark:bg-zinc-800/60 dark:text-zinc-100">
+								<h3 className="text-2xl font-semibold text-white dark:text-zinc-100">{opened.title}</h3>
 								{opened.description && (
-									<p className="mt-3 text-zinc-300 text-sm sm:text-base md:text-lg whitespace-pre-line">{opened.description}</p>
+									<p className="mt-3 text-white dark:text-zinc-300 text-sm sm:text-base md:text-lg whitespace-pre-line">{opened.description}</p>
 								)}
 								{/* Additional details can be added here if needed */}
 							</div>
@@ -262,7 +262,7 @@ export default function Project() {
 								href={opened.prototypeUrl || '#'}
 								target="_blank"
 								rel="noopener noreferrer"
-								className="block w-full md:w-[600px] rounded-xl border border-white/20 bg-zinc-900/70 text-white p-3 text-center text-sm sm:text-base md:text-lg font-semibold backdrop-blur-sm hover:bg-zinc-900/80 transition"
+								className="block w-full md:w-[600px] rounded-xl border border-white/20 bg-[#274060] dark:bg-zinc-700 dark:border-zinc-600 text-white p-3 text-center text-sm sm:text-base md:text-lg font-semibold hover:brightness-95 dark:hover:bg-zinc-600 transition"
 							>
 								View Prototype
 							</a>

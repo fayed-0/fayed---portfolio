@@ -85,8 +85,10 @@ const items: Item[] = [
 	}
 ]
 
+
 export default function About() {
-	const [openId, setOpenId] = useState<string | null>(null)
+	// Open the 'about' panel by default when the page loads
+	const [openId, setOpenId] = useState<string | null>('about')
 	const toggle = (id: string) => setOpenId((prev) => (prev === id ? null : id))
 
 	return (

@@ -124,7 +124,7 @@ export default function Certification() {
 			{/* Lightbox modal */}
 			{opened && (
 				<div
-					className="fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4"
+					className="fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4"
 					role="dialog"
 					aria-modal="true"
 					aria-label={opened.title}
@@ -134,7 +134,7 @@ export default function Certification() {
 						className="w-full max-w-[900px] max-h-[90vh] overflow-hidden flex flex-col items-center gap-3"
 						onClick={(e) => e.stopPropagation()}
 					>
-							<div className="relative w-full h-[58vh] sm:h-[62vh] md:h-auto md:aspect-[900/680] bg-[#EFF2F9] rounded-xl overflow-hidden ring-2 ring-white/25 dark:ring-white/20 shadow-2xl p-2 sm:p-3">
+							<div className="relative w-full h-[38vh] sm:h-[44vh] md:h-auto md:aspect-[900/680] max-h-[80vh] bg-[#EFF2F9] rounded-xl overflow-hidden ring-2 ring-white/25 dark:ring-white/20 shadow-2xl p-0">
 							<button
 								type="button"
 								aria-label="Close viewer"
@@ -147,12 +147,12 @@ export default function Certification() {
 								src={opened.src}
 								alt={opened.title}
 								fill
-									className="object-contain"
+								className="object-cover md:object-contain"
 								sizes="100vw"
 								priority
 							/>
 						</div>
-						<div className="w-full rounded-xl border border-white/20 bg-zinc-900/70 text-white p-3 text-center text-sm sm:text-base md:text-lg font-semibold backdrop-blur-sm">
+                        <div className="w-full rounded-xl border border-white/20 bg-[#274060] dark:bg-zinc-700 text-white dark:text-zinc-300 p-2 text-center text-sm sm:text-base md:text-lg font-semibold backdrop-blur-sm">
 							{opened.title}
 						</div>
 					</div>

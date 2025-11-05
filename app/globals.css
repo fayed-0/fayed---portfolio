@@ -14,6 +14,7 @@ body {
 :root {
   --bg-light: #F6F9FF;
   --bg-accent: #58718D;
+  --bg-accent-dark: #274060;
   /* semi-transparent variants used in components */
   --bg-light-90: rgba(246, 249, 255, 0.9);
   --bg-light-95: rgba(246, 249, 255, 0.95);
@@ -24,6 +25,7 @@ body {
 .bg-light-90 { background-color: var(--bg-light-90); }
 .bg-light-95 { background-color: var(--bg-light-95); }
 .bg-accent { background-color: var(--bg-accent); }
+.bg-accent-dark { background-color: var(--bg-accent-dark); }
 
 .hover-bg-light:hover { background-color: var(--bg-light); }
 

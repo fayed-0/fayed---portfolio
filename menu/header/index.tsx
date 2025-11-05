@@ -34,7 +34,7 @@ export default function Header({ backgroundImage }: Props) {
     }
   }
   return (
-  <header className="relative w-full bg-transparent">
+  <header className="relative w-screen left-1/2 -translate-x-1/2 bg-transparent sm:left-0 sm:translate-x-0 sm:w-full">
   {/* Top spacer removed to keep gaps balanced across pages */}
 
   {/* Hero background (full width) - +100px taller on mobile/tablet */}
