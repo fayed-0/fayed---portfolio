@@ -20,9 +20,9 @@ const items: CertItem[] = [
 	{ id: 1, title: 'Dibimbingid - Front End Developer', src: ImgDibimbing },
 	{ id: 2, title: 'Google - Foundation of User Experience', src: ImgGoogle },
 	{ id: 3, title: 'IBM - What is Data Science', src: ImgIBM },
-	{ id: 4, title: 'Meta - Introduction to Front-End Development', src: ImgMeta },
-	{ id: 5, title: 'Mini Course Revou - Intro to Data Analytics', src: ImgRevou },
-	{ id: 6, title: 'Short Class My skill - Figma for UI/UX Design', src: ImgMyskill },
+	{ id: 4, title: 'Meta - Intro to Front-End Development', src: ImgMeta },
+	{ id: 5, title: 'Revou - Intro to Data Analytics', src: ImgRevou },
+	{ id: 6, title: 'My Skill - Figma for UI/UX Design', src: ImgMyskill },
 	{ id: 7, title: 'SIC - Python Programming', src: ImgSIC },
 ]
 
@@ -71,7 +71,7 @@ export default function Certification() {
 	{items.map((p) => (
 			<li
 				key={p.id}
-				className="rounded-[10px] bg-[#58718D] dark:bg-zinc-700 p-2 shadow-sm transform transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-lg"
+				className="rounded-[10px] bg-[#58718D] dark:bg-zinc-700 p-2 shadow-1 transform transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-lg"
 			>
 			<button
 				type="button"
@@ -79,7 +79,7 @@ export default function Certification() {
 				aria-label={`View ${p.title}`}
 				className="block w-full text-left"
 			>
-					<div className="relative h-32 sm:h-40 md:h-60 lg:h-72 rounded-[10px] bg-[#F2EBDE] overflow-hidden p-1 sm:p-1.5 transition-all duration-500 ease-in-out">
+					<div className="relative h-32 sm:h-40 md:h-60 lg:h-72 rounded-[10px] bg-[#EFF2F9] overflow-hidden p-1 sm:p-1.5 transition-all duration-500 ease-in-out">
 					{/* certificate image */}
 					<Image
 						src={p.src}
@@ -91,7 +91,7 @@ export default function Certification() {
 					/>
 
 					{/* open icon */}
-					<div className="absolute right-3 top-3 grid h-7 w-7 place-items-center rounded-full bg-[#F2EBDE] dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-600 text-zinc-700 dark:text-white transition-all duration-300 ease-in-out hover:scale-110">
+					<div className="absolute right-3 top-3 grid h-7 w-7 place-items-center rounded-full bg-[#EFF2F9] dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-600 text-zinc-700 dark:text-white transition-all duration-300 ease-in-out hover:scale-110">
 						<svg
 							viewBox="0 0 24 24"
 							className="h-4 w-4"
@@ -110,7 +110,7 @@ export default function Certification() {
 				</div>
 
 				{/* text section */}
-				<div className="mt-2 rounded-[8px] bg-[#58718D] dark:bg-zinc-600 p-3 sm:p-4 transition-colors duration-500 ease-in-out">
+				<div className="mt-2 rounded-[8px] bg-[#3A5566] dark:bg-zinc-600 p-3 sm:p-4 transition-colors duration-500 ease-in-out">
 					<p className="text-sm sm:text-base md:text-lg font-semibold text-white dark:text-white transition-colors duration-300 ease-in-out">
 						{p.title}
 					</p>
@@ -134,12 +134,12 @@ export default function Certification() {
 						className="w-full max-w-[900px] max-h-[90vh] overflow-hidden flex flex-col items-center gap-3"
 						onClick={(e) => e.stopPropagation()}
 					>
-							<div className="relative w-full h-[58vh] sm:h-[62vh] md:h-auto md:aspect-[900/680] bg-[#F2EBDE] rounded-xl overflow-hidden ring-2 ring-white/25 dark:ring-white/20 shadow-2xl p-2 sm:p-3">
+							<div className="relative w-full h-[58vh] sm:h-[62vh] md:h-auto md:aspect-[900/680] bg-[#EFF2F9] rounded-xl overflow-hidden ring-2 ring-white/25 dark:ring-white/20 shadow-2xl p-2 sm:p-3">
 							<button
 								type="button"
 								aria-label="Close viewer"
 								onClick={() => setOpenId(null)}
-								className="absolute right-3 top-3 z-10 h-9 w-9 rounded-full bg-[#F2EBDE]/90 dark:bg-zinc-800/90 text-zinc-800 dark:text-zinc-100 grid place-items-center hover:bg-[#F2EBDE] dark:hover:bg-zinc-700 border border-zinc-300 dark:border-zinc-600"
+								className="absolute right-3 top-3 z-10 h-9 w-9 rounded-full bg-[#EFF2F9]/90 dark:bg-zinc-800/90 text-zinc-800 dark:text-zinc-100 grid place-items-center hover:bg-[#EFF2F9] dark:hover:bg-zinc-700 border border-zinc-300 dark:border-zinc-600"
 							>
 								✕
 							</button>

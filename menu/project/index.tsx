@@ -39,7 +39,7 @@ const projects: ProjectItem[] = [
 
 	{
 		id: 2,
-		title: 'Rent’in – Online Costume Rental Platform',
+		title: 'Rent’in – Costume Rental Platform',
 		category: 'UI/UX',
 		description: "Rent’in is a technopreneurship project that introduces an innovative idea of providing an online costume rental service. The concept was developed in response to the limited availability of accessible costume rental platforms on the internet. Rent’in aims to simplify the costume rental experience by allowing users to browse, reserve, and rent costumes easily through a digital platform. This project focuses on combining creativity, practicality, and technology to offer a modern solution for individuals and event organizers seeking costume rentals efficiently and conveniently.",
 		src: ImgRentIn,
@@ -50,7 +50,7 @@ const projects: ProjectItem[] = [
 // Web Development
 	{
 		id: 3,
-		title: 'Bellara – E-Commerce Fashion Store',
+		title: 'Bellara – E-Commerce Fashion',
 		category: 'Web Development',
 		description: "Bellara is a comprehensive e-commerce platform developed using Next.js, with a React.js frontend and Tailwind CSS for responsive, modern styling. Designed to deliver a seamless shopping experience for fashion enthusiasts, Bellara focuses on creating an intuitive and visually engaging user interface that enhances product discovery and simplifies the purchasing process. The platform features personalized recommendations, advanced filtering options, and a clean, trend-focused layout that highlights the latest in fashion. Bellara aims to empower users to express their personal style while enjoying a smooth and efficient online shopping experience.",
 		src: ImgBellara,
@@ -60,7 +60,7 @@ const projects: ProjectItem[] = [
 
 	{
 		id: 4,
-		title: 'Mentari Hospital – Healthcare Web Platform',
+		title: 'Mentari – Hospital Web Platform',
 		category: 'Web Development',
 		description: "Mentari Hospital is a modern healthcare web platform built using Next.js, React.js, and Tailwind CSS, designed to provide users with seamless access to medical information and appointment scheduling. The platform focuses on improving the patient experience through an intuitive interface, personalized health insights, and efficient communication with healthcare professionals. By leveraging cutting-edge web technologies, Mentari Hospital ensures a responsive, accessible, and visually clean design that simplifies health management and promotes a more connected, patient-centered digital healthcare experience.",
 		src: ImgMentari,
@@ -163,14 +163,14 @@ export default function Project() {
 			{/* Grid */}
 			<ul className="mt-6 sm:mt-8 grid grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:grid-cols-3">
 				{filtered.map((p) => (
-				<li key={p.id} className="rounded-[10px] bg-[#58718D] dark:bg-zinc-700 p-2 shadow-sm transform transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-lg flex flex-col h-full">
+				<li key={p.id} className="rounded-[10px] bg-[#58718D] dark:bg-zinc-700 p-2 shadow-1 transform transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-lg flex flex-col h-full">
 					<button
 						type="button"
 						onClick={() => setOpenId(p.id)}
 						aria-label={`View ${p.title}`}
 						className="flex flex-col w-full h-full text-left"
 					>
-						<div className="relative h-36 sm:h-48 md:h-72 lg:h-80 rounded-[10px] bg-[#F2EBDE] overflow-hidden">
+						<div className="relative h-36 sm:h-48 md:h-72 lg:h-80 rounded-[10px] bg-[#EFF2F9] overflow-hidden">
 							{p.src ? (
 								<Image
 									src={p.src}
@@ -187,7 +187,7 @@ export default function Project() {
 								</div>
 							)}
 
-							<div className="absolute right-3 border top-3 grid h-7 w-7 place-items-center rounded-full bg-[#F2EBDE] dark:bg-zinc-800 text-zinc-700 dark:text-white transition-all duration-300 ease-in-out hover:scale-110">
+							<div className="absolute right-3 border top-3 grid h-7 w-7 place-items-center rounded-full bg-[#EFF2F9] dark:bg-zinc-800 text-zinc-700 dark:text-white transition-all duration-300 ease-in-out hover:scale-110">
 								<svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
 									<path
 										d="M7 17L17 7M7 7h10v10"
@@ -202,7 +202,7 @@ export default function Project() {
 						</div>
 
 						{/* Bagian teks dibuat flex-grow agar semua card sama tinggi */}
-						<div className="mt-2 flex flex-col flex-grow justify-start rounded-[8px] bg-[#58718D] dark:bg-zinc-600 p-3 sm:p-4">
+						<div className="mt-2 flex flex-col flex-grow justify-start rounded-[8px] bg-[#3A5566] dark:bg-zinc-600 p-3 sm:p-4">
 							<p className="text-sm sm:text-base md:text-lg font-semibold text-white dark:text-white">{p.title}</p>
 						</div>
 					</button>
@@ -228,7 +228,7 @@ export default function Project() {
 							type="button"
 							aria-label="Close viewer"
 							onClick={() => setOpenId(null)}
-							className="absolute right-3 top-3 z-10 h-9 w-9 rounded-full bg-[#F2EBDE]/90 dark:bg-zinc-800/90 text-zinc-800 dark:text-zinc-100 grid place-items-center hover:bg-[#F2EBDE] dark:hover:bg-zinc-700 border border-zinc-300 dark:border-zinc-600"
+							className="absolute right-3 top-3 z-10 h-9 w-9 rounded-full bg-[#EFF2F9]/90 dark:bg-zinc-800/90 text-zinc-800 dark:text-zinc-100 grid place-items-center hover:bg-[#EFF2F9] dark:hover:bg-zinc-700 border border-zinc-300 dark:border-zinc-600"
 						>
 							✕
 						</button>

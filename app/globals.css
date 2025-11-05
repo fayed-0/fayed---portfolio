@@ -7,9 +7,28 @@ html, body {
 }
 
 body {
-  background-color: #F2EBDE;
+  background-color: #F6F9FF;
   @apply text-gray-900 antialiased dark:bg-zinc-900 dark:text-zinc-100;
 }
+
+:root {
+  --bg-light: #F6F9FF;
+  --bg-accent: #58718D;
+  /* semi-transparent variants used in components */
+  --bg-light-90: rgba(246, 249, 255, 0.9);
+  --bg-light-95: rgba(246, 249, 255, 0.95);
+}
+
+/* Utility classes for parts of the UI that should rely on global color tokens */
+.bg-light { background-color: var(--bg-light); }
+.bg-light-90 { background-color: var(--bg-light-90); }
+.bg-light-95 { background-color: var(--bg-light-95); }
+.bg-accent { background-color: var(--bg-accent); }
+
+.hover-bg-light:hover { background-color: var(--bg-light); }
+
+/* Custom subtle drop shadow token (drop shadow 1) */
+.shadow-1 { box-shadow: 0 1px 2px rgba(2,6,23,0.06), 0 1px 1px rgba(2,6,23,0.04); }
 
 /* Smooth scroll for in-page anchors */
 html {
@@ -19,4 +38,13 @@ html {
 /* Offset anchor jump for sticky navbar height */
 section[id] {
   scroll-margin-top: 6rem; /* ~96px */
+}
+
+/* Mobile adjustments: reduce overall rem scale and set page horizontal padding to 16px */
+@media (max-width: 640px) {
+  /* reduce root font-size so rem-based Tailwind sizes become smaller on mobile */
+  html { font-size: 14px; }
+
+  /* ensure consistent page horizontal padding on small screens */
+  body { padding-left: 16px; padding-right: 16px; }
 }

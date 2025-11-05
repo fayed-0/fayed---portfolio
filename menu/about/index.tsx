@@ -1,5 +1,7 @@
 "use client"
 import { useState } from 'react'
+import Image from 'next/image'
+import profileImg from '../../source/profile.png'
 
 type Skill = { label: string; value: number }
 type Item = {
@@ -98,12 +100,13 @@ export default function About() {
 
 			<div className="grid grid-cols-1 gap-8 lg:grid-cols-[384px_minmax(0,1fr)]">
 				{/* Left image placeholder */}
-				<div className="relative h-[538px] rounded-[10px] bg-zinc-400 dark:bg-zinc-700 sm:h-[280px] md:h-[380px]">
-					<div className="absolute left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-1/2">
-						<div className="absolute left-[10.75px] top-[10.75px] h-16 w-16 outline outline-1 outline-offset-[-0.5px] outline-white" />
-						<div className="absolute left-[17.92px] top-[35.84px] h-5 w-12 bg-[#F2EBDE]" />
-						<div className="absolute left-[53.75px] top-[21.5px] h-2.5 w-2.5 bg-[#F2EBDE]" />
-					</div>
+				<div className="relative w-full rounded-[10px] bg-zinc-400 dark:bg-zinc-700 aspect-square sm:aspect-auto sm:h-[280px] md:h-[380px] lg:h-[538px] overflow-hidden">
+					<Image
+						src={profileImg}
+						alt="Profile"
+						fill
+						className="object-cover w-full h-full"
+					/>
 				</div>
 
 				{/* Right accordion */}

@@ -37,26 +37,30 @@ const sections = [
 
 export default function Footer() {
 	const [openId, setOpenId] = useState<string | null>(null)
-	const toggle = (id: string) => setOpenId((prev) => (prev === id ? null : id))
+	const toggle = (id: string) => {
+		// close mobile social panel when opening another section
+		setOpenSocial(false)
+		setOpenId((prev) => (prev === id ? null : id))
+	}
 	const [openSocial, setOpenSocial] = useState<boolean>(false)
 
 	return (
-		<footer className="bg-[#F2EBDE] dark:bg-zinc-900 w-full flex flex-col md:flex-row justify-center items-stretch px-[10px] lg:px-[60px] pt-[64px] md:pt-[100px] lg:pt-[180px] pb-10 gap-[25px]">
+		<footer className="bg-light dark:bg-zinc-900 w-full flex flex-col md:flex-row justify-center items-stretch px-[10px] lg:px-[60px] pt-[64px] md:pt-[100px] lg:pt-[180px] pb-10 gap-[25px]">
 			{/* Left Card (hidden on mobile) */}
-			<div className="hidden md:flex bg-[#58718D] dark:bg-zinc-700 rounded-[20px] p-10 w-[360px] md:w-[380px] flex-col gap-6">
+			<div className="hidden md:flex bg-accent dark:bg-zinc-700 rounded-[20px] p-10 w-[360px] md:w-[380px] flex-col gap-6 shadow-1">
 				<h2 className="text-zinc-100 dark:text-zinc-100 text-xl sm:text-2xl font-semibold">Social Media</h2>
 				<div className="mt-4 flex gap-6">
-					<a href="#" aria-label="LinkedIn" title="LinkedIn" className="group w-12 h-12 rounded-full bg-[#F2EBDE]/90 dark:bg-zinc-200/90 grid place-items-center text-zinc-800 hover:bg-[#F2EBDE] transition">
+					<a href="#" aria-label="LinkedIn" title="LinkedIn" className="group w-12 h-12 rounded-full bg-light-90 dark:bg-zinc-200/90 grid place-items-center text-zinc-800 hover-bg-light transition">
 						<svg viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor" aria-hidden="true">
 							<path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8.5h4V23h-4V8.5zM8.5 8.5h3.8v2h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.5c0-1.55-.03-3.55-2.17-3.55-2.18 0-2.51 1.7-2.51 3.45V23h-4V8.5z" />
 						</svg>
 					</a>
-					<a href="#" aria-label="Instagram" title="Instagram" className="group w-12 h-12 rounded-full bg-[#F2EBDE]/90 dark:bg-zinc-200/90 grid place-items-center text-zinc-800 hover:bg-[#F2EBDE] transition">
+					<a href="#" aria-label="Instagram" title="Instagram" className="group w-12 h-12 rounded-full bg-light-90 dark:bg-zinc-200/90 grid place-items-center text-zinc-800 hover-bg-light transition">
 						<svg viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor" aria-hidden="true">
 							<path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2a3 3 0 013 3v10a3 3 0 01-3 3H7a3 3 0 01-3-3V7a3 3 0 013-3h10zm-5 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zm0 2a3.5 3.5 0 110 7 3.5 3.5 0 010-7zM18 5.5a1 1 0 110 2 1 1 0 010-2z" />
 						</svg>
 					</a>
-					<a href="#" aria-label="Email" title="Email" className="group w-12 h-12 rounded-full bg-[#F2EBDE]/90 dark:bg-zinc-200/90 grid place-items-center text-zinc-800 hover:bg-[#F2EBDE] transition">
+					<a href="#" aria-label="Email" title="Email" className="group w-12 h-12 rounded-full bg-light-90 dark:bg-zinc-200/90 grid place-items-center text-zinc-800 hover-bg-light transition">
 						<svg viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor" aria-hidden="true">
 							<path d="M2 4h20a2 2 0 012 2v12a2 2 0 01-2 2H2a2 2 0 01-2-2V6a2 2 0 012-2zm0 2v.01L12 13 22 6.01V6H2zm0 12h20V8l-10 7L2 8v10z" />
 						</svg>
@@ -67,7 +71,7 @@ export default function Footer() {
 			</div>
 
 			{/* Right Card (contains merged content on mobile) */}
-			<div className="bg-[#58718D] dark:bg-zinc-700 rounded-[20px] p-10 w-full md:w-[1100px] lg:w-[1150px] xl:w-[1200px]">
+			<div className="bg-accent dark:bg-zinc-700 rounded-[20px] p-10 w-full md:w-[1100px] lg:w-[1150px] xl:w-[1200px] shadow-1">
 				<ul className="divide-y divide-zinc-300/50 dark:divide-zinc-600/60">
 					{/* Mobile merged Social Media dropdown */}
 					<li className="py-4 md:hidden">
@@ -87,17 +91,17 @@ export default function Footer() {
 						>
 							<div className="overflow-hidden">
 								<div className="pt-4 flex gap-6">
-									<a href="https://www.linkedin.com/in/fayed-abdul-hakim-492154282/" aria-label="LinkedIn" title="LinkedIn" className="group w-12 h-12 rounded-full bg-[#F2EBDE]/90 dark:bg-zinc-200/90 grid place-items-center text-zinc-800 hover:bg-[#F2EBDE] transition">
+									<a href="https://www.linkedin.com/in/fayed-abdul-hakim-492154282/" aria-label="LinkedIn" title="LinkedIn" className="group w-12 h-12 rounded-full bg-light-90 dark:bg-zinc-200/90 grid place-items-center text-zinc-800 hover-bg-light transition">
 										<svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true">
 											<path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8.5h4V23h-4V8.5zM8.5 8.5h3.8v2h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.5c0-1.55-.03-3.55-2.17-3.55-2.18 0-2.51 1.7-2.51 3.45V23h-4V8.5z" />
 										</svg>
 									</a>
-									<a href="https://www.instagram.com/fayed_0/" aria-label="Instagram" title="Instagram" className="group w-12 h-12 rounded-full bg-[#F2EBDE]/90 dark:bg-zinc-200/90 grid place-items-center text-zinc-800 hover:bg-[#F2EBDE] transition">
+									<a href="https://www.instagram.com/fayed_0/" aria-label="Instagram" title="Instagram" className="group w-12 h-12 rounded-full bg-light-90 dark:bg-zinc-200/90 grid place-items-center text-zinc-800 hover-bg-light transition">
 										<svg viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor" aria-hidden="true">
 											<path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2a3 3 0 013 3v10a3 3 0 01-3 3H7a3 3 0 01-3-3V7a3 3 0 013-3h10zm-5 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zm0 2a3.5 3.5 0 110 7 3.5 3.5 0 010-7zM18 5.5a1 1 0 110 2 1 1 0 010-2z" />
 										</svg>
 									</a>
-									<a href="mailto:fayedabdulhakim@gmail.com" aria-label="Email" title="Email" className="group w-12 h-12 rounded-full bg-[#F2EBDE]/90 dark:bg-zinc-200/90 grid place-items-center text-zinc-800 hover:bg-[#F2EBDE] transition">
+									<a href="mailto:fayedabdulhakim@gmail.com" aria-label="Email" title="Email" className="group w-12 h-12 rounded-full bg-light-90 dark:bg-zinc-200/90 grid place-items-center text-zinc-800 hover-bg-light transition">
 										<svg viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor" aria-hidden="true">
 											<path d="M2 4h20a2 2 0 012 2v12a2 2 0 01-2 2H2a2 2 0 01-2-2V6a2 2 0 012-2zm0 2v.01L12 13 22 6.01V6H2zm0 12h20V8l-10 7L2 8v10z" />
 										</svg>

@@ -69,7 +69,7 @@ export default function Header({ backgroundImage }: Props) {
   <div className="absolute inset-0 bg-black/50 dark:bg-black/50" />
 
         {/* Text overlay on image for mobile/tablet (inside image box, 5px gap) */}
-        <div className="lg:hidden absolute left-3 sm:left-4 md:left-5 right-3 sm:right-4 md:right-5 bottom-[40px] z-20 text-white">
+  <div className="lg:hidden absolute left-0 right-0 bottom-[40px] z-20 text-white px-2 sm:left-4 md:left-5 sm:right-4 md:right-5">
           <h1 className="font-['Inter'] font-semibold leading-tight text-1xl sm:text-3xl md:text-4xl">Fayed Abdul Hakim</h1>
           <p className="mt-2 font-['Inter'] font-normal leading-snug text-xs sm:text-base md:text-lg">Information Systems Student at Universitas Multimedia Nusantara</p>
         </div>

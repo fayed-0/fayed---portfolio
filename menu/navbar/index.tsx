@@ -57,7 +57,7 @@ export default function Navbar() {
 
 	return (
 		<div className="fixed top-[5px] left-0 right-0 z-50">
-			<nav className="relative mx-[5px] sm:mx-[5px] md:mx-[5px] lg:mx-[60px] h-14 md:h-[60px] lg:h-[64px] rounded-[10px] bg-[#F2EBDE]/95 dark:bg-zinc-800/90 backdrop-blur supports-[backdrop-filter]:bg-[#F2EBDE]/70 dark:supports-[backdrop-filter]:bg-zinc-800/70 flex items-center px-3 sm:px-4 md:px-6 lg:px-7 shadow-sm transition-colors duration-300 ease-out">
+			<nav className="relative mx-[5px] sm:mx-[5px] md:mx-[5px] lg:mx-[60px] h-14 md:h-[60px] lg:h-[64px] rounded-[10px] bg-[#EFF2F9]/95 dark:bg-zinc-800/90 backdrop-blur supports-[backdrop-filter]:bg-[#EFF2F9]/70 dark:supports-[backdrop-filter]:bg-zinc-800/70 flex items-center px-3 sm:px-4 md:px-6 lg:px-7 shadow-sm transition-colors duration-300 ease-out">
 				{/* Left brand */}
 				<div className="text-zinc-500 dark:text-zinc-200 text-base sm:text-lg md:text-xl lg:text-2xl font-bold transition-colors duration-300 ease-out">Portfolio</div>
 				{/* Center links */}
@@ -98,16 +98,16 @@ export default function Navbar() {
 					>
 						{/* Hamburger icon (animated to X) */}
 						<span className={`relative block h-3.5 w-5`}>
-							<span className={`absolute left-0 top-0 h-[2px] w-5 bg-[#F2EBDE] transition-transform ${open ? 'translate-y-[7px] rotate-45' : ''}`} />
-							<span className={`absolute left-0 top-[7px] h-[2px] w-5 bg-[#F2EBDE] transition-opacity ${open ? 'opacity-0' : 'opacity-100'}`} />
-							<span className={`absolute left-0 top-[14px] h-[2px] w-5 bg-[#F2EBDE] transition-transform ${open ? '-translate-y-[7px] -rotate-45' : ''}`} />
+							<span className={`absolute left-0 top-0 h-[2px] w-5 bg-[#EFF2F9] transition-transform ${open ? 'translate-y-[7px] rotate-45' : ''}`} />
+							<span className={`absolute left-0 top-[7px] h-[2px] w-5 bg-[#EFF2F9] transition-opacity ${open ? 'opacity-0' : 'opacity-100'}`} />
+							<span className={`absolute left-0 top-[14px] h-[2px] w-5 bg-[#EFF2F9] transition-transform ${open ? '-translate-y-[7px] -rotate-45' : ''}`} />
 						</span>
 						<span className="sr-only">Menu</span>
 					</button>
 				</div>
 
 				{/* Mobile/Tablet dropdown */}
-				<div className={`${open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} lg:hidden absolute left-0 right-0 top-full mt-2 rounded-[14px] sm:rounded-[16px] border border-zinc-200 dark:border-zinc-700 bg-[#F2EBDE]/95 dark:bg-zinc-800/95 shadow-lg transition-opacity duration-200 ease-out transition-colors`}
+				<div className={`${open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} lg:hidden absolute left-0 right-0 top-full mt-2 rounded-[14px] sm:rounded-[16px] border border-zinc-200 dark:border-zinc-700 bg-[#EFF2F9]/95 dark:bg-zinc-800/95 shadow-lg transition-opacity duration-200 ease-out transition-colors`}
 				>
 					<ul className="flex flex-col divide-y divide-zinc-200 dark:divide-zinc-700 text-zinc-700 dark:text-zinc-200">
 						<li>
