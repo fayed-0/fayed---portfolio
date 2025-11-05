@@ -264,7 +264,7 @@ export default function Project() {
 								rel="noopener noreferrer"
 								className="block w-full md:w-[600px] rounded-xl border border-white/20 bg-[#274060] dark:bg-zinc-700 dark:border-zinc-600 text-white p-3 text-center text-sm sm:text-base md:text-lg font-semibold hover:brightness-95 dark:hover:bg-zinc-600 transition"
 							>
-								View Prototype
+								View 
 							</a>
 						</div>
 						</div>
