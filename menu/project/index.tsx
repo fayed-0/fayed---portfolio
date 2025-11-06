@@ -136,7 +136,7 @@ export default function Project() {
 		<section className="w-full">
 			{/* Heading & subheading */}
 			<div className="mb-8">
-				<h2 className="text-2xl sm:text-3xl md:text-3xl font-bold text-zinc-600 dark:text-zinc-100">PORTFOLIO</h2>
+				<h2 className="text-2xl sm:text-3xl md:text-3xl font-bold text-[#3A5566] dark:text-zinc-100">PORTFOLIO</h2>
 						<p className="mt-3 max-w-none text-base sm:text-lg md:text-xl text-zinc-500 dark:text-zinc-300">
 					Explore a collection of my featured projects that showcase my passion for design, technology, and problem-solving. From developing dynamic web applications with React.js and Next.js to crafting intuitive UI/UX designs and data-driven dashboards, each project reflects my ability to turn ideas into meaningful digital experiences. Every work in this portfolio represents my commitment to creating functional, visually engaging, and user-centered solutions that make an impact.
 				</p>
@@ -150,8 +150,8 @@ export default function Project() {
 						<button
 							key={c}
 							onClick={() => setActive(c)}
-							className={`text-base sm:text-lg md:text-xl font-semibold transition-colors ${
-								isActive ? 'text-zinc-900 dark:text-zinc-100' : 'hover:text-zinc-700 dark:hover:text-zinc-200'
+							className={`text-base sm:text-lg md:text-xl transition-colors ${
+								isActive ? 'text-[#3A5566] dark:text-zinc-100 font-semibold' : 'font-normal hover:text-[#58718D] dark:hover:text-zinc-200'
 							}`}
 						>
 							{c}

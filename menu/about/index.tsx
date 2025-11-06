@@ -95,7 +95,7 @@ export default function About() {
 		<div className="relative w-full px-0">
 			{/* Title */}
 			<div className="mt-10 mb-6 sm:mt-5 sm:mb-4">
-				<h2 className="text-xl sm:text-2xl md:text-2xl lg:text-2xl font-bold text-zinc-600 dark:text-zinc-200">
+				<h2 className="text-xl sm:text-2xl md:text-2xl lg:text-2xl font-bold text-[#3A5566] dark:text-zinc-200">
 					ABOUT ME
 				</h2>
 			</div>
@@ -122,7 +122,7 @@ export default function About() {
 										onClick={() => toggle(item.id)}
 										className="flex w-full items-center justify-between text-left"
 									>
-										<span className="text-lg sm:text-xl md:text-xl lg:text-xl font-semibold text-zinc-600 dark:text-zinc-200">
+										<span className="text-lg sm:text-xl md:text-xl lg:text-xl font-semibold text-[#3A5566] dark:text-zinc-200">
 											{item.title}
 										</span>
 										<span

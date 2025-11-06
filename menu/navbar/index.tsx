@@ -155,9 +155,9 @@ export default function Navbar() {
 		<div className="fixed top-[5px] left-0 right-0 z-50">
 			<nav className="relative mx-[5px] sm:mx-[5px] md:mx-[5px] lg:mx-[60px] h-14 md:h-[60px] lg:h-[64px] rounded-[10px] bg-[#EFF2F9]/95 dark:bg-zinc-800/90 backdrop-blur supports-[backdrop-filter]:bg-[#EFF2F9]/70 dark:supports-[backdrop-filter]:bg-zinc-800/70 flex items-center px-3 sm:px-4 md:px-6 lg:px-7 shadow-sm transition-colors duration-300 ease-out">
 				{/* Left brand */}
-				<Link href="/" className="text-[#58718D] dark:text-white text-base sm:text-lg md:text-xl lg:text-2xl font-bold transition-colors duration-300 ease-out">Portfolio</Link>
+				<Link href="/" className="text-[#3A5566] dark:text-white text-base sm:text-lg md:text-xl lg:text-2xl font-bold transition-colors duration-300 ease-out">Portfolio</Link>
 				{/* Center links */}
-				<ul className="mx-auto hidden lg:flex items-center gap-6 xl:gap-10 text-[#58718D] dark:text-white text-lg xl:text-xl list-none transition-colors duration-300 ease-out">
+				<ul className="mx-auto hidden lg:flex items-center gap-6 xl:gap-10 text-[#3A5566] dark:text-white text-lg xl:text-xl list-none transition-colors duration-300 ease-out">
 					{!isCertOnly && (
 						<li>
 							<a href="/#home" onClick={(e) => { e.preventDefault(); navigateTo('home') }} className={`nav-link ${active === 'home' ? 'active' : ''}`}>Home</a>
@@ -175,12 +175,12 @@ export default function Navbar() {
 				</ul>
 				{/* Right actions */}
 				<div className="hidden lg:flex items-center gap-4">
-					<Link href="/#contact" className="inline-flex h-10 items-center rounded-[10px] bg-[#58718D] dark:bg-zinc-600 px-4 text-white text-lg xl:text-xl font-medium hover:bg-[#58718D] dark:hover:bg-zinc-500 transition-colors duration-300 ease-out">Contact</Link>
+					<Link href="/#contact" className="inline-flex h-10 items-center rounded-[10px] bg-[#3A5566] dark:bg-zinc-600 px-4 text-white text-lg xl:text-xl font-medium hover:bg-[#58718D] dark:hover:bg-zinc-500 transition-colors duration-300 ease-out">Contact</Link>
                     <button
 						onClick={toggleTheme}
 						aria-label="Toggle theme"
 						title={isDark ? 'Switch to light' : 'Switch to dark'}
-					className="h-10 w-10 rounded-[10px] border border-zinc-500/40 bg-[#58718D] dark:bg-zinc-600 text-white grid place-items-center hover:bg-[#58718D] dark:hover:bg-zinc-500 transition-colors duration-300 ease-out"
+					className="h-10 w-10 rounded-[10px] border border-zinc-500/40 bg-[#3A5566] dark:bg-zinc-600 text-white grid place-items-center hover:bg-[#58718D] dark:hover:bg-zinc-500 transition-colors duration-300 ease-out"
 					>
 						{isDark ? '☾' : '☀︎'}
 					</button>
@@ -190,11 +190,11 @@ export default function Navbar() {
 						<style jsx global>{`
 							.nav-link { position: relative; display: inline-flex; align-items: center; padding-bottom: 0.5rem; color: inherit; text-decoration: none; }
 							/* underline positioned below the text using bottom so it doesn't overlap */
-							.nav-link::after { content: ""; position: absolute; left: 50%; transform: translateX(-50%); bottom: -6px; height: 4px; width: 0; background: #58718D; border-radius: 9999px; transition: width .18s ease; }
+							.nav-link::after { content: ""; position: absolute; left: 50%; transform: translateX(-50%); bottom: -6px; height: 4px; width: 0; background: #3A5566; border-radius: 9999px; transition: width .18s ease; }
 							/* when a link is clicked we add .instant to remove the transition so the underline appears immediately */
 							.nav-link.instant::after { transition: none; }
-							.nav-link.active { font-weight: 600; color: #58718D !important; }
-							.nav-link.active::after { width: 60%; }
+							.nav-link.active { font-weight: 600; color: #3A5566 !important; }
+							.nav-link.active::after { width: 60%; background: #3A5566; }
 							/* In dark mode, make the active link white to improve contrast */
 							.dark .nav-link.active { color: #ffffff !important; }
 							.dark .nav-link.active::after { background: #ffffff; }

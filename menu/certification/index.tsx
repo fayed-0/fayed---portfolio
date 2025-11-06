@@ -77,16 +77,23 @@ export default function Certification({ hideHeader, limit }: CertificationProps)
 			<div className="mb-8">
 				<div className="flex items-start justify-between gap-4">
 					<div className="min-w-0">
-						<h2 className="text-2xl sm:text-3xl md:text-3xl font-bold text-zinc-600 dark:text-zinc-100">CERTIFICATE</h2>
+						{/* Header row: on mobile show the button beside the header; on md+ show the button in the right column */}
+						<div className="flex items-center justify-between">
+							<h2 className="text-2xl sm:text-3xl md:text-3xl font-bold text-[#3A5566] dark:text-zinc-100">CERTIFICATE</h2>
+							{/* mobile button (visible on small screens, hidden on md+) */}
+							<div className="md:hidden ml-3">
+								<Link href="/certification-only" className="inline-flex items-center rounded-full bg-[#3A5566] text-white px-4 py-2 text-sm font-medium hover:brightness-95 transition dark:bg-black dark:text-white dark:hover:brightness-90">
+									View more
+								</Link>
+							</div>
+						</div>
 						<p className="mt-3 text-base sm:text-lg md:text-xl text-zinc-500 dark:text-zinc-300">
 							This section presents the certifications I have earned to enhance my competencies and deepen my understanding beyond academic learning. Each certification demonstrates my commitment to continuous self-improvement and my effort to expand my knowledge in web development, user experience design, and data analytics. Through these learning experiences, I strive to develop both the technical and analytical skills required to grow as a well-rounded professional.
 						</p>
 					</div>
-					<div className="shrink-0 mt-2 sm:mt-0">
-						<Link
-							href="/certification-only"
-							className="inline-flex items-center rounded-full bg-[#58718D] text-white px-4 py-2 text-sm font-medium hover:brightness-95 transition dark:bg-black dark:text-white dark:hover:brightness-90"
-						>
+					{/* desktop/md+ button: hidden on small screens, shown on md+ at the right */}
+					<div className="shrink-0 mt-2 sm:mt-0 hidden md:block">
+						<Link href="/certification-only" className="inline-flex items-center rounded-full bg-[#3A5566] text-white px-4 py-2 text-sm font-medium hover:brightness-95 transition dark:bg-black dark:text-white dark:hover:brightness-90">
 							View more
 						</Link>
 					</div>
