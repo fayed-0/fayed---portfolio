@@ -247,7 +247,7 @@ export default function Project() {
                             </div>
 
 							{/* Right: description panel (500x450) */}
-							<div className="md:w-[500px] h-[38vh] md:h-[450px] overflow-y-auto rounded-lg p-5 ring-1 ring-white/10 bg-[#274060] text-white dark:bg-zinc-800/60 dark:text-zinc-100">
+							<div className="md:w-[500px] h-[38vh] md:h-[450px] overflow-y-auto rounded-lg p-5 ring-1 ring-white/10 bg-[#58718D] text-white dark:bg-zinc-800/60 dark:text-zinc-100">
 								<h3 className="text-2xl font-semibold text-white dark:text-zinc-100">{opened.title}</h3>
 								{opened.description && (
 									<p className="mt-3 text-white dark:text-zinc-300 text-sm sm:text-base md:text-lg whitespace-pre-line">{opened.description}</p>
@@ -262,7 +262,7 @@ export default function Project() {
 								href={opened.prototypeUrl || '#'}
 								target="_blank"
 								rel="noopener noreferrer"
-								className="block w-full md:w-[600px] rounded-xl border border-white/20 bg-[#274060] dark:bg-zinc-700 dark:border-zinc-600 text-white p-3 text-center text-sm sm:text-base md:text-lg font-semibold hover:brightness-95 dark:hover:bg-zinc-600 transition"
+								className="block w-full md:w-[600px] rounded-xl border border-white/20 bg-[#58718D] dark:bg-zinc-700 dark:border-zinc-600 text-white p-3 text-center text-sm sm:text-base md:text-lg font-semibold hover:brightness-95 dark:hover:bg-zinc-600 transition"
 							>
 								View 
 							</a>

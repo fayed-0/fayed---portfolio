@@ -14,7 +14,7 @@ body {
 :root {
   --bg-light: #F6F9FF;
   --bg-accent: #58718D;
-  --bg-accent-dark: #274060;
+  --bg-accent-dark: #58718D;
   /* semi-transparent variants used in components */
   --bg-light-90: rgba(246, 249, 255, 0.9);
   --bg-light-95: rgba(246, 249, 255, 0.95);

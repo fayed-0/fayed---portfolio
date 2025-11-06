@@ -96,7 +96,7 @@ export default function About() {
 			{/* Title */}
 			<div className="mt-10 mb-6 sm:mt-5 sm:mb-4">
 				<h2 className="text-xl sm:text-2xl md:text-2xl lg:text-2xl font-bold text-zinc-600 dark:text-zinc-200">
-					About
+					ABOUT ME
 				</h2>
 			</div>
 
