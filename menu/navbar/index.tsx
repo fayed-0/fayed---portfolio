@@ -209,10 +209,10 @@ export default function Navbar() {
 								className={`group h-10 w-10 rounded-[10px] ${isDark ? 'bg-zinc-600' : 'bg-[#58718D]'} text-white grid place-items-center hover:brightness-90 transition`}
 							>
 								{/* Hamburger icon (animated to X) */}
-								<span className={`relative block h-3.5 w-5`}>
-									<span className={`absolute left-0 top-0 h-[2px] w-5 bg-white transition-transform ${open ? 'translate-y-[7px] rotate-45' : ''}`} />
-									<span className={`absolute left-0 top-[7px] h-[2px] w-5 bg-white transition-opacity ${open ? 'opacity-0' : 'opacity-100'}`} />
-									<span className={`absolute left-0 top-[14px] h-[2px] w-5 bg-white transition-transform ${open ? '-translate-y-[7px] -rotate-45' : ''}`} />
+								<span className="flex flex-col items-center justify-center h-3 w-5 space-y-1 relative">
+									<span className={`block h-[2px] w-4 bg-white transition-transform origin-center ${open ? 'translate-y-[5px] rotate-45' : ''}`} />
+									<span className={`block h-[2px] w-4 bg-white transition-opacity ${open ? 'opacity-0' : 'opacity-100'}`} />
+									<span className={`block h-[2px] w-4 bg-white transition-transform origin-center ${open ? '-translate-y-[5px] -rotate-45' : ''}`} />
 								</span>
 								<span className="sr-only">Menu</span>
 							</button>
