@@ -112,8 +112,8 @@ export default function About() {
 				</div>
 
 				{/* Right accordion */}
-				<div className="w-full">
-					<ul className="w-full divide-y divide-zinc-300/70 dark:divide-zinc-600">
+					<div className="w-full">
+						<ul className="w-full divide-y divide-zinc-300/70 dark:divide-zinc-600">
 						{items.map((item) => {
 							const isOpen = openId === item.id
 							return (
@@ -137,14 +137,14 @@ export default function About() {
 										className="grid transition-[grid-template-rows] duration-300 ease-out"
 										style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
 									>
-										<div className="overflow-hidden">
+										<div className="overflow-hidden rounded-xl lg:rounded-2xl">
 											{(() => {
 												const raw = item.content as string
 												const normalized = raw.replace(/\+\s*['"]\\n\\n['"]\s*\+/g, '\n\n')
 
 												if (item.id === 'skills' && item.skills?.length) {
 													return (
-														<div className="pt-4 pr-[40px] sm:pr-2">
+														<div className="mt-3 rounded-xl bg-light dark:bg-zinc-900 lg:bg-light lg:dark:bg-zinc-900 shadow-[inset_0_5px_24px_rgba(0,0,0,0.14),_0_8px_20px_-12px_rgba(0,0,0,0.12)] dark:shadow-[inset_0_5px_28px_rgba(148,163,184,0.38),_0_8px_20px_-12px_rgba(148,163,184,0.25)] lg:shadow-[inset_0_3px_16px_rgba(0,0,0,0.08),_0_10px_28px_-10px_rgba(0,0,0,0.18)] dark:lg:shadow-[inset_0_3px_20px_rgba(148,163,184,0.28),_0_10px_28px_-10px_rgba(148,163,184,0.22)] lg:ring-1 lg:ring-[#3A5566]/10 dark:lg:ring-zinc-700/50 p-4 sm:p-5 lg:p-8 max-h-60 overflow-y-auto scrollbar-blue pb-14 pr-3 sm:pb-0 sm:pr-0 sm:max-h-none sm:overflow-visible mx-1 sm:mx-2 lg:mx-auto lg:max-w-[1280px] xl:max-w-[1440px] transition-all duration-300">
 															<ul className="space-y-4">
 																{item.skills.map((s, i) => (
 																	<li key={`${s.label}-${i}`}>
@@ -165,16 +165,20 @@ export default function About() {
 													)
 												}
 
-												return normalized.split(/\n\n+/).map((para, idx) => (
-													<p
-														key={idx}
-														className={`text-zinc-600 dark:text-zinc-300 pr-[40px] sm:pr-2 text-sm sm:text-base md:text-base ${
-															idx === 0 ? 'pt-4' : 'mt-4'
-														}`}
-													>
-														{para}
-													</p>
-												))
+												return (
+													<div className="mt-3 rounded-xl bg-light dark:bg-zinc-900 lg:bg-light lg:dark:bg-zinc-900 shadow-[inset_0_5px_24px_rgba(0,0,0,0.14),_0_8px_20px_-12px_rgba(0,0,0,0.12)] dark:shadow-[inset_0_5px_28px_rgba(148,163,184,0.38),_0_8px_20px_-12px_rgba(148,163,184,0.25)] lg:shadow-[inset_0_3px_16px_rgba(0,0,0,0.08),_0_10px_28px_-10px_rgba(0,0,0,0.18)] dark:lg:shadow-[inset_0_3px_20px_rgba(148,163,184,0.28),_0_10px_28px_-10px_rgba(148,163,184,0.22)] lg:ring-1 lg:ring-[#3A5566]/10 dark:lg:ring-zinc-700/50 p-4 sm:p-5 lg:p-8 max-h-56 overflow-y-auto scrollbar-blue pb-16 pr-3 sm:pb-0 sm:pr-0 sm:max-h-none sm:overflow-visible mx-1 sm:mx-2 lg:mx-auto lg:max-w-[1200px] xl:max-w-[1320px] transition-all duration-300">
+														{normalized.split(/\n\n+/).map((para, idx) => (
+															<p
+																key={idx}
+																className={`text-zinc-600 dark:text-zinc-300 text-sm sm:text-base md:text-base lg:text-[15px] leading-relaxed ${
+																	idx === 0 ? '' : 'mt-4'
+																}`}
+															>
+																{para}
+															</p>
+														))}
+													</div>
+												)
 											})()}
 										</div>
 									</div>

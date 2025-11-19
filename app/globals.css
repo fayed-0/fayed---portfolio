@@ -49,4 +49,25 @@ section[id] {
 
   /* ensure consistent page horizontal padding on small screens */
   body { padding-left: 16px; padding-right: 16px; }
+
+  /* Mobile scrollbar styling: thin, blue, rounded */
+  .scrollbar-blue {
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #58718D rgba(88, 113, 141, 0.15);
+  }
+  .scrollbar-blue::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  .scrollbar-blue::-webkit-scrollbar-thumb {
+    background-color: #58718D; /* accent blue */
+    border-radius: 9999px;
+  }
+  .scrollbar-blue::-webkit-scrollbar-track {
+    background-color: rgba(88, 113, 141, 0.15);
+    border-radius: 9999px;
+  }
+  .scrollbar-blue::-webkit-scrollbar-corner {
+    background: transparent;
+  }
 }
