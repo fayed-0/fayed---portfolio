@@ -12,7 +12,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="id" className="scroll-smooth">
+    <html lang="id" className="scroll-smooth" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(() => {try {var t = localStorage.getItem('theme');var d = t ? (t === 'dark') : window.matchMedia('(prefers-color-scheme: dark)').matches;var root = document.documentElement; if (d) root.classList.add('dark'); else root.classList.remove('dark');} catch (_) {}})();`,
+          }}
+        />
+      </head>
       <body className={`${inter.className} min-h-dvh`}>
         {children}
       </body>

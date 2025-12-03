@@ -6,12 +6,16 @@ import ImgRentIn from "./source/Rent'in.png"
 import ImgBellara from "./source/Bellara.png"
 import ImgMentari from "./source/Mentari Hospital.png"
 import ImgArticle1 from "./source/Article1.png"
-import imgDatnal from "./source/Prediksi Harga Rumah di AS.png"
+import imgDatnal1 from "./source/Prediksi Harga Rumah di AS.png"
+import imgDatnal2 from "./source/air pollution.png"
+import imgDatnal3 from "./source/economicfreedom.png"
+
+
 
 type ProjectItem = {
 	id: number
 	title: string
-	category: 'All' | 'UI/UX' | 'Graphic Design' | 'Web Development' | 'Data analysis' | 'Article'
+	category: 'All' | 'UI/UX' | 'Graphic Design' | 'Web Development' | 'Data analysis' | 'Publications'
 	description?: string
 	src?: StaticImageData
 	prototypeUrl?: string
@@ -23,7 +27,7 @@ const allCategories: ProjectItem['category'][] = [
 	'Graphic Design',
 	'Web Development',
 	'Data analysis',
-	'Article'
+	'Publications'
 ]
 
 const projects: ProjectItem[] = [
@@ -72,20 +76,40 @@ const projects: ProjectItem[] = [
 // Data analysis
 	{
 		id: 5,
-		title: 'USA House Price Prediction',
+		title: 'Comparison of Multiple Regression Models for US House Price Prediction',
 		category: 'Data analysis',
 		description: 'This project builds and compares Multiple Linear Regression (MLR) and Decision Tree (DT) models to predict house prices in the United States. The objective is to identify the most influential features such as square footage, number of bathrooms, year built, and location and evaluate linear vs. non linear approaches for accurate price estimation.\n\nWorkflow: data collection, preprocessing, train/test split, modeling, and evaluation. Using the USA Housing dataset (≈4k records), preprocessing includes handling missing values, outlier removal with Z‑score, normalization, and one‑hot encoding to ensure consistent model inputs.\n\nKey result: MLR achieved the best overall performance with R² ≈ 0.994 and the lowest error, while DT offered strong interpretability and captured non linear patterns. Visual analysis (boxplots, heatmaps, histograms, scatter plots) helped explain feature distributions and correlations.\n\nOutcome: a reproducible analytics pipeline and actionable insight into price drivers useful for real estate analytics and data driven investment decisions.',
-		src: imgDatnal,
+		src: imgDatnal1,
 		prototypeUrl:
-			'https://proceeding.unrika.ac.id/index.php/PKM/article/view/81/79'
+			'https://drive.google.com/file/d/1MZSRSU0lFwhgP9CIaw4xHkkCjYmUYvkg/view'
+	},
+
+	{
+		id: 6,
+		title: 'Clustering Analysis of Air Pollution in South Korea',
+		category: 'Data analysis',
+		description: 'The research investigates the urgent public health issue of air pollution in South Korea by comparing the effectiveness of K-Means and Agglomerative clustering algorithms to categorize pollution levels based on key pollutants, including PM2.5, PM10, O3, NO2, SO2, and CO. The results of the analysis clearly demonstrate that agglomerative clustering is the superior algorithm for this dataset, producing clusters that are "more defined, dense, and compact" than K-Means. Model evaluation confirmed this conclusion, as agglomerative clustering yielded a significantly higher Silhouette Score (0.558 compared to 0.309 for K-Means), a preferable lower Davies-Bouldin Index (0.735 compared to 1.422), and a much higher Calinski-Harabasz Index (40242.397 compared to 12040.730). Ultimately, the study concludes that agglomerative clustering provides a more effective analytical tool to support the development of public health strategies to mitigate the impact of air pollution.',
+		src: imgDatnal2,
+		prototypeUrl:
+			'https://drive.google.com/file/d/1-NmMw02MeNA7z04SwrQCq5SejuX1mvnk/view?usp=sharing'
+	},
+
+	{
+		id: 7,
+		title: 'Economic Freedom Index Analysis - Indonesia (2000-2024)',
+		category: 'Data analysis',
+		description: 'The research aimed to analyze Indonesia Index of Economic Freedom (IEF) score from 2000 to 2023 by employing a literature review and data visualization techniques using Python and Tableau to identify key challenges and propose solutions. The findings indicate that the main factors driving the decline in Indonesia IEF score—which fell slightly from 64.4 to 63.5 in 2023—are excessive regulation, weak protection of property rights, a lack of government efficiency, and pervasive corruption and economic crimes. While a long-term positive trend in the IEF was noted, regional comparisons demonstrated that Indonesia average score (57.90) significantly trails more economically free neighbors like Australia (80.28) and is substantially behind Singapore in Rule of Law aspects. Therefore, the study recommends solutions such as implementing policy reforms to enhance business freedom, strengthening property rights protection through an improved legal system, and boosting government efficiency and transparency to strictly enforce laws against economic offenses.',
+		src: imgDatnal3,
+		prototypeUrl:
+			'https://drive.google.com/file/d/1nJDDb59Si2g2MYK71AG3hdOC7iCg07EL/view?usp=sharing'
 	},
 
 
 // Article
 	{
-		id: 6,
+		id: 8,
 		title: 'Anti Sexual Violence and Gender Equality',
-		category: 'Article',
+		category: 'Publications',
 		description: 'This project, titled “Promotion of Anti-Sexual Violence and Gender Equality for Students of SMP Nusantara 1 Karawaci Tangerang,” was a community outreach initiative aimed at raising awareness of sexual violence prevention and promoting gender equality among junior high school students. The program featured educational sessions, interactive discussions, a “Safekeeper” segment for anonymous sharing, and pre- and post-tests to assess comprehension. The results showed strong impact — 98% of students reported better understanding, 97% felt more confident identifying and addressing sexual violence, and 98% stated they could apply this knowledge in daily life. By integrating religious and humanistic values, this initiative successfully built empathy, awareness, and equality among students, aligning with Sustainable Development Goal (SDG) 5: Gender Equality through education and community collaboration.',
 		src: ImgArticle1,
 		prototypeUrl:

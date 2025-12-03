@@ -1,38 +1,13 @@
 "use client"
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
-import ImgDesktop from '../../source/header1.png'
-import ImgMobile from '../../source/header2.jpeg'
+import ImgLight from '../../source/bg-light.png'
+import ImgDark from '../../source/bg-dark.png'
 
 type Props = {
   backgroundImage?: string
 }
 
 export default function Header({ backgroundImage }: Props) {
-  const [isDark, setIsDark] = useState(false)
-
-  // Initialize theme from localStorage
-  useEffect(() => {
-    const pref = typeof window !== 'undefined' ? localStorage.getItem('theme') : null
-    const isDarkPref = pref === 'dark'
-    setIsDark(isDarkPref)
-    const root = document.documentElement
-    if (isDarkPref) root.classList.add('dark')
-    else root.classList.remove('dark')
-  }, [])
-
-  const toggleTheme = () => {
-    const next = !isDark
-    setIsDark(next)
-    const root = document.documentElement
-    if (next) {
-      root.classList.add('dark')
-      localStorage.setItem('theme', 'dark')
-    } else {
-      root.classList.remove('dark')
-      localStorage.setItem('theme', 'light')
-    }
-  }
   return (
   <header className="relative w-screen left-1/2 -translate-x-1/2 bg-transparent sm:left-0 sm:translate-x-0 sm:w-full">
   {/* Top spacer removed to keep gaps balanced across pages */}
@@ -43,24 +18,44 @@ export default function Header({ backgroundImage }: Props) {
 
   {/* Mobile background image - centered crop */}
     <div className="lg:hidden absolute inset-0">
+      {/* Light */}
       <Image
-        src={ImgMobile}
+        src={ImgLight}
         alt="Hero background mobile"
         fill
         priority
-        className="object-cover object-center"
+        className="object-cover object-center dark:hidden"
+        sizes="100vw"
+      />
+      {/* Dark */}
+      <Image
+        src={ImgDark}
+        alt="Hero background mobile dark"
+        fill
+        priority
+        className="object-cover object-center hidden dark:block"
         sizes="100vw"
       />
     </div>
 
     {/* Desktop background image */}
     <div className="hidden lg:block absolute inset-0">
+      {/* Light */}
       <Image
-        src={ImgDesktop}
+        src={ImgLight}
         alt="Hero background desktop"
         fill
         priority
-        className="object-cover"
+        className="object-cover dark:hidden"
+        sizes="100vw"
+      />
+      {/* Dark */}
+      <Image
+        src={ImgDark}
+        alt="Hero background desktop dark"
+        fill
+        priority
+        className="object-cover hidden dark:block"
         sizes="100vw"
       />
     </div>
