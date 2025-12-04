@@ -13,6 +13,8 @@ import ImgDq1 from './source/DqLab - Fundamental SQL Using FUNCTION and GROUP BY
 import ImgDq2 from './source/DqLab - Fundamental SQL Using INNER JOIN and UNION.jpg'
 import ImgDq3 from './source/DqLab - Fundamental SQL Using SELECT Statement.jpg'
 import ImgDq4 from './source/DqLab - Statistics using R for Data Science.jpg'
+import Samsung from './source/Samsung Innovation Campus Batch 7.png'
+
 
 type CertItem = {
 	id: number
@@ -21,17 +23,18 @@ type CertItem = {
 }
 
 const items: CertItem[] = [
-	{ id: 1, title: 'Dibimbingid - Front End Developer', src: ImgDibimbing },
-	{ id: 2, title: 'Google - Foundation of User Experience', src: ImgGoogle },
-	{ id: 3, title: 'IBM - What is Data Science', src: ImgIBM },
-	{ id: 4, title: 'Meta - Intro to Front-End Development', src: ImgMeta },
-	{ id: 5, title: 'Revou - Intro to Data Analytics', src: ImgRevou },
-	{ id: 6, title: 'My Skill - Figma for UI/UX Design', src: ImgMyskill },
-	{ id: 7, title: 'SIC - Python Programming', src: ImgSIC },
-	{ id: 8, title: 'Fundamental SQL Using FUNCTION and GROUP BY', src: ImgDq1 },
-	{ id: 9, title: 'Fundamental SQL Using INNER JOIN and UNION', src: ImgDq2 },
-	{ id: 10, title: 'Fundamental SQL Using SELECT Statement', src: ImgDq3 },
-	{ id: 11, title: 'Statistics using R for Data Science', src: ImgDq4 },
+	{ id: 1, title: 'Samsung Innovation Campus Batch 7', src: Samsung },
+	{ id: 2, title: 'Dibimbingid - Front End Developer', src: ImgDibimbing },
+	{ id: 3, title: 'Google - Foundation of User Experience', src: ImgGoogle },
+	{ id: 4, title: 'IBM - What is Data Science', src: ImgIBM },
+	{ id: 5, title: 'Meta - Intro to Front-End Development', src: ImgMeta },
+	{ id: 6, title: 'Revou - Intro to Data Analytics', src: ImgRevou },
+	{ id: 7, title: 'My Skill - Figma for UI/UX Design', src: ImgMyskill },
+	{ id: 8, title: 'SIC - Python Programming', src: ImgSIC },
+	{ id: 9, title: 'Fundamental SQL Using FUNCTION and GROUP BY', src: ImgDq1 },
+	{ id: 10, title: 'Fundamental SQL Using INNER JOIN and UNION', src: ImgDq2 },
+	{ id: 11, title: 'Fundamental SQL Using SELECT Statement', src: ImgDq3 },
+	{ id: 12, title: 'Statistics using R for Data Science', src: ImgDq4 },
 ]
 
 type CertificationProps = {

@@ -15,7 +15,7 @@ import imgDatnal3 from "./source/economicfreedom.png"
 type ProjectItem = {
 	id: number
 	title: string
-	category: 'All' | 'UI/UX' | 'Graphic Design' | 'Web Development' | 'Data analysis' | 'Publications'
+	category: 'All' | 'UI/UX' | 'Web Development' | 'Data analysis' | 'Publications'
 	description?: string
 	src?: StaticImageData
 	prototypeUrl?: string
@@ -24,7 +24,6 @@ type ProjectItem = {
 const allCategories: ProjectItem['category'][] = [
 	'All',
 	'UI/UX',
-	'Graphic Design',
 	'Web Development',
 	'Data analysis',
 	'Publications'
@@ -113,7 +112,7 @@ const projects: ProjectItem[] = [
 		description: 'This project, titled “Promotion of Anti-Sexual Violence and Gender Equality for Students of SMP Nusantara 1 Karawaci Tangerang,” was a community outreach initiative aimed at raising awareness of sexual violence prevention and promoting gender equality among junior high school students. The program featured educational sessions, interactive discussions, a “Safekeeper” segment for anonymous sharing, and pre- and post-tests to assess comprehension. The results showed strong impact — 98% of students reported better understanding, 97% felt more confident identifying and addressing sexual violence, and 98% stated they could apply this knowledge in daily life. By integrating religious and humanistic values, this initiative successfully built empathy, awareness, and equality among students, aligning with Sustainable Development Goal (SDG) 5: Gender Equality through education and community collaboration.',
 		src: ImgArticle1,
 		prototypeUrl:
-			'https://proceeding.unrika.ac.id/index.php/PKM/article/view/81/79'
+			'https://proceeding.unrika.ac.id/index.php/PKM/article/view/81'
 	},
 
 ]
