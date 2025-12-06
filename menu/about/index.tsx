@@ -16,24 +16,24 @@ const items: Item[] = [
 		id: 'about',
 		title: 'About me',
 		content:
-			'I am an Information Systems student at Multimedia Nusantara University and a freelancer specializing in UI/UX Design, Web Development, and Graphic Design. For me, university life is not just about learning theories, but about turning knowledge into real-world experiences through projects and client work. In web development, I mainly use React.js with the Next.js framework and Tailwind CSS to build modern, responsive, and user-focused websites. Through my freelance journey, I’ve learned how to combine creativity with functionality, ensuring every design not only looks great but also provides an intuitive user experience.' + '\n\n' +
-			'In addition, I have a strong interest and growing skill set in data analysis, developed through academic projects using Python, Tableau, and Power BI. Although I haven’t yet worked on freelance projects in this field, I enjoy exploring data, creating visualizations, and deriving meaningful insights from complex information. My combination of design, development, and analytical skills allows me to think creatively and strategically in building digital solutions that are both functional and impactful.',
+			'I am Fayed Abdul Hakim, an Information Systems student highly driven to launch a career as a Data Analyst. As an aspiring professional, I have built a solid analytical foundation, specializing in translating complex multi-indicator datasets into actionable insights. I am proficient in Python (Pandas, Scikit-learn), SQL, and statistical analysis. My capabilities in predictive modeling are validated by my project Comparison of Multiple Regression Models for US House Price Prediction, where I achieved a high accuracy of R^2=0.994 with Linear Regression. Furthermore, I am experienced in KPI Analysis and interactive data visualization using Tableau through my work on the Economic Freedom Index Analysis - Indonesia (2000-2024). I am committed to analytical storytelling and making data accessible for strategic decision-making.' + '\n\n' +
+			'What sets me apart is my unique blend of analytical prowess and creativity as a Creative Front-End Developer and UI/UX Designer. I excel at bridging design (Figma) and development using modern frameworks like React.js, Next.js, and Tailwind CSS. This dual skillset allows me not only to extract crucial data insights but also to present findings and dashboards through seamless, user-friendly digital experiences. I have a proven track record of delivering measurable impact, including leading full website redesigns (e.g., Rumah Sakit Mentari) to enhance user experience and creating design solutions that contributed to a 20% increase in visitor traffic.',
 	},
 	{
 		id: 'experience',
 		title: 'Experience',
 		content:
-			'Web Developer — Mentari Hospital (Internship)' + '\n\n' +
-			'Sep 2025 – Present | Kecamatan Kelapa Dua, Kabupaten Tangerang, Banten, Indonesia (On-site)' + '\n\n' +
-			'During my internship at Mentari Hospital, I took part in the end-to-end development of a web-based hospital information system aimed at improving data management and internal operations. I contributed to both frontend and backend development — from designing intuitive UI/UX interfaces and building responsive pages using Next.js and Tailwind CSS, to managing databases and implementing secure authentication systems. My work focused on enhancing usability, ensuring data security, and optimizing system performance to support hospital staff in managing patient and operational data more efficiently.' + '\n\n' +
+			'Web Developer - Mentari Hospital (Internship)' + '\n\n' +
+			'Sep 2025 - Present | Kecamatan Kelapa Dua, Kabupaten Tangerang, Banten, Indonesia (On-site)' + '\n\n' +
+			'During my internship at Mentari Hospital, I took part in the end-to-end development of a web-based hospital information system aimed at improving data management and internal operations. I contributed to both frontend and backend development - from designing intuitive UI/UX interfaces and building responsive pages using Next.js and Tailwind CSS, to managing databases and implementing secure authentication systems. My work focused on enhancing usability, ensuring data security, and optimizing system performance to support hospital staff in managing patient and operational data more efficiently.' + '\n\n' +
 			'• Designed UI/UX and created wireframes using Figma as the foundation for web development.' + '\n\n' +
 			'• Implemented responsive frontend pages using Next.js and Tailwind CSS.' + '\n\n' +
 			'• Designed and managed databases (MySQL/PostgreSQL), including ERD and query optimization.' + '\n\n' +
 			'• Developed backend features such as APIs, authentication, and database integration.' + '\n\n' +
 			'• Conducted testing, debugging, and performance optimization to ensure system stability and security.' + '\n\n\n' +
 		
-			'UI/UX Designer — Freelance' + '\n\n' +
-			'Jun 2023 – May 2024 | Indonesia' + '\n\n' +
+			'UI/UX Designer - Freelance' + '\n\n' +
+			'Jun 2023 - May 2024 | Indonesia' + '\n\n' +
 			'As a freelance designer, I worked on diverse creative projects that combined UI/UX design, visual communication, and digital marketing materials. My work focused on crafting designs that are not only visually engaging but also effectively communicate ideas and enhance user experience.' + '\n\n' +
 			'• Designed interactive and user-centered interfaces for websites and applications using Figma.' + '\n\n' +
 			'• Created various visual and promotional materials including posters, banners, and social media content to strengthen brand identity.' + '\n\n' +
@@ -42,7 +42,7 @@ const items: Item[] = [
 	{
 		id: 'project',
 		title: 'Project',
-		content: `E-Learning Website “Gejur” — Research Collaboration Project
+		content: `E-Learning Website “Gejur” - Research Collaboration Project
 
 			During my time at university, I collaborated with a lecturer and two teammates on a research project to develop an e-learning web application called Gejur, aimed at improving access to education for communities in East Nusa Tenggara (NTT). The platform was designed to provide an interactive and structured learning experience for users in remote areas with limited educational resources. I was responsible for the frontend development, building an engaging and responsive interface using Next.js and Tailwind CSS. I also implemented dynamic routing, reusable components, and adaptive layouts to ensure a seamless learning experience across all devices.
 
