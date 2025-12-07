@@ -13,8 +13,12 @@ const fileMap: Record<string, { filename: string; relPath: string }> = {
   },
 }
 
-export async function GET(req: NextRequest, { params }: { params: { slug: string } }) {
-  const key = params.slug
+export async function GET(
+  req: NextRequest,
+  { params }: { params: Promise<{ slug: string }> }
+) {
+  const { slug } = await params
+  const key = slug
   const entry = fileMap[key]
   if (!entry) {
     return new Response('Not Found', { status: 404 })
@@ -26,7 +30,7 @@ export async function GET(req: NextRequest, { params }: { params: { slug: string
     const headers = new Headers()
     headers.set('Content-Type', 'application/pdf')
     headers.set('Content-Disposition', `attachment; filename="${entry.filename}"`)
-    return new Response(data, { status: 200, headers })
+    return new Response(data as any, { status: 200, headers })
   } catch (err) {
     return new Response('File not found', { status: 404 })
   }
