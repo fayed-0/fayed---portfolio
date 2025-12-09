@@ -1,15 +1,15 @@
-import { NextRequest } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import fs from 'fs'
 import path from 'path'
 
-const fileMap: Record<string, { filename: string; relPath: string }> = {
+const fileMap: Record<string, { filename: string; publicPath: string }> = {
   'web-developer': {
     filename: 'Fayed Abdul Hakim - Web Developer.pdf',
-    relPath: 'menu/navbar/source/Fayed Abdul Hakim - Web Developer.pdf',
+    publicPath: '/cv/Fayed Abdul Hakim - Web Developer.pdf',
   },
   'data-analyst': {
     filename: 'Fayed Abdul Hakim - Data Analyst.pdf',
-    relPath: 'menu/navbar/source/Fayed Abdul Hakim - Data Analyst.pdf',
+    publicPath: '/cv/Fayed Abdul Hakim - Data Analyst.pdf',
   },
 }
 
@@ -18,20 +18,28 @@ export async function GET(
   { params }: { params: Promise<{ slug: string }> }
 ) {
   const { slug } = await params
-  const key = slug
-  const entry = fileMap[key]
+  const entry = fileMap[slug]
+  
   if (!entry) {
     return new Response('Not Found', { status: 404 })
   }
 
-  const abs = path.join(process.cwd(), entry.relPath)
+  // Read file from public directory
+  const filePath = path.join(process.cwd(), 'public', entry.publicPath)
+  
   try {
-    const data = await fs.promises.readFile(abs)
-    const headers = new Headers()
-    headers.set('Content-Type', 'application/pdf')
-    headers.set('Content-Disposition', `attachment; filename="${entry.filename}"`)
-    return new Response(data as any, { status: 200, headers })
+    const data = await fs.promises.readFile(filePath)
+    
+    return new NextResponse(data as any, {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/pdf',
+        'Content-Disposition': `attachment; filename="${entry.filename}"`,
+        'Cache-Control': 'public, max-age=31536000, immutable',
+      },
+    })
   } catch (err) {
+    console.error('Error reading file:', err)
     return new Response('File not found', { status: 404 })
   }
 }
