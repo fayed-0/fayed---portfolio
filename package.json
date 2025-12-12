@@ -10,7 +10,7 @@
     "postinstall": "node -e \"console.log('→ Dependencies installed')\""
   },
   "dependencies": {
-    "next": "^15.5.5",
+    "next": "15.5.9",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
