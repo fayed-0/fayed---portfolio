@@ -16,8 +16,8 @@ const items: Item[] = [
 		id: 'about',
 		title: 'About me',
 		content:
-			'I am Fayed Abdul Hakim, an Information Systems student highly driven to launch a career as a Data Analyst. As an aspiring professional, I have built a solid analytical foundation, specializing in translating complex multi-indicator datasets into actionable insights. I am proficient in Python (Pandas, Scikit-learn), SQL, and statistical analysis. My capabilities in predictive modeling are validated by my project Comparison of Multiple Regression Models for US House Price Prediction, where I achieved a high accuracy of R^2=0.994 with Linear Regression. Furthermore, I am experienced in KPI Analysis and interactive data visualization using Tableau through my work on the Economic Freedom Index Analysis - Indonesia (2000-2024). I am committed to analytical storytelling and making data accessible for strategic decision-making.' + '\n\n' +
-			'What sets me apart is my unique blend of analytical prowess and creativity as a Creative Front-End Developer and UI/UX Designer. I excel at bridging design (Figma) and development using modern frameworks like React.js, Next.js, and Tailwind CSS. This dual skillset allows me not only to extract crucial data insights but also to present findings and dashboards through seamless, user-friendly digital experiences. I have a proven track record of delivering measurable impact, including leading full website redesigns (e.g., Rumah Sakit Mentari) to enhance user experience and creating design solutions that contributed to a 20% increase in visitor traffic.',
+			'I am an Information Systems student at Multimedia Nusantara University with a strong technical foundation in web development and design. As a Front-End Developer, I specialize in building responsive and high-performance web interfaces using React.js, Next.js, and Tailwind CSS. This technical expertise is integrated with my skills as a UI/UX Designer, where I utilize Figma to create intuitive wireframes, high-fidelity designs, and interactive prototypes. I focus on bridging the gap between design and development to ensure that digital experiences are not only visually engaging but also highly functional and accessible.' + '\n\n' +
+			'Beyond development and design, I possess analytical capabilities as a Data Analyst focused on transforming complex datasets into actionable insights. I am proficient in using Python (Pandas, Scikit-learn), SQL, and Tableau to perform statistical analysis, data cleaning, and predictive modeling. My experience includes building various regression models and developing interactive dashboards that support strategic decision-making.',
 	},
 	{
 		id: 'experience',
@@ -42,13 +42,13 @@ const items: Item[] = [
 	{
 		id: 'project',
 		title: 'Project',
-		content: `E-Learning Website “Gejur” - Research Collaboration Project
+		content: `E-Learning Website “Gejur” - Research Collaboration Project | July 2025 – January 2026
 
 			During my time at university, I collaborated with a lecturer and two teammates on a research project to develop an e-learning web application called Gejur, aimed at improving access to education for communities in East Nusa Tenggara (NTT). The platform was designed to provide an interactive and structured learning experience for users in remote areas with limited educational resources. I was responsible for the frontend development, building an engaging and responsive interface using Next.js and Tailwind CSS. I also implemented dynamic routing, reusable components, and adaptive layouts to ensure a seamless learning experience across all devices.
 
 			Each course within the platform is divided into modules containing videos, pre- and post-quizzes, and completion certificates. Learners must complete quizzes successfully before unlocking the next module, encouraging active engagement and mastery of the material. Beyond its technical aspects, the project emphasized accessibility and simplicity, ensuring that learners in NTT could easily navigate and benefit from the platform. Through Gejur, our goal was to empower local communities by providing a digital learning solution that supports continuous education and skill development, even in areas with limited infrastructure.
 
-			Cendana Residential Community Website — Campus Project
+			Cendana Residential Community Website - Campus Project 
 
 			As part of a university project, I developed a community website for the Cendana residential complex to improve communication and digital interaction among residents. I was responsible for the frontend development, building a responsive and user-friendly interface using Next.js and Tailwind CSS. The website allows residents to book shared facilities, such as community halls for neighborhood meetings or discussions, directly through the platform.
 
@@ -57,11 +57,9 @@ const items: Item[] = [
 	{
 		id: 'education',
 		title: 'Education',
-		content: `Multimedia Nusantara University
+		content: `Multimedia Nusantara University | Tangerang, Indonesia
 
-			Bachelor’s Degree in Information Systems
-
-			Aug 2022 – Present | Tangerang, Indonesia
+			Bachelor’s Degree in Information Systems | Aug 2022 – Present 
 
 			GPA: 3,60/4.00
 
@@ -167,16 +165,25 @@ export default function About() {
 
 												return (
 													<div className="mt-3 rounded-xl bg-light dark:bg-zinc-900 lg:bg-light lg:dark:bg-zinc-900 shadow-[inset_0_5px_24px_rgba(0,0,0,0.14),_0_8px_20px_-12px_rgba(0,0,0,0.12)] dark:shadow-[inset_0_5px_28px_rgba(148,163,184,0.38),_0_8px_20px_-12px_rgba(148,163,184,0.25)] lg:shadow-[inset_0_3px_16px_rgba(0,0,0,0.08),_0_10px_28px_-10px_rgba(0,0,0,0.18)] dark:lg:shadow-[inset_0_3px_20px_rgba(148,163,184,0.28),_0_10px_28px_-10px_rgba(148,163,184,0.22)] lg:ring-1 lg:ring-[#3A5566]/10 dark:lg:ring-zinc-700/50 p-4 sm:p-5 lg:p-8 max-h-56 overflow-y-auto scrollbar-blue pb-16 pr-3 sm:pb-0 sm:pr-0 sm:max-h-none sm:overflow-visible mx-1 sm:mx-2 lg:mx-auto lg:max-w-[1200px] xl:max-w-[1320px] transition-all duration-300">
-														{normalized.split(/\n\n+/).map((para, idx) => (
-															<p
-																key={idx}
-																className={`text-zinc-600 dark:text-zinc-300 text-sm sm:text-base md:text-base lg:text-[15px] leading-relaxed ${
-																	idx === 0 ? '' : 'mt-4'
-																}`}
-															>
-																{para}
-															</p>
-														))}
+														{normalized.split(/\n\n+/).map((para, idx) => {
+															const trimmed = para.trim()
+															const isCendana = trimmed === 'Cendana Residential Community Website - Campus Project'
+															const isGejur = trimmed === 'E-Learning Website “Gejur” - Research Collaboration Project | July 2025 – January 2026'
+															const isMentari = trimmed === 'Web Developer - Mentari Hospital (Internship)'
+															const isUiUxFreelance = trimmed === 'UI/UX Designer - Freelance'
+															const isUniversity = trimmed === 'Multimedia Nusantara University | Tangerang, Indonesia'
+															const shouldBold = isCendana || isGejur || isMentari || isUiUxFreelance || isUniversity
+															return (
+																<p
+																	key={idx}
+																	className={`text-zinc-600 dark:text-zinc-300 text-sm sm:text-base md:text-base lg:text-[15px] leading-relaxed ${
+																		idx === 0 ? '' : 'mt-4'
+																	}`}
+																>
+																	{shouldBold ? <strong>{trimmed}</strong> : para}
+																</p>
+															)
+														})}
 													</div>
 												)
 											})()}

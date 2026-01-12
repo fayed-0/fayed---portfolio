@@ -11,6 +11,10 @@ const fileMap: Record<string, { filename: string; publicPath: string }> = {
     filename: 'Fayed Abdul Hakim - Data Analyst.pdf',
     publicPath: '/cv/Fayed Abdul Hakim - Data Analyst.pdf',
   },
+  'ui-ux': {
+    filename: 'Fayed Abdul Hakim - UI:UX.pdf',
+    publicPath: '/cv/Fayed Abdul Hakim - UI:UX.pdf',
+  },
 }
 
 export async function GET(

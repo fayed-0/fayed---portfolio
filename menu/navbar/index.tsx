@@ -225,19 +225,27 @@ export default function Navbar() {
 									>
 										Data Analyst
 									</a>
-								</div>
-							</div>
-						)}
-					</div>
 
-					{/* THEME BUTTON */}
-					<button
-						onClick={toggleTheme}
-						className="h-10 w-10 rounded-[10px] border border-zinc-500/40 bg-[#3A5566] dark:bg-zinc-600 text-white grid place-items-center hover:bg-[#58718D]"
-					>
-						{isDark ? '☾' : '☀︎'}
-					</button>
-				</div>
+							<a
+								href="/api/cv/ui-ux"
+								onClick={() => setCvOpen(false)} // Tutup saat diklik
+								className="block px-4 py-3 hover:bg-zinc-100 dark:hover:bg-zinc-600 text-sm text-[#3A5566] dark:text-white"
+							>
+								UI/UX
+							</a>
+						</div>
+					</div>
+				)}
+			</div>
+
+			{/* THEME BUTTON */}
+			<button
+				onClick={toggleTheme}
+				className="h-10 w-10 rounded-[10px] border border-zinc-500/40 bg-[#3A5566] dark:bg-zinc-600 text-white grid place-items-center hover:bg-[#58718D]"
+			>
+				{isDark ? '☾' : '☀︎'}
+			</button>
+		</div>
 
 				<style jsx global>{`
 					.nav-link { position: relative; padding-bottom: 0.5rem; }
@@ -269,7 +277,8 @@ export default function Navbar() {
 							{mobileCvOpen && (
 								<div className="pl-2">
 									<a href="/api/cv/web-developer" className="block mb-2 text-sm">• Web Developer</a>
-									<a href="/api/cv/data-analyst" className="block text-sm">• Data Analyst</a>
+								<a href="/api/cv/data-analyst" className="block mb-2 text-sm">• Data Analyst</a>
+								<a href="/api/cv/ui-ux" className="block text-sm">• UI/UX</a>
 								</div>
 							)}
 						</li>
