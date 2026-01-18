@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useMemo, useState } from 'react'
 import Image, { type StaticImageData } from 'next/image'
+import Link from 'next/link'
 import ImgReWorn from './source/RE  WORN.png'
 import ImgRentIn from "./source/Rent'in.png"
 import ImgBellara from "./source/Bellara.png"
@@ -19,6 +20,10 @@ type ProjectItem = {
 	description?: string
 	src?: StaticImageData
 	prototypeUrl?: string
+}
+
+type ProjectProps = {
+	hideHeader?: boolean
 }
 
 const allCategories: ProjectItem['category'][] = [
@@ -120,10 +125,41 @@ const projects: ProjectItem[] = [
 
 
 
-export default function Project() {
+export default function Project({ hideHeader }: ProjectProps) {
 	const [active, setActive] = useState<ProjectItem['category']>('All')
 	const [openId, setOpenId] = useState<number | null>(null)
+	const [isDesktop, setIsDesktop] = useState(true)
 	const opened = openId !== null ? projects.find((i) => i.id === openId) : null
+
+	useEffect(() => {
+		const checkIsDesktop = () => {
+			setIsDesktop(window.innerWidth >= 768)
+		}
+		checkIsDesktop()
+		window.addEventListener('resize', checkIsDesktop)
+		return () => window.removeEventListener('resize', checkIsDesktop)
+	}, [])
+
+	const visibleProjects = useMemo(() => {
+		if (active === 'All') return projects
+		return projects.filter((p) => p.category === active)
+	}, [active])
+
+	// For mobile on homepage: 1 from each category
+	const mobileProjects = useMemo(() => {
+		if (hideHeader || active !== 'All') return []
+		const categories: ProjectItem['category'][] = ['UI/UX', 'Web Development', 'Data analysis', 'Publications']
+		return categories.map(cat => projects.find(p => p.category === cat)).filter(Boolean) as ProjectItem[]
+	}, [hideHeader, active])
+
+	const filteredProjects = useMemo(() => {
+		if (hideHeader) return visibleProjects
+		if (!isDesktop) return mobileProjects
+		if (visibleProjects.length <= 6) return visibleProjects
+		return visibleProjects.slice(0, 6)
+	}, [visibleProjects, hideHeader, isDesktop, mobileProjects])
+
+	const hasMore = visibleProjects.length > 6
 
 	useEffect(() => {
 		const onKey = (e: KeyboardEvent) => {
@@ -158,23 +194,44 @@ export default function Project() {
 	return (
 		<section className="w-full">
 			{/* Heading & subheading */}
+			{!hideHeader && (
 			<div className="mb-8">
-				<h2 className="text-2xl sm:text-3xl md:text-3xl font-bold text-[#3A5566] dark:text-zinc-100">PORTFOLIO</h2>
+				<div className="flex items-start justify-between gap-4">
+					<div className="min-w-0">
+						<div className="flex items-center justify-between">
+							<h2 className="text-2xl sm:text-3xl md:text-3xl font-bold text-[#3A5566] dark:text-zinc-100">PORTFOLIO</h2>
+							<div className="md:hidden ml-3">
+								<Link href="/project-only" className="inline-flex items-center rounded-full bg-[#3A5566] text-white px-4 py-2 text-sm font-medium hover:brightness-95 transition dark:bg-black dark:text-white dark:hover:brightness-90">
+									View more
+								</Link>
+							</div>
+						</div>
 						<p className="mt-3 max-w-none text-base sm:text-lg md:text-xl text-zinc-500 dark:text-zinc-300">
-					Explore a collection of my featured projects that showcase my passion for design, technology, and problem-solving. From developing dynamic web applications with React.js and Next.js to crafting intuitive UI/UX designs and data-driven dashboards, each project reflects my ability to turn ideas into meaningful digital experiences. Every work in this portfolio represents my commitment to creating functional, visually engaging, and user-centered solutions that make an impact.
-				</p>
+							Explore a collection of my featured projects that showcase my passion for design, technology, and problem-solving. From developing dynamic web applications with React.js and Next.js to crafting intuitive UI/UX designs and data-driven dashboards, each project reflects my ability to turn ideas into meaningful digital experiences. Every work in this portfolio represents my commitment to creating functional, visually engaging, and user-centered solutions that make an impact.
+						</p>
+					</div>
+					<div className="shrink-0 mt-2 sm:mt-0 hidden md:block">
+						<Link href="/project-only" className="inline-flex items-center rounded-full bg-[#3A5566] text-white px-4 py-2 text-sm font-medium hover:brightness-95 transition dark:bg-black dark:text-white dark:hover:brightness-90">
+							View more
+						</Link>
+					</div>
+				</div>
 			</div>
+			)}
 
-			{/* Filters */}
-			<div className="flex flex-wrap justify-center gap-4 sm:gap-5 md:gap-6 text-zinc-500 dark:text-zinc-300">
+			{/* Filters - hidden on mobile when hideHeader=false */}
+			{hideHeader && (
+			<div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-5 mb-8 text-zinc-500 dark:text-zinc-300">
 				{allCategories.map((c) => {
 					const isActive = c === active
 					return (
 						<button
 							key={c}
 							onClick={() => setActive(c)}
-							className={`text-base sm:text-lg md:text-xl transition-colors ${
-								isActive ? 'text-[#3A5566] dark:text-zinc-100 font-semibold' : 'font-normal hover:text-[#58718D] dark:hover:text-zinc-200'
+							className={`px-5 py-2 rounded-full text-sm sm:text-base transition-all ${
+								isActive 
+									? 'bg-[#3A5566] dark:bg-zinc-100 text-white dark:text-zinc-900 font-semibold' 
+									: 'bg-zinc-100 dark:bg-zinc-700 hover:bg-zinc-200 dark:hover:bg-zinc-600'
 							}`}
 						>
 							{c}
@@ -182,51 +239,81 @@ export default function Project() {
 					)
 				})}
 			</div>
+			)}
+
+			{!hideHeader && (
+			<div className="hidden md:flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-5 mb-8 text-zinc-500 dark:text-zinc-300">
+				{allCategories.map((c) => {
+					const isActive = c === active
+					return (
+						<button
+							key={c}
+							onClick={() => setActive(c)}
+							className={`px-5 py-2 rounded-full text-sm sm:text-base transition-all ${
+								isActive 
+									? 'bg-[#3A5566] dark:bg-zinc-100 text-white dark:text-zinc-900 font-semibold' 
+									: 'bg-zinc-100 dark:bg-zinc-700 hover:bg-zinc-200 dark:hover:bg-zinc-600'
+							}`}
+						>
+							{c}
+						</button>
+					)
+				})}
+			</div>
+			)}
 
 			{/* Grid */}
-			<ul className="mt-6 sm:mt-8 grid grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:grid-cols-3">
-				{filtered.map((p) => (
-				<li key={p.id} className="rounded-[10px] bg-[#58718D] dark:bg-zinc-700 p-2 shadow-1 transform transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-lg flex flex-col h-full">
+			<ul className="mt-6 sm:mt-8 grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-4">
+				{filteredProjects.map((p) => (
+				<li key={p.id} className="group rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
 					<button
 						type="button"
 						onClick={() => setOpenId(p.id)}
 						aria-label={`View ${p.title}`}
-						className="flex flex-col w-full h-full text-left"
+						className="relative w-full h-[400px] sm:h-[450px] md:h-[500px] flex flex-col text-left overflow-hidden"
 					>
-						<div className="relative h-36 sm:h-48 md:h-72 lg:h-80 rounded-[10px] bg-[#EFF2F9] overflow-hidden">
-							{p.src ? (
-								<Image
-									src={p.src}
-									alt={p.title}
-									fill
-									className="object-cover transition-transform duration-700 ease-in-out hover:scale-105"
-									sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
-								/>
-							) : (
-								<div className="absolute inset-0 grid place-items-center">
-									<div className="h-24 w-24 opacity-70">
-										<div className="h-full w-full outline outline-1 outline-zinc-400/50" />
-									</div>
+						{/* Background Image */}
+						{p.src ? (
+							<Image
+								src={p.src}
+								alt={p.title}
+								fill
+								className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+								sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+							/>
+						) : (
+							<div className="absolute inset-0 bg-zinc-100 dark:bg-zinc-700 grid place-items-center">
+								<div className="h-24 w-24 opacity-30">
+									<div className="h-full w-full outline outline-1 outline-zinc-400/50" />
 								</div>
-							)}
-
-							<div className="absolute right-3 border top-3 grid h-7 w-7 place-items-center rounded-full bg-[#EFF2F9] dark:bg-zinc-800 text-zinc-700 dark:text-white transition-all duration-300 ease-in-out hover:scale-110">
-								<svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
-									<path
-										d="M7 17L17 7M7 7h10v10"
-										fill="none"
-										stroke="currentColor"
-										strokeWidth="2"
-										strokeLinecap="round"
-										strokeLinejoin="round"
-									/>
-								</svg>
 							</div>
+						)}
+
+						{/* Gradient Overlay */}
+						<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+
+						{/* Category Badge */}
+						<div className="absolute left-4 top-4 z-10">
+							<span className="px-4 py-1.5 rounded-full bg-[#3A5566] dark:bg-zinc-100 text-white dark:text-zinc-900 text-xs sm:text-sm font-medium shadow-md">
+								{p.category}
+							</span>
 						</div>
 
-						{/* Bagian teks dibuat flex-grow agar semua card sama tinggi */}
-						<div className="mt-2 flex flex-col flex-grow justify-start rounded-[8px] bg-[#3A5566] dark:bg-zinc-600 p-3 sm:p-4">
-							<p className="text-sm sm:text-base md:text-lg font-semibold text-white dark:text-white">{p.title}</p>
+						{/* Content at Bottom */}
+						<div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 z-10">
+							<h3 className="text-xl sm:text-2xl font-bold text-white mb-2 line-clamp-2">
+								{p.title}
+							</h3>
+							
+							{p.description && (
+								<p className="text-sm sm:text-base text-white/90 line-clamp-2 mb-3">
+									{p.description}
+								</p>
+							)}
+
+							<p className="text-xs sm:text-sm text-white/80">
+								{new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}
+							</p>
 						</div>
 					</button>
 				</li>

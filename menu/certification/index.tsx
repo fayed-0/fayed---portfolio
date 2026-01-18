@@ -44,9 +44,23 @@ type CertificationProps = {
 
 export default function Certification({ hideHeader, limit }: CertificationProps) {
 	const [openId, setOpenId] = useState<number | null>(null)
+	const [isDesktop, setIsDesktop] = useState(true)
+	const [currentIndex, setCurrentIndex] = useState(0)
 	const opened = openId !== null ? items.find((i) => i.id === openId) : null
 
-	const visibleItems = hideHeader ? items : items.slice(0, limit ?? 6)
+	useEffect(() => {
+		const checkIsDesktop = () => {
+			setIsDesktop(window.innerWidth >= 768) // md breakpoint
+		}
+		checkIsDesktop()
+		window.addEventListener('resize', checkIsDesktop)
+		return () => window.removeEventListener('resize', checkIsDesktop)
+	}, [])
+
+	const visibleItems = hideHeader ? items : items.slice(0, limit ?? (isDesktop ? 8 : 3))
+	
+	// For mobile carousel - create infinite loop
+	const carouselItems = hideHeader ? items : [...items, ...items, ...items]
 
 	useEffect(() => {
 		const onKey = (e: KeyboardEvent) => {
@@ -72,6 +86,16 @@ export default function Certification({ hideHeader, limit }: CertificationProps)
 			document.body.style.paddingRight = originalPaddingRight
 		}
 	}, [opened])
+
+	// Handle scroll for mobile carousel
+	const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+		if (isDesktop) return
+		const container = e.currentTarget
+		const scrollLeft = container.scrollLeft
+		const itemWidth = container.offsetWidth * 0.85 // card width + gap
+		const index = Math.round(scrollLeft / itemWidth)
+		setCurrentIndex(index % items.length)
+	}
 
 	return (
 		<section className="w-full">
@@ -104,53 +128,114 @@ export default function Certification({ hideHeader, limit }: CertificationProps)
 			</div>
 			)}
 
-			{/* Grid 2 cols on mobile/tablet, 3 on desktop */}
-			<ul className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:grid-cols-3">
-				{visibleItems.map((p) => (
-						<li
-							key={p.id}
-							className="rounded-[10px] bg-[#58718D] dark:bg-zinc-700 p-2 shadow-1 transform transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-lg"
+			{/* Mobile: Carousel (only when hideHeader is false) */}
+			{!hideHeader && (
+			<div className="md:hidden">
+				<div 
+					className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4"
+					onScroll={handleScroll}
+					style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+				>
+					{carouselItems.map((p, idx) => (
+						<div
+							key={`${p.id}-${idx}`}
+							className="flex-shrink-0 w-[85vw] snap-center"
 						>
+							<div className="group rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 h-full">
+								<button
+									type="button"
+									onClick={() => setOpenId(p.id)}
+									aria-label={`View ${p.title}`}
+									className="relative w-full h-[280px] flex flex-col text-left overflow-hidden"
+								>
+									{/* Background Image */}
+									<Image
+										src={p.src}
+										alt={p.title}
+										fill
+										className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+										sizes="85vw"
+									/>
+
+									{/* Gradient Overlay */}
+									<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+
+									{/* Category Badge */}
+									<div className="absolute left-4 top-4 z-10">
+										<span className="px-4 py-1.5 rounded-full bg-[#3A5566] dark:bg-zinc-100 text-white dark:text-zinc-900 text-xs font-medium shadow-md">
+											Certificate
+										</span>
+									</div>
+
+									{/* Content at Bottom */}
+									<div className="absolute bottom-0 left-0 right-0 p-5 z-10">
+										<h3 className="text-base font-bold text-white mb-2 line-clamp-2">
+											{p.title}
+										</h3>
+										<p className="text-xs text-white/80">
+											{new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}
+										</p>
+									</div>
+								</button>
+							</div>
+						</div>
+					))}
+				</div>
+				
+				{/* Carousel Indicators */}
+				<div className="flex justify-center gap-2 mt-4">
+					{items.map((_, idx) => (
+						<div
+							key={idx}
+							className={`h-2 rounded-full transition-all duration-300 ${
+								idx === currentIndex ? 'w-8 bg-[#3A5566] dark:bg-zinc-100' : 'w-2 bg-zinc-300 dark:bg-zinc-600'
+							}`}
+						/>
+					))}
+				</div>
+			</div>
+			)}
+
+			{/* Grid: All platforms when hideHeader, or desktop when !hideHeader */}
+			<ul className={hideHeader ? 'grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-4' : 'hidden md:grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6'}>
+				{visibleItems.map((p) => (
+					<li
+						key={p.id}
+						className="group rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+					>
 						<button
 							type="button"
 							onClick={() => setOpenId(p.id)}
 							aria-label={`View ${p.title}`}
-							className="block w-full text-left"
+							className="relative w-full h-[400px] sm:h-[450px] md:h-[500px] flex flex-col text-left overflow-hidden"
 						>
-								<div className="relative h-32 sm:h-40 md:h-60 lg:h-72 rounded-[10px] bg-[#EFF2F9] overflow-hidden p-1 sm:p-1.5 transition-all duration-500 ease-in-out">
-								{/* certificate image */}
-								<Image
-									src={p.src}
-									alt={p.title}
-									fill
-									sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-									className="object-cover rounded-[8px] transition-transform duration-700 ease-in-out hover:scale-105"
-									priority={false}
-								/>
+							{/* Background Image */}
+							<Image
+								src={p.src}
+								alt={p.title}
+								fill
+								className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+								sizes="(min-width:1024px) 25vw, (min-width:640px) 50vw, 100vw"
+							/>
 
-								{/* open icon */}
-								<div className="absolute right-3 top-3 grid h-7 w-7 place-items-center rounded-full bg-[#EFF2F9] dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-600 text-zinc-700 dark:text-white transition-all duration-300 ease-in-out hover:scale-110">
-									<svg
-										viewBox="0 0 24 24"
-										className="h-4 w-4"
-										aria-hidden="true"
-									>
-										<path
-											d="M7 17L17 7M7 7h10v10"
-											fill="none"
-											stroke="currentColor"
-											strokeWidth="2"
-											strokeLinecap="round"
-											strokeLinejoin="round"
-										/>
-									</svg>
-								</div>
+							{/* Gradient Overlay */}
+							<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+
+							{/* Category Badge */}
+							<div className="absolute left-4 top-4 z-10">
+								<span className="px-4 py-1.5 rounded-full bg-[#3A5566] dark:bg-zinc-100 text-white dark:text-zinc-900 text-xs sm:text-sm font-medium shadow-md">
+									Certificate
+								</span>
 							</div>
 
-							{/* text section */}
-							<div className="mt-2 rounded-[8px] bg-[#3A5566] dark:bg-zinc-600 p-3 sm:p-4 transition-colors duration-500 ease-in-out">
-								<p className="text-sm sm:text-base md:text-lg font-semibold text-white dark:text-white transition-colors duration-300 ease-in-out">
+							{/* Content at Bottom */}
+							<div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 z-10">
+								<h3 className="text-lg sm:text-xl font-bold text-white mb-3 line-clamp-2">
 									{p.title}
+								</h3>
+
+								<p className="text-xs sm:text-sm text-white/80">
+									{new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}
 								</p>
 							</div>
 						</button>
