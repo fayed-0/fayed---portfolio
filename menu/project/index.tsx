@@ -263,14 +263,14 @@ export default function Project({ hideHeader }: ProjectProps) {
 			)}
 
 			{/* Grid */}
-			<ul className="mt-6 sm:mt-8 grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-4">
+			<ul className="mt-6 sm:mt-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
 				{filteredProjects.map((p) => (
 				<li key={p.id} className="group rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
 					<button
 						type="button"
 						onClick={() => setOpenId(p.id)}
 						aria-label={`View ${p.title}`}
-						className="relative w-full h-[400px] sm:h-[450px] md:h-[500px] flex flex-col text-left overflow-hidden"
+						className="relative w-full h-[250px] sm:h-[300px] md:h-[500px] flex flex-col text-left overflow-hidden"
 					>
 						{/* Background Image */}
 						{p.src ? (
@@ -301,17 +301,17 @@ export default function Project({ hideHeader }: ProjectProps) {
 
 						{/* Content at Bottom */}
 						<div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 z-10">
-							<h3 className="text-xl sm:text-2xl font-bold text-white mb-2 line-clamp-2">
+							<h3 className="text-lg sm:text-2xl font-bold text-white mb-2 line-clamp-2">
 								{p.title}
 							</h3>
 							
 							{p.description && (
-								<p className="text-sm sm:text-base text-white/90 line-clamp-2 mb-3">
+								<p className="text-xs sm:text-base text-white/90 line-clamp-1 sm:line-clamp-2 mb-2 sm:mb-3">
 									{p.description}
 								</p>
 							)}
 
-							<p className="text-xs sm:text-sm text-white/80">
+							<p className="text-xs text-white/80">
 								{new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}
 							</p>
 						</div>
