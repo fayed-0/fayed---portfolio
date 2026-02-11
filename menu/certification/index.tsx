@@ -92,7 +92,7 @@ export default function Certification({ hideHeader, limit }: CertificationProps)
 		if (isDesktop) return
 		const container = e.currentTarget
 		const scrollLeft = container.scrollLeft
-		const itemWidth = container.offsetWidth * 0.85 // card width + gap
+		const itemWidth = container.offsetWidth * 0.85 
 		const index = Math.round(scrollLeft / itemWidth)
 		setCurrentIndex(index % items.length)
 	}
@@ -182,7 +182,7 @@ export default function Certification({ hideHeader, limit }: CertificationProps)
 					))}
 				</div>
 				
-				{/* Carousel Indicators */}
+				{/* Carousel Indicators/dot */}
 				<div className="flex justify-center gap-2 mt-4">
 					{items.map((_, idx) => (
 						<div

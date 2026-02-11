@@ -78,5 +78,14 @@ section[id] {
   scrollbar-width: none;  /* Firefox */
 }
 .scrollbar-hide::-webkit-scrollbar {
+  width: 0;
+  height: 0;
   display: none;  /* Chrome, Safari, Opera */
+  background: transparent;
+}
+.scrollbar-hide::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+.scrollbar-hide::-webkit-scrollbar-track {
+  background: transparent;
 }

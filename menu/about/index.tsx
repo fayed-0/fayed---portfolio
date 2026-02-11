@@ -48,7 +48,7 @@ const items: Item[] = [
 
 			Each course within the platform is divided into modules containing videos, pre- and post-quizzes, and completion certificates. Learners must complete quizzes successfully before unlocking the next module, encouraging active engagement and mastery of the material. Beyond its technical aspects, the project emphasized accessibility and simplicity, ensuring that learners in NTT could easily navigate and benefit from the platform. Through Gejur, our goal was to empower local communities by providing a digital learning solution that supports continuous education and skill development, even in areas with limited infrastructure.
 
-			Cendana Residential Community Website - Campus Project 
+			Cendana Residential Community Website - Campus Project | August 2024 – December 2024
 
 			As part of a university project, I developed a community website for the Cendana residential complex to improve communication and digital interaction among residents. I was responsible for the frontend development, building a responsive and user-friendly interface using Next.js and Tailwind CSS. The website allows residents to book shared facilities, such as community halls for neighborhood meetings or discussions, directly through the platform.
 
@@ -61,7 +61,7 @@ const items: Item[] = [
 
 			Bachelor’s Degree in Information Systems | Aug 2022 – Present 
 
-			GPA: 3,60/4.00
+			GPA: 3,70/4.00
 
 			As an Information Systems student, I focus on the intersection of technology, design, and data analysis to build impactful digital solutions. My coursework covers Web Development, Database Systems, Data Warehousing, Information Systems Analysis and Design, Machine Learning, and Data Visualization — strengthening both my technical and analytical skills. Throughout my studies, I’ve worked on various academic and research projects, including the development of web-based applications and data-driven dashboards. Beyond academics, I apply my knowledge in the professional field through freelance UI/UX design, web development, and creative projects, bridging theory and real-world implementation.`
 				},
@@ -75,7 +75,7 @@ const items: Item[] = [
 			{ label: 'Tailwind CSS', value: 50 },
 			{ label: 'Figma (UI/UX Design)', value: 95 },
 			{ label: 'HTML & CSS', value: 65 },
-			{ label: 'JavaScript ', value: 40 },
+			{ label: 'JavaScript ', value: 50 },
 			{ label: 'Python (Pandas, Seaborn, Matplotlib)', value: 75 },
 			{ label: 'Tableau / Power BI', value: 80 },
 			{ label: 'MySQL / PostgreSQL', value: 45 },
@@ -142,7 +142,7 @@ export default function About() {
 
 												if (item.id === 'skills' && item.skills?.length) {
 													return (
-														<div className="mt-3 rounded-xl bg-light dark:bg-zinc-900 lg:bg-light lg:dark:bg-zinc-900 shadow-[inset_0_5px_24px_rgba(0,0,0,0.14),_0_8px_20px_-12px_rgba(0,0,0,0.12)] dark:shadow-[inset_0_5px_28px_rgba(148,163,184,0.38),_0_8px_20px_-12px_rgba(148,163,184,0.25)] lg:shadow-[inset_0_3px_16px_rgba(0,0,0,0.08),_0_10px_28px_-10px_rgba(0,0,0,0.18)] dark:lg:shadow-[inset_0_3px_20px_rgba(148,163,184,0.28),_0_10px_28px_-10px_rgba(148,163,184,0.22)] lg:ring-1 lg:ring-[#3A5566]/10 dark:lg:ring-zinc-700/50 p-4 sm:p-5 lg:p-8 max-h-60 overflow-y-auto scrollbar-blue pb-14 pr-3 sm:pb-0 sm:pr-0 sm:max-h-none sm:overflow-visible mx-1 sm:mx-2 lg:mx-auto lg:max-w-[1280px] xl:max-w-[1440px] transition-all duration-300">
+															<div className="mt-3 rounded-xl bg-light dark:bg-zinc-900 lg:bg-light lg:dark:bg-zinc-900 shadow-[inset_0_5px_24px_rgba(0,0,0,0.14),_0_8px_20px_-12px_rgba(0,0,0,0.12)] dark:shadow-[inset_0_5px_28px_rgba(148,163,184,0.38),_0_8px_20px_-12px_rgba(148,163,184,0.25)] lg:shadow-[inset_0_3px_16px_rgba(0,0,0,0.08),_0_10px_28px_-10px_rgba(0,0,0,0.18)] dark:lg:shadow-[inset_0_3px_20px_rgba(148,163,184,0.28),_0_10px_28px_-10px_rgba(148,163,184,0.22)] lg:ring-1 lg:ring-[#3A5566]/10 dark:lg:ring-zinc-700/50 p-4 sm:p-5 lg:p-8 max-h-60 overflow-y-auto scrollbar-blue scrollbar-hide pb-14 pr-3 sm:pb-0 sm:pr-0 sm:max-h-none sm:overflow-visible mx-1 sm:mx-2 lg:mx-auto lg:max-w-[1280px] xl:max-w-[1440px] transition-all duration-300">
 															<ul className="space-y-4">
 																{item.skills.map((s, i) => (
 																	<li key={`${s.label}-${i}`}>
@@ -164,10 +164,12 @@ export default function About() {
 												}
 
 												return (
-													<div className="mt-3 rounded-xl bg-light dark:bg-zinc-900 lg:bg-light lg:dark:bg-zinc-900 shadow-[inset_0_5px_24px_rgba(0,0,0,0.14),_0_8px_20px_-12px_rgba(0,0,0,0.12)] dark:shadow-[inset_0_5px_28px_rgba(148,163,184,0.38),_0_8px_20px_-12px_rgba(148,163,184,0.25)] lg:shadow-[inset_0_3px_16px_rgba(0,0,0,0.08),_0_10px_28px_-10px_rgba(0,0,0,0.18)] dark:lg:shadow-[inset_0_3px_20px_rgba(148,163,184,0.28),_0_10px_28px_-10px_rgba(148,163,184,0.22)] lg:ring-1 lg:ring-[#3A5566]/10 dark:lg:ring-zinc-700/50 p-4 sm:p-5 lg:p-8 max-h-56 overflow-y-auto scrollbar-blue pb-16 pr-3 sm:pb-0 sm:pr-0 sm:max-h-none sm:overflow-visible mx-1 sm:mx-2 lg:mx-auto lg:max-w-[1200px] xl:max-w-[1320px] transition-all duration-300">
+															<div className="mt-3 rounded-xl bg-light dark:bg-zinc-900 lg:bg-light lg:dark:bg-zinc-900 shadow-[inset_0_5px_24px_rgba(0,0,0,0.14),_0_8px_20px_-12px_rgba(0,0,0,0.12)] dark:shadow-[inset_0_5px_28px_rgba(148,163,184,0.38),_0_8px_20px_-12px_rgba(148,163,184,0.25)] lg:shadow-[inset_0_3px_16px_rgba(0,0,0,0.08),_0_10px_28px_-10px_rgba(0,0,0,0.18)] dark:lg:shadow-[inset_0_3px_20px_rgba(148,163,184,0.28),_0_10px_28px_-10px_rgba(148,163,184,0.22)] lg:ring-1 lg:ring-[#3A5566]/10 dark:lg:ring-zinc-700/50 p-4 sm:p-5 lg:p-8 max-h-56 overflow-y-auto scrollbar-blue scrollbar-hide pb-16 pr-3 sm:pb-0 sm:pr-0 sm:max-h-none sm:overflow-visible mx-1 sm:mx-2 lg:mx-auto lg:max-w-[1200px] xl:max-w-[1320px] transition-all duration-300">
 														{normalized.split(/\n\n+/).map((para, idx) => {
 															const trimmed = para.trim()
-															const isCendana = trimmed === 'Cendana Residential Community Website - Campus Project'
+															const isCendana =
+																trimmed === 'Cendana Residential Community Website - Campus Project' ||
+																trimmed === 'Cendana Residential Community Website - Campus Project | August 2024 – December 2024'
 															const isGejur = trimmed === 'E-Learning Website “Gejur” - Research Collaboration Project | July 2025 – January 2026'
 															const isMentari = trimmed === 'Web Developer - Mentari Hospital (Internship)'
 															const isUiUxFreelance = trimmed === 'UI/UX Designer - Freelance'
