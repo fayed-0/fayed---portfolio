@@ -310,10 +310,6 @@ export default function Project({ hideHeader }: ProjectProps) {
 									{p.description}
 								</p>
 							)}
-
-							<p className="text-xs text-white/80">
-								{new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}
-							</p>
 						</div>
 					</button>
 				</li>

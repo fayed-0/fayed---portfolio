@@ -172,9 +172,6 @@ export default function Certification({ hideHeader, limit }: CertificationProps)
 										<h3 className="text-base font-bold text-white mb-2 line-clamp-2">
 											{p.title}
 										</h3>
-										<p className="text-xs text-white/80">
-											{new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}
-										</p>
 									</div>
 								</button>
 							</div>
@@ -234,9 +231,6 @@ export default function Certification({ hideHeader, limit }: CertificationProps)
 									{p.title}
 								</h3>
 
-								<p className="text-xs sm:text-sm text-white/80">
-									{new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}
-								</p>
 							</div>
 						</button>
 					</li>
