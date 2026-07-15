@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import ProjectDetailContent from './ProjectDetailContent' // sesuaikan path
+import ProjectDetailContent from './ProjectDetailContent'
 
 export default function Page() {
   return (

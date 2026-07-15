@@ -2,7 +2,7 @@
 import { useSearchParams, useRouter } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
-import { projects, getProjectImages } from '../index'
+import { projects, getProjectImages } from '../../menu/project'
 
 export default function ProjectDetailContent() {
   const searchParams = useSearchParams()
