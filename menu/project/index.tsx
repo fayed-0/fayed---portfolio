@@ -1,7 +1,8 @@
 "use client"
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import Image, { type StaticImageData } from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import ImgReWorn from './source/RE  WORN.png'
 import ImgRentIn from "./source/Rent'in.png"
 import ImgBellara from "./source/Bellara.png"
@@ -11,14 +12,14 @@ import imgDatnal1 from "./source/Prediksi Harga Rumah di AS.png"
 import imgDatnal2 from "./source/air pollution.png"
 import imgDatnal3 from "./source/economicfreedom.png"
 
-
-
-type ProjectItem = {
+export type ProjectItem = {
 	id: number
 	title: string
 	category: 'All' | 'UI/UX' | 'Web Development' | 'Data analysis' | 'Publications'
+	year?: string
 	description?: string
 	src?: StaticImageData
+	images?: StaticImageData[]
 	prototypeUrl?: string
 }
 
@@ -34,162 +35,119 @@ const allCategories: ProjectItem['category'][] = [
 	'Publications'
 ]
 
-const projects: ProjectItem[] = [
-// UI/UX
+export const projects: ProjectItem[] = [
+	// UI/UX
 	{
 		id: 1,
 		title: 'RE:WORN – E-Magazine',
 		category: 'UI/UX',
+		year: '2026',
 		description: 'This project is a design for an e-magazine focused on slow fashion and preloved fashion, addressing sustainability issues within the fashion industry. RE:WORN aims to educate readers about the environmental impact of fast fashion while encouraging young audiences to adopt a more eco-conscious lifestyle. Through engaging content such as articles, infographics, and visual guides, RE:WORN provides insights on choosing quality clothing, mindful thrift shopping, and creative upcycling or clothing donation techniques. With a Retro and Street Fashion visual concept, the project blends modern aesthetics with strong sustainability messages, serving as an inspiring media platform that integrates design, research, and visual communication seamlessly.',
 		src: ImgReWorn,
+		images: [ImgReWorn, ImgReWorn, ImgReWorn],
 		prototypeUrl: 'https://www.figma.com/proto/hd1UWtlmeA8rJjA1L32GD9/Fay_project?page-id=240%3A95&node-id=240-232&p=f&viewport=44%2C313%2C0.02&t=TfOafCXKmjgJGFw1-1&scaling=contain&content-scaling=fixed'
 	},
-
 	{
 		id: 2,
 		title: 'Rent’in – Costume Rental Platform',
 		category: 'UI/UX',
+		year: '2026',
 		description: "Rent’in is a technopreneurship project that introduces an innovative idea of providing an online costume rental service. The concept was developed in response to the limited availability of accessible costume rental platforms on the internet. Rent’in aims to simplify the costume rental experience by allowing users to browse, reserve, and rent costumes easily through a digital platform. This project focuses on combining creativity, practicality, and technology to offer a modern solution for individuals and event organizers seeking costume rentals efficiently and conveniently.",
 		src: ImgRentIn,
+		images: [ImgRentIn, ImgRentIn, ImgRentIn],
 		prototypeUrl:
 			'https://www.figma.com/proto/EWNGwZLVP5ERkNj2ygc1fI/Untitled?page-id=135%3A16713&node-id=135-17699&viewport=510%2C431%2C0.13&t=1D9S3jy1ccsb06v3-1&scaling=min-zoom&starting-point-node-id=135%3A17011'
 	},
-
-// Web Development
+	// Web Development
 	{
 		id: 3,
 		title: 'Bellara – E-Commerce Fashion',
 		category: 'Web Development',
+		year: '2026',
 		description: "Bellara is a comprehensive e-commerce platform developed using Next.js, with a React.js frontend and Tailwind CSS for responsive, modern styling. Designed to deliver a seamless shopping experience for fashion enthusiasts, Bellara focuses on creating an intuitive and visually engaging user interface that enhances product discovery and simplifies the purchasing process. The platform features personalized recommendations, advanced filtering options, and a clean, trend-focused layout that highlights the latest in fashion. Bellara aims to empower users to express their personal style while enjoying a smooth and efficient online shopping experience.",
 		src: ImgBellara,
-		prototypeUrl:
-			'https://bellara.vercel.app/'
+		images: [ImgBellara, ImgBellara, ImgBellara],
+		prototypeUrl: 'https://bellara.vercel.app/'
 	},
-
 	{
 		id: 4,
 		title: 'Mentari – Hospital Web Platform',
 		category: 'Web Development',
+		year: '2026',
 		description: "Mentari Hospital is a modern healthcare web platform built using Next.js, React.js, and Tailwind CSS, designed to provide users with seamless access to medical information and appointment scheduling. The platform focuses on improving the patient experience through an intuitive interface, personalized health insights, and efficient communication with healthcare professionals. By leveraging cutting-edge web technologies, Mentari Hospital ensures a responsive, accessible, and visually clean design that simplifies health management and promotes a more connected, patient-centered digital healthcare experience.",
 		src: ImgMentari,
-		prototypeUrl:
-			'https://bellara.vercel.app/'
+		images: [ImgMentari, ImgMentari, ImgMentari],
+		prototypeUrl: 'https://bellara.vercel.app/'
 	},
-
-
-// Data analysis
+	// Data analysis
 	{
 		id: 5,
 		title: 'Comparison of Multiple Regression Models for US House Price Prediction',
 		category: 'Data analysis',
+		year: '2025',
 		description: 'This project builds and compares Multiple Linear Regression (MLR) and Decision Tree (DT) models to predict house prices in the United States. The objective is to identify the most influential features such as square footage, number of bathrooms, year built, and location and evaluate linear vs. non linear approaches for accurate price estimation. \n\nWorkflow: data collection, preprocessing, train/test split, modeling, and evaluation. Using the USA Housing dataset (≈4k records), preprocessing includes handling missing values, outlier removal with Z‑score, normalization, and one‑hot encoding to ensure consistent model inputs.\n\nKey result: MLR achieved the best overall performance with R² ≈ 0.994 and the lowest error, while DT offered strong interpretability and captured non linear patterns. Visual analysis (boxplots, heatmaps, histograms, scatter plots) helped explain feature distributions and correlations.\n\nOutcome: a reproducible analytics pipeline and actionable insight into price drivers useful for real estate analytics and data driven investment decisions.',
 		src: imgDatnal1,
-		prototypeUrl:
-			'https://drive.google.com/file/d/1MZSRSU0lFwhgP9CIaw4xHkkCjYmUYvkg/view'
+		images: [imgDatnal1, imgDatnal1, imgDatnal1],
+		prototypeUrl: 'https://drive.google.com/file/d/1MZSRSU0lFwhgP9CIaw4xHkkCjYmUYvkg/view'
 	},
-
 	{
 		id: 6,
 		title: 'Clustering Analysis of Air Pollution in South Korea',
 		category: 'Data analysis',
+		year: '2025',
 		description: 'The research investigates the urgent public health issue of air pollution in South Korea by comparing the effectiveness of K-Means and Agglomerative clustering algorithms to categorize pollution levels based on key pollutants, including PM2.5, PM10, O3, NO2, SO2, and CO. The results of the analysis clearly demonstrate that agglomerative clustering is the superior algorithm for this dataset, producing clusters that are "more defined, dense, and compact" than K-Means. Model evaluation confirmed this conclusion, as agglomerative clustering yielded a significantly higher Silhouette Score (0.558 compared to 0.309 for K-Means), a preferable lower Davies-Bouldin Index (0.735 compared to 1.422), and a much higher Calinski-Harabasz Index (40242.397 compared to 12040.730). Ultimately, the study concludes that agglomerative clustering provides a more effective analytical tool to support the development of public health strategies to mitigate the impact of air pollution.',
 		src: imgDatnal2,
-		prototypeUrl:
-			'https://drive.google.com/file/d/1-NmMw02MeNA7z04SwrQCq5SejuX1mvnk/view?usp=sharing'
+		images: [imgDatnal2, imgDatnal2, imgDatnal2],
+		prototypeUrl: 'https://drive.google.com/file/d/1-NmMw02MeNA7z04SwrQCq5SejuX1mvnk/view?usp=sharing'
 	},
-
 	{
 		id: 7,
 		title: 'Economic Freedom Index Analysis - Indonesia (2000-2023)',
 		category: 'Data analysis',
+		year: '2025',
 		description: 'The research aimed to analyze Indonesia Index of Economic Freedom (IEF) score from 2000 to 2023 by employing a literature review and data visualization techniques using Python and Tableau to identify key challenges and propose solutions. The findings indicate that the main factors driving the decline in Indonesia IEF score which fell slightly from 64.4 to 63.5 in 2023 are excessive regulation, weak protection of property rights, a lack of government efficiency, and pervasive corruption and economic crimes. While a long-term positive trend in the IEF was noted, regional comparisons demonstrated that Indonesia average score (57.90) significantly trails more economically free neighbors like Australia (80.28) and is substantially behind Singapore in Rule of Law aspects. Therefore, the study recommends solutions such as implementing policy reforms to enhance business freedom, strengthening property rights protection through an improved legal system, and boosting government efficiency and transparency to strictly enforce laws against economic offenses.',
 		src: imgDatnal3,
-		prototypeUrl:
-			'https://drive.google.com/file/d/1nJDDb59Si2g2MYK71AG3hdOC7iCg07EL/view?usp=sharing'
+		images: [imgDatnal3, imgDatnal3, imgDatnal3],
+		prototypeUrl: 'https://drive.google.com/file/d/1nJDDb59Si2g2MYK71AG3hdOC7iCg07EL/view?usp=sharing'
 	},
-
-
-// Article
+	// Article
 	{
 		id: 8,
 		title: 'Anti Sexual Violence and Gender Equality',
 		category: 'Publications',
+		year: '2024',
 		description: 'This project, titled “Promotion of Anti-Sexual Violence and Gender Equality for Students of SMP Nusantara 1 Karawaci Tangerang,” was a community outreach initiative aimed at raising awareness of sexual violence prevention and promoting gender equality among junior high school students. The program featured educational sessions, interactive discussions, a “Safekeeper” segment for anonymous sharing, and pre- and post-tests to assess comprehension. The results showed strong impact — 98% of students reported better understanding, 97% felt more confident identifying and addressing sexual violence, and 98% stated they could apply this knowledge in daily life. By integrating religious and humanistic values, this initiative successfully built empathy, awareness, and equality among students, aligning with Sustainable Development Goal (SDG) 5: Gender Equality through education and community collaboration.',
 		src: ImgArticle1,
-		prototypeUrl:
-			'https://proceeding.unrika.ac.id/index.php/PKM/article/view/81'
+		images: [ImgArticle1, ImgArticle1, ImgArticle1],
+		prototypeUrl: 'https://proceeding.unrika.ac.id/index.php/PKM/article/view/81'
 	},
-
 ]
 
-
-
+export function getProjectImages(p: ProjectItem): StaticImageData[] {
+	if (p.images && p.images.length > 0) return p.images
+	if (p.src) return [p.src]
+	return []
+}
 
 export default function Project({ hideHeader }: ProjectProps) {
+	const router = useRouter()
 	const [active, setActive] = useState<ProjectItem['category']>('All')
-	const [openId, setOpenId] = useState<number | null>(null)
-	const [isDesktop, setIsDesktop] = useState(true)
-	const opened = openId !== null ? projects.find((i) => i.id === openId) : null
-
-	useEffect(() => {
-		const checkIsDesktop = () => {
-			setIsDesktop(window.innerWidth >= 768)
-		}
-		checkIsDesktop()
-		window.addEventListener('resize', checkIsDesktop)
-		return () => window.removeEventListener('resize', checkIsDesktop)
-	}, [])
 
 	const visibleProjects = useMemo(() => {
 		if (active === 'All') return projects
 		return projects.filter((p) => p.category === active)
 	}, [active])
 
-	// For mobile on homepage: 1 from each category
-	const mobileProjects = useMemo(() => {
-		if (hideHeader || active !== 'All') return []
-		const categories: ProjectItem['category'][] = ['UI/UX', 'Web Development', 'Data analysis', 'Publications']
-		return categories.map(cat => projects.find(p => p.category === cat)).filter(Boolean) as ProjectItem[]
-	}, [hideHeader, active])
-
-	const filteredProjects = useMemo(() => {
+	const listedProjects = useMemo(() => {
 		if (hideHeader) return visibleProjects
-		if (!isDesktop) return mobileProjects
-		if (visibleProjects.length <= 6) return visibleProjects
-		return visibleProjects.slice(0, 6)
-	}, [visibleProjects, hideHeader, isDesktop, mobileProjects])
+		return visibleProjects.slice(0, 4)
+	}, [visibleProjects, hideHeader])
 
-	const hasMore = visibleProjects.length > 6
+	const hasMore = visibleProjects.length > listedProjects.length
 
-	useEffect(() => {
-		const onKey = (e: KeyboardEvent) => {
-			if (e.key === 'Escape') setOpenId(null)
-		}
-		window.addEventListener('keydown', onKey)
-		return () => window.removeEventListener('keydown', onKey)
-	}, [])
-
-	useEffect(() => {
-		if (!opened) return
-
-		const originalOverflow = document.body.style.overflow
-		const originalPaddingRight = document.body.style.paddingRight
-		const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
-		document.body.style.overflow = 'hidden'
-		if (scrollbarWidth > 0) {
-			document.body.style.paddingRight = `${scrollbarWidth}px`
-		}
-
-		return () => {
-			document.body.style.overflow = originalOverflow
-			document.body.style.paddingRight = originalPaddingRight
-		}
-	}, [opened])
-
-	const filtered = useMemo(() => {
-		if (active === 'All') return projects
-		return projects.filter((p) => p.category === active)
-	}, [active])
+	const goToDetail = (id: number) => {
+		router.push(`/menu/project/project-detail?id=${id}`)
+	}
 
 	return (
 		<section className="w-full">
@@ -207,7 +165,7 @@ export default function Project({ hideHeader }: ProjectProps) {
 							</div>
 						</div>
 						<p className="mt-3 max-w-none text-base sm:text-lg md:text-xl text-zinc-500 dark:text-zinc-300">
-							Explore a collection of my featured projects that showcase my passion for design, technology, and problem-solving. From developing dynamic web applications with React.js and Next.js to crafting intuitive UI/UX designs and data-driven dashboards, each project reflects my ability to turn ideas into meaningful digital experiences. Every work in this portfolio represents my commitment to creating functional, visually engaging, and user-centered solutions that make an impact.
+							Explore a collection of my featured projects that showcase my passion for design, technology, and problem-solving. 
 						</p>
 					</div>
 					<div className="shrink-0 mt-2 sm:mt-0 hidden md:block">
@@ -219,9 +177,8 @@ export default function Project({ hideHeader }: ProjectProps) {
 			</div>
 			)}
 
-			{/* Filters - hidden on mobile when hideHeader=false */}
-			{hideHeader && (
-			<div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-5 mb-8 text-zinc-500 dark:text-zinc-300">
+			{/* Filters */}
+			<div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-5 mb-4 text-zinc-500 dark:text-zinc-300">
 				{allCategories.map((c) => {
 					const isActive = c === active
 					return (
@@ -229,8 +186,8 @@ export default function Project({ hideHeader }: ProjectProps) {
 							key={c}
 							onClick={() => setActive(c)}
 							className={`px-5 py-2 rounded-full text-sm sm:text-base transition-all ${
-								isActive 
-									? 'bg-[#3A5566] dark:bg-zinc-100 text-white dark:text-zinc-900 font-semibold' 
+								isActive
+									? 'bg-[#3A5566] dark:bg-zinc-100 text-white dark:text-zinc-900 font-semibold'
 									: 'bg-zinc-100 dark:bg-zinc-700 hover:bg-zinc-200 dark:hover:bg-zinc-600'
 							}`}
 						>
@@ -239,144 +196,68 @@ export default function Project({ hideHeader }: ProjectProps) {
 					)
 				})}
 			</div>
-			)}
 
-			{!hideHeader && (
-			<div className="hidden md:flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-5 mb-8 text-zinc-500 dark:text-zinc-300">
-				{allCategories.map((c) => {
-					const isActive = c === active
+			{/* Project list */}
+			<ul className="mt-4 divide-y divide-zinc-200 dark:divide-zinc-700">
+				{listedProjects.map((p) => {
+					const images = getProjectImages(p)
 					return (
-						<button
-							key={c}
-							onClick={() => setActive(c)}
-							className={`px-5 py-2 rounded-full text-sm sm:text-base transition-all ${
-								isActive 
-									? 'bg-[#3A5566] dark:bg-zinc-100 text-white dark:text-zinc-900 font-semibold' 
-									: 'bg-zinc-100 dark:bg-zinc-700 hover:bg-zinc-200 dark:hover:bg-zinc-600'
-							}`}
-						>
-							{c}
-						</button>
-					)
-				})}
-			</div>
-			)}
-
-			{/* Grid */}
-			<ul className="mt-6 sm:mt-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-				{filteredProjects.map((p) => (
-				<li key={p.id} className="group rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
-					<button
-						type="button"
-						onClick={() => setOpenId(p.id)}
-						aria-label={`View ${p.title}`}
-						className="relative w-full h-[250px] sm:h-[300px] md:h-[500px] flex flex-col text-left overflow-hidden"
-					>
-						{/* Background Image */}
-						{p.src ? (
-							<Image
-								src={p.src}
-								alt={p.title}
-								fill
-								className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
-								sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
-							/>
-						) : (
-							<div className="absolute inset-0 bg-zinc-100 dark:bg-zinc-700 grid place-items-center">
-								<div className="h-24 w-24 opacity-30">
-									<div className="h-full w-full outline outline-1 outline-zinc-400/50" />
+						<li key={p.id} className="py-8 md:py-10 flex flex-col md:flex-row gap-5 md:gap-10">
+							{/* Left: info column */}
+							<div className="md:w-[260px] lg:w-[300px] shrink-0">
+								<div className="flex items-center justify-between text-[11px] sm:text-xs uppercase tracking-wide text-zinc-400 dark:text-zinc-500">
+									<span>{p.category}</span>
+									{p.year && <span>{p.year}</span>}
 								</div>
+								<h3 className="mt-2 text-xl sm:text-2xl font-bold text-[#3A5566] dark:text-zinc-100">
+									{p.title}
+								</h3>
+								{p.description && (
+									<p className="mt-3 text-sm text-zinc-500 dark:text-zinc-400 line-clamp-4">
+										{p.description}
+									</p>
+								)}
+								<button
+									type="button"
+									onClick={() => goToDetail(p.id)}
+									className="mt-3 text-sm font-medium text-[#3A5566] dark:text-zinc-100 underline underline-offset-2 hover:opacity-80"
+								>
+									Read more
+								</button>
 							</div>
-						)}
 
-						{/* Gradient Overlay */}
-						<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-
-						{/* Category Badge */}
-						<div className="absolute left-4 top-4 z-10">
-							<span className="px-4 py-1.5 rounded-full bg-[#3A5566] dark:bg-zinc-100 text-white dark:text-zinc-900 text-xs sm:text-sm font-medium shadow-md">
-								{p.category}
-							</span>
-						</div>
-
-						{/* Content at Bottom */}
-						<div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 z-10">
-							<h3 className="text-lg sm:text-2xl font-bold text-white mb-2 line-clamp-2">
-								{p.title}
-							</h3>
-							
-							{p.description && (
-								<p className="text-xs sm:text-base text-white/90 line-clamp-1 sm:line-clamp-2 mb-2 sm:mb-3">
-									{p.description}
-								</p>
-							)}
-						</div>
-					</button>
-				</li>
-
-				))}
+							{/* Right: image slider */}
+							<div className="flex-1 flex gap-2 sm:gap-3 overflow-x-auto snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+								{images.map((img, idx) => (
+									<button
+										key={idx}
+										type="button"
+										onClick={() => goToDetail(p.id)}
+										aria-label={`View ${p.title}`}
+										className="relative shrink-0 snap-start h-[260px] sm:h-[300px] md:h-[400px] w-[60%] min-w-[290px] rounded-lg overflow-hidden bg-zinc-100 dark:bg-zinc-800 group"
+									>
+										<Image
+											src={img}
+											alt={p.title}
+											fill
+											className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+											sizes="(min-width:1024px) 20vw, 40vw"
+										/>
+									</button>
+								))}
+							</div>
+						</li>
+					)
+				})}
 			</ul>
 
-			{/* Detail modal (smaller viewer + description panel) */}
-			{opened && (
-				<div
-					className="fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4"
-					role="dialog"
-					aria-modal="true"
-					aria-label={opened.title}
-					onClick={() => setOpenId(null)}
-				>
-					<div
-						className="relative w-full max-w-6xl max-h-[90vh] overflow-hidden bg-[#58718D]/80 dark:bg-zinc-900/30 rounded-xl ring-1 ring-white/15 flex flex-col "
-						onClick={(e) => e.stopPropagation()}
-					>
-						<button
-							type="button"
-							aria-label="Close viewer"
-							onClick={() => setOpenId(null)}
-							className="absolute right-3 top-3 z-10 h-9 w-9 rounded-full bg-[#EFF2F9]/90 dark:bg-zinc-800/90 text-zinc-800 dark:text-zinc-100 grid place-items-center hover:bg-[#EFF2F9] dark:hover:bg-zinc-700 border border-zinc-300 dark:border-zinc-600"
-						>
-							✕
-						</button>
-						<div className="flex-1 min-h-0 grid md:grid-cols-[600px_500px] gap-4 md:gap-6 p-3 md:p-5 overflow-hidden">
-							{/* Left: preview frame */}
-							<div className="relative w-full h-[38vh] md:w-[600px] md:h-auto md:aspect-[600/450] bg-zinc-900/20 rounded-lg overflow-hidden ring-2 ring-white/20">
-                                {opened?.src ? (
-                                    <Image src={opened.src} alt={opened.title} fill className="object-cover" sizes="(min-width: 1024px) 600px, 100vw" />
-                                ) : (
-                                    <div className="absolute inset-0 grid place-items-center">
-                                        <div className="h-24 w-24 opacity-70">
-                                            <div className="h-full w-full outline outline-1 outline-zinc-400/50" />
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
-
-							{/* Right: description panel (500x450) */}
-							<div className="md:w-[500px] h-[38vh] md:h-[450px] overflow-y-auto rounded-lg p-5 ring-1 ring-white/10 bg-[#58718D] text-white dark:bg-zinc-800/60 dark:text-zinc-100">
-								<h3 className="text-2xl font-semibold text-white dark:text-zinc-100">{opened.title}</h3>
-								{opened.description && (
-									<p className="mt-3 text-white dark:text-zinc-300 text-sm sm:text-base md:text-lg whitespace-pre-line">{opened.description}</p>
-								)}
-								{/* Additional details can be added here if needed */}
-							</div>
-						</div>
-
-						{/* Bottom prototype button, styled like certificate bar */}
-						<div className="px-3 md:px-5 pb-5">
-							<a
-								href={opened.prototypeUrl || '#'}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="block w-full md:w-[600px] rounded-xl border border-white/20 bg-[#58718D] dark:bg-zinc-700 dark:border-zinc-600 text-white p-3 text-center text-sm sm:text-base md:text-lg font-semibold hover:brightness-95 dark:hover:bg-zinc-600 transition"
-							>
-								View 
-							</a>
-						</div>
-						</div>
-					</div>
+			{!hideHeader && hasMore && (
+				<div className="mt-4 flex justify-center md:hidden">
+					<Link href="/project-only" className="inline-flex items-center rounded-full bg-[#3A5566] text-white px-4 py-2 text-sm font-medium hover:brightness-95 transition dark:bg-black dark:text-white dark:hover:brightness-90">
+						View more
+					</Link>
+				</div>
 			)}
 		</section>
 	)
 }
-
