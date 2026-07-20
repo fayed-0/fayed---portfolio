@@ -146,7 +146,7 @@ export default function Project({ hideHeader }: ProjectProps) {
 	const hasMore = visibleProjects.length > listedProjects.length
 
 	const goToDetail = (id: number) => {
-		router.push(`/menu/project/project-detail?id=${id}`)
+	router.push(`/project-detail?id=${id}`)   // ✅ benar
 	}
 
 	return (
