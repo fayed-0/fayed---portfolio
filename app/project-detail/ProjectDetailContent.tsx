@@ -42,7 +42,7 @@ export default function ProjectDetailContent() {
       <NAVBAR />
 
       <main className="flex-1 w-full bg-white pb-16">
-        <div className="w-full mx-[10px] lg:mx-[60px] mt-[100px] md:mt-[140px]">
+       <div className="w-full px-[10px] lg:px-[60px] mt-[100px] md:mt-[140px]">
           <div className="flex flex-col md:flex-row gap-6 md:gap-8">
             <div className="w-full md:w-[360px] lg:w-[400px] shrink-0">
               <div className="md:sticky md:top-[90px]">
