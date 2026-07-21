@@ -21,7 +21,7 @@ export default function ProjectDetailContent() {
             onClick={() => router.push('/')}
             className="text-sm underline text-[#3A5566]"
           >
-            Kembali
+            Back
           </button>
         </div>
         <Footer />
@@ -34,6 +34,8 @@ export default function ProjectDetailContent() {
     images[0],
     images[1] ?? images[0],
     images[2] ?? images[0],
+    images[3] ?? images[0],
+    images[4] ?? images[0],
     images[0]
   ]
 
@@ -71,13 +73,6 @@ export default function ProjectDetailContent() {
                     <span>VISIT PROJECT</span>
                     <span className="inline-block h-2 w-2 border-t border-r border-zinc-600 rotate-45"></span>
                   </a>
-
-                  <button
-                    onClick={() => router.back()}
-                    className="mt-4 text-left text-zinc-500 text-xs underline underline-offset-2 hover:opacity-80"
-                  >
-                    Kembali
-                  </button>
                 </div>
               </div>
             </div>
@@ -85,7 +80,7 @@ export default function ProjectDetailContent() {
             {/* GALLERY KANAN */}
             <div className="flex-1 flex flex-col gap-2 sm:gap-3">
               {/* Gambar 1 - full width */}
-              <div className="relative w-full h-[420px] sm:h-[380px] md:h-[500px] rounded overflow-hidden bg-zinc-100 dark:bg-zinc-800">
+              <div className="relative w-full h-[240px] sm:h-[380px] md:h-[660px] rounded overflow-hidden bg-zinc-100 dark:bg-zinc-800">
                 {galleryImages[0] ? (
                   <Image
                     src={galleryImages[0]}
@@ -102,7 +97,7 @@ export default function ProjectDetailContent() {
                 {[galleryImages[1], galleryImages[2]].map((img, idx) => (
                   <div
                     key={idx}
-                    className="relative w-full h-[280px] sm:h-[260px] md:h-[320px] rounded overflow-hidden bg-zinc-100 dark:bg-zinc-800"
+                    className="relative w-full h-[120px] sm:h-[260px] md:h-[320px] rounded overflow-hidden bg-zinc-100 dark:bg-zinc-800"
                   >
                     {img ? (
                       <Image
@@ -118,7 +113,7 @@ export default function ProjectDetailContent() {
               </div>
 
               {/* Gambar 4 - full width lagi */}
-              <div className="relative w-full h-[420px] sm:h-[380px] md:h-[500px] rounded overflow-hidden bg-zinc-100 dark:bg-zinc-800">
+              <div className="relative w-full h-[240px] sm:h-[380px] md:h-[660px] rounded overflow-hidden bg-zinc-100 dark:bg-zinc-800">
                 {galleryImages[3] ? (
                   <Image
                     src={galleryImages[3]}

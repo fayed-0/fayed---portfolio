@@ -11,6 +11,23 @@ import ImgArticle1 from "./source/Article1.png"
 import imgDatnal1 from "./source/Prediksi Harga Rumah di AS.png"
 import imgDatnal2 from "./source/air pollution.png"
 import imgDatnal3 from "./source/economicfreedom.png"
+import imgbellara1 from "./source/bellara-1.png"
+import imgbellara2 from "./source/bellara-2.png"
+import imgbellara3 from "./source/bellara-3.png"
+import imgbellara4 from "./source/bellara-4.png"
+import imgmentari1 from "./source/mentari-1.png"
+import imgmentari2 from "./source/mentari-2.png"
+import imgmentari3 from "./source/mentari-3.png"
+import imgmentari4 from "./source/mentari-4.png"
+import imgeews1 from "./source/eews-1.png"
+import imgeews2 from "./source/eews-2.png"
+import imgeews3 from "./source/eews-3.png"
+import imgeews4 from "./source/eews-4.png"
+import imgreworn1 from "./source/reworn-1.png"
+import imgreworn2 from "./source/reworn-2.png"
+import imgreworn3 from "./source/reworn-3.png"
+import imgreworn4 from "./source/reworn-4.png"
+
 
 export type ProjectItem = {
 	id: number
@@ -44,7 +61,7 @@ export const projects: ProjectItem[] = [
 		year: '2026',
 		description: 'This project is a design for an e-magazine focused on slow fashion and preloved fashion, addressing sustainability issues within the fashion industry. RE:WORN aims to educate readers about the environmental impact of fast fashion while encouraging young audiences to adopt a more eco-conscious lifestyle. Through engaging content such as articles, infographics, and visual guides, RE:WORN provides insights on choosing quality clothing, mindful thrift shopping, and creative upcycling or clothing donation techniques. With a Retro and Street Fashion visual concept, the project blends modern aesthetics with strong sustainability messages, serving as an inspiring media platform that integrates design, research, and visual communication seamlessly.',
 		src: ImgReWorn,
-		images: [ImgReWorn, ImgReWorn, ImgReWorn],
+		images: [imgreworn1, imgreworn2, imgreworn3, imgreworn4],
 		prototypeUrl: 'https://www.figma.com/proto/hd1UWtlmeA8rJjA1L32GD9/Fay_project?page-id=240%3A95&node-id=240-232&p=f&viewport=44%2C313%2C0.02&t=TfOafCXKmjgJGFw1-1&scaling=contain&content-scaling=fixed'
 	},
 	{
@@ -54,10 +71,11 @@ export const projects: ProjectItem[] = [
 		year: '2026',
 		description: "Rent’in is a technopreneurship project that introduces an innovative idea of providing an online costume rental service. The concept was developed in response to the limited availability of accessible costume rental platforms on the internet. Rent’in aims to simplify the costume rental experience by allowing users to browse, reserve, and rent costumes easily through a digital platform. This project focuses on combining creativity, practicality, and technology to offer a modern solution for individuals and event organizers seeking costume rentals efficiently and conveniently.",
 		src: ImgRentIn,
-		images: [ImgRentIn, ImgRentIn, ImgRentIn],
+		images: [ImgRentIn],
 		prototypeUrl:
 			'https://www.figma.com/proto/EWNGwZLVP5ERkNj2ygc1fI/Untitled?page-id=135%3A16713&node-id=135-17699&viewport=510%2C431%2C0.13&t=1D9S3jy1ccsb06v3-1&scaling=min-zoom&starting-point-node-id=135%3A17011'
 	},
+	
 	// Web Development
 	{
 		id: 3,
@@ -66,7 +84,7 @@ export const projects: ProjectItem[] = [
 		year: '2026',
 		description: "Bellara is a comprehensive e-commerce platform developed using Next.js, with a React.js frontend and Tailwind CSS for responsive, modern styling. Designed to deliver a seamless shopping experience for fashion enthusiasts, Bellara focuses on creating an intuitive and visually engaging user interface that enhances product discovery and simplifies the purchasing process. The platform features personalized recommendations, advanced filtering options, and a clean, trend-focused layout that highlights the latest in fashion. Bellara aims to empower users to express their personal style while enjoying a smooth and efficient online shopping experience.",
 		src: ImgBellara,
-		images: [ImgBellara, ImgBellara, ImgBellara],
+		images: [imgbellara1, imgbellara2, imgbellara3, imgbellara4],
 		prototypeUrl: 'https://bellara.vercel.app/'
 	},
 	{
@@ -76,9 +94,20 @@ export const projects: ProjectItem[] = [
 		year: '2026',
 		description: "Mentari Hospital is a modern healthcare web platform built using Next.js, React.js, and Tailwind CSS, designed to provide users with seamless access to medical information and appointment scheduling. The platform focuses on improving the patient experience through an intuitive interface, personalized health insights, and efficient communication with healthcare professionals. By leveraging cutting-edge web technologies, Mentari Hospital ensures a responsive, accessible, and visually clean design that simplifies health management and promotes a more connected, patient-centered digital healthcare experience.",
 		src: ImgMentari,
-		images: [ImgMentari, ImgMentari, ImgMentari],
+		images: [imgmentari1, imgmentari2, imgmentari3, imgmentari4],
 		prototypeUrl: 'https://bellara.vercel.app/'
 	},
+	{
+    id: 9,
+    title: 'EEWS – Earthquake Early Warning System',
+    category: 'Web Development',
+    year: '2026',
+    description: "InaEEWS (Indonesia Earthquake Early Warning System) is a web platform developed in collaboration with BMKG to deliver critical seismic alerts to the public. The system leverages a network of 200+ active sensors to detect early primary waves (P-waves) — which travel faster but are harmless — before the more destructive secondary waves (S-waves) arrive. By processing this seismic data within seconds, InaEEWS estimates the affected impact area and automatically disseminates warnings through the app and other media, giving users precious extra seconds to take protective action before strong shaking hits.\n\nThe platform features an interactive earthquake detection map, a real-time visualization of the P-wave and S-wave propagation concept, and educational content covering the Drop-Cover-Hold On protocol as well as system limitations such as the 'Blind Zone'. It is currently in the prototype and testing phase across high seismic-risk regions including Banten, West Java, and DKI Jakarta, with a roadmap for nationwide sensor expansion across Sumatra, Sulawesi, Nusa Tenggara, and Maluku. Built with a focus on accessibility and clarity under time pressure, InaEEWS aims to strengthen Indonesia's disaster resilience through faster, more coordinated public warning infrastructure.",
+    src: ImgMentari,
+    images: [imgeews1, imgeews2, imgeews3, imgeews4],
+    prototypeUrl: 'https://inaeews-git-master-fayeds-projects-df4be769.vercel.app/'
+	},
+	
 	// Data analysis
 	{
 		id: 5,
@@ -87,7 +116,7 @@ export const projects: ProjectItem[] = [
 		year: '2025',
 		description: 'This project builds and compares Multiple Linear Regression (MLR) and Decision Tree (DT) models to predict house prices in the United States. The objective is to identify the most influential features such as square footage, number of bathrooms, year built, and location and evaluate linear vs. non linear approaches for accurate price estimation. \n\nWorkflow: data collection, preprocessing, train/test split, modeling, and evaluation. Using the USA Housing dataset (≈4k records), preprocessing includes handling missing values, outlier removal with Z‑score, normalization, and one‑hot encoding to ensure consistent model inputs.\n\nKey result: MLR achieved the best overall performance with R² ≈ 0.994 and the lowest error, while DT offered strong interpretability and captured non linear patterns. Visual analysis (boxplots, heatmaps, histograms, scatter plots) helped explain feature distributions and correlations.\n\nOutcome: a reproducible analytics pipeline and actionable insight into price drivers useful for real estate analytics and data driven investment decisions.',
 		src: imgDatnal1,
-		images: [imgDatnal1, imgDatnal1, imgDatnal1],
+		images: [imgDatnal1],
 		prototypeUrl: 'https://drive.google.com/file/d/1MZSRSU0lFwhgP9CIaw4xHkkCjYmUYvkg/view'
 	},
 	{
@@ -146,7 +175,7 @@ export default function Project({ hideHeader }: ProjectProps) {
 	const hasMore = visibleProjects.length > listedProjects.length
 
 	const goToDetail = (id: number) => {
-	router.push(`/project-detail?id=${id}`)   // ✅ benar
+	router.push(`/project-detail?id=${id}`)   
 	}
 
 	return (
@@ -234,7 +263,7 @@ export default function Project({ hideHeader }: ProjectProps) {
 										type="button"
 										onClick={() => goToDetail(p.id)}
 										aria-label={`View ${p.title}`}
-										className="relative shrink-0 snap-start h-[420px] sm:h-[380px] md:h-[400px] w-[60%] min-w-[290px] rounded overflow-hidden bg-zinc-100 dark:bg-zinc-800 group"
+										className="relative shrink-0 snap-start h-[180px] sm:h-[380px] md:h-[460px] w-[60%] min-w-[290px] rounded overflow-hidden bg-zinc-100 dark:bg-zinc-800 group"
 									>
 										<Image
 											src={img}
