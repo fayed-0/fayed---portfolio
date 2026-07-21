@@ -213,7 +213,7 @@ export default function Project({ hideHeader }: ProjectProps) {
 									{p.title}
 								</h3>
 								{p.description && (
-									<p className="mt-3 text-sm text-zinc-500 dark:text-zinc-400 line-clamp-4">
+									<p className="mt-3 text-justify text-sm text-zinc-500 dark:text-zinc-400 line-clamp-4">
 										{p.description}
 									</p>
 								)}
@@ -234,7 +234,7 @@ export default function Project({ hideHeader }: ProjectProps) {
 										type="button"
 										onClick={() => goToDetail(p.id)}
 										aria-label={`View ${p.title}`}
-										className="relative shrink-0 snap-start h-[260px] sm:h-[300px] md:h-[400px] w-[60%] min-w-[290px] rounded-lg overflow-hidden bg-zinc-100 dark:bg-zinc-800 group"
+										className="relative shrink-0 snap-start h-[420px] sm:h-[380px] md:h-[400px] w-[60%] min-w-[290px] rounded overflow-hidden bg-zinc-100 dark:bg-zinc-800 group"
 									>
 										<Image
 											src={img}

@@ -141,7 +141,7 @@ export default function Certification({ hideHeader, limit }: CertificationProps)
 							key={`${p.id}-${idx}`}
 							className="flex-shrink-0 w-[85vw] snap-center"
 						>
-							<div className="group rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 h-full">
+							<div className="group rounded overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 h-full">
 								<button
 									type="button"
 									onClick={() => setOpenId(p.id)}
@@ -198,7 +198,7 @@ export default function Certification({ hideHeader, limit }: CertificationProps)
 				{visibleItems.map((p) => (
 					<li
 						key={p.id}
-						className="group rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+						className="group rounded overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
 					>
 						<button
 							type="button"
@@ -269,7 +269,7 @@ export default function Certification({ hideHeader, limit }: CertificationProps)
 								priority
 							/>
 						</div>
-						<div className="w-full rounded-xl border border-white/20 bg-[#58718D] dark:bg-zinc-700 text-white dark:text-zinc-300 p-2 text-center text-sm sm:text-base md:text-lg font-semibold backdrop-blur-sm">
+						<div className="w-full rounded border border-white/20 bg-[#58718D] dark:bg-zinc-700 text-white dark:text-zinc-300 p-2 text-center text-sm sm:text-base md:text-lg font-semibold backdrop-blur-sm">
 							{opened.title}
 						</div>
 					</div>

@@ -42,8 +42,10 @@ export default function ProjectDetailContent() {
       <NAVBAR />
 
       <main className="flex-1 w-full bg-white pb-16">
-       <div className="w-full px-[10px] lg:px-[60px] mt-[100px] md:mt-[140px]">
+        <div className="w-full px-[10px] lg:px-[60px] mt-[100px] md:mt-[140px]">
           <div className="flex flex-col md:flex-row gap-6 md:gap-8">
+
+            {/* SIDEBAR KIRI */}
             <div className="w-full md:w-[360px] lg:w-[400px] shrink-0">
               <div className="md:sticky md:top-[90px]">
                 <div className="flex flex-col gap-[5px] py-4">
@@ -56,7 +58,7 @@ export default function ProjectDetailContent() {
                     {project.title}
                   </h1>
 
-                  <p className="text-zinc-600 text-sm whitespace-pre-line">
+                  <p className="text-zinc-600 text-sm whitespace-pre-line text-justify">
                     {project.description}
                   </p>
 
@@ -80,24 +82,55 @@ export default function ProjectDetailContent() {
               </div>
             </div>
 
+            {/* GALLERY KANAN */}
             <div className="flex-1 flex flex-col gap-2 sm:gap-3">
-              {galleryImages.map((img, idx) => (
-                <div
-                  key={idx}
-                  className="relative w-full h-[260px] sm:h-[300px] md:h-[400px] rounded-lg overflow-hidden bg-zinc-100 dark:bg-zinc-800"
-                >
-                  {img ? (
-                    <Image
-                      src={img}
-                      alt={project.title + ' ' + (idx + 1)}
-                      fill
-                      className="object-cover"
-                      sizes="(min-width:1024px) 20vw, 40vw"
-                    />
-                  ) : null}
-                </div>
-              ))}
+              {/* Gambar 1 - full width */}
+              <div className="relative w-full h-[420px] sm:h-[380px] md:h-[500px] rounded overflow-hidden bg-zinc-100 dark:bg-zinc-800">
+                {galleryImages[0] ? (
+                  <Image
+                    src={galleryImages[0]}
+                    alt={project.title + ' 1'}
+                    fill
+                    className="object-cover"
+                    sizes="(min-width:1024px) 60vw, 90vw"
+                  />
+                ) : null}
+              </div>
+
+              {/* Gambar 2 & 3 - grid 2 kolom */}
+              <div className="grid grid-cols-2 gap-2 sm:gap-3">
+                {[galleryImages[1], galleryImages[2]].map((img, idx) => (
+                  <div
+                    key={idx}
+                    className="relative w-full h-[280px] sm:h-[260px] md:h-[320px] rounded overflow-hidden bg-zinc-100 dark:bg-zinc-800"
+                  >
+                    {img ? (
+                      <Image
+                        src={img}
+                        alt={project.title + ' ' + (idx + 2)}
+                        fill
+                        className="object-cover"
+                        sizes="(min-width:1024px) 30vw, 45vw"
+                      />
+                    ) : null}
+                  </div>
+                ))}
+              </div>
+
+              {/* Gambar 4 - full width lagi */}
+              <div className="relative w-full h-[420px] sm:h-[380px] md:h-[500px] rounded overflow-hidden bg-zinc-100 dark:bg-zinc-800">
+                {galleryImages[3] ? (
+                  <Image
+                    src={galleryImages[3]}
+                    alt={project.title + ' 4'}
+                    fill
+                    className="object-cover"
+                    sizes="(min-width:1024px) 60vw, 90vw"
+                  />
+                ) : null}
+              </div>
             </div>
+
           </div>
         </div>
       </main>

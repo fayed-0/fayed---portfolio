@@ -162,7 +162,7 @@ export default function Navbar() {
 
 	return (
 		<div className="fixed top-[5px] left-0 right-0 z-50">
-			<nav className="relative mx-[5px] md:mx-[5px] lg:mx-[60px] h-14 md:h-[60px] lg:h-[64px] rounded-[10px] bg-[#EFF2F9]/95 dark:bg-zinc-800/90 backdrop-blur flex items-center px-3 sm:px-4 md:px-6 lg:px-7 shadow-sm">
+			<nav className="relative mx-[5px] md:mx-[5px] lg:mx-[60px] h-14 md:h-[60px] lg:h-[64px] rounded bg-[#EFF2F9]/95 dark:bg-zinc-800/90 backdrop-blur flex items-center px-3 sm:px-4 md:px-6 lg:px-7 shadow-sm">
 				
 				<Link href="/" className="text-[#3A5566] dark:text-white text-lg md:text-xl lg:text-2xl font-bold">Portfolio</Link>
 
@@ -182,7 +182,7 @@ export default function Navbar() {
 					{/* CONTACT */}
 					<Link
 						href="/#contact"
-						className="inline-flex h-10 items-center rounded-[10px] bg-[#3A5566] dark:bg-zinc-600 px-4 text-white font-medium hover:bg-[#58718D]"
+						className="inline-flex h-10 items-center rounded bg-[#3A5566] dark:bg-zinc-600 px-4 text-white font-medium hover:bg-[#58718D]"
 					>
 						Contact
 					</Link>
@@ -196,7 +196,7 @@ export default function Navbar() {
 					>
 						<button
 							onClick={() => setCvOpen((v) => !v)}
-							className="inline-flex h-10 items-center rounded-[10px] bg-[#3A5566] dark:bg-zinc-600 px-4 text-white font-medium hover:bg-[#58718D]"
+							className="inline-flex h-10 items-center rounded bg-[#3A5566] dark:bg-zinc-600 px-4 text-white font-medium hover:bg-[#58718D]"
 						>
 							Download CV
 						</button>
@@ -241,7 +241,7 @@ export default function Navbar() {
 			{/* THEME BUTTON */}
 			<button
 				onClick={toggleTheme}
-				className="h-10 w-10 rounded-[10px] border border-zinc-500/40 bg-[#3A5566] dark:bg-zinc-600 text-white grid place-items-center hover:bg-[#58718D]"
+				className="h-10 w-10 rounded border border-zinc-500/40 bg-[#3A5566] dark:bg-zinc-600 text-white grid place-items-center hover:bg-[#58718D]"
 			>
 				{isDark ? '☾' : '☀︎'}
 			</button>
@@ -260,12 +260,12 @@ export default function Navbar() {
 				<div className="ml-auto lg:hidden">
 					<button
 						onClick={() => setOpen((v) => !v)}
-						className={`h-10 w-10 rounded-[10px] ${isDark ? 'bg-zinc-600' : 'bg-[#58718D]'} text-white grid place-items-center`}
+						className={`h-10 w-10 rounded ${isDark ? 'bg-zinc-600' : 'bg-[#58718D]'} text-white grid place-items-center`}
 					>
 						☰
 					</button>
 				</div>
-				<div className={`${open ? 'opacity-100' : 'opacity-0 pointer-events-none'} lg:hidden absolute left-0 right-0 top-full mt-2 rounded-[14px] bg-[#EFF2F9]/95 dark:bg-zinc-800/95 shadow-lg`}>
+				<div className={`${open ? 'opacity-100' : 'opacity-0 pointer-events-none'} lg:hidden absolute left-0 right-0 top-full mt-2 rounded bg-[#EFF2F9]/95 dark:bg-zinc-800/95 shadow-lg`}>
 					<ul className="flex flex-col divide-y divide-zinc-200 dark:divide-zinc-700 text-[#58718D] dark:text-white">
 						<li><button onClick={toggleTheme} className="w-full px-5 py-3 text-left">Theme</button></li>
 						{!isCertOnly && <li><a href="/#home" onClick={(e) => { e.preventDefault(); navigateTo('home') }} className="block px-5 py-3">Home</a></li>}
@@ -283,7 +283,7 @@ export default function Navbar() {
 							)}
 						</li>
 						<li className="px-5 py-3">
-							<a href="/#contact" onClick={(e) => { e.preventDefault(); navigateTo('contact') }} className="inline-flex w-full justify-center h-10 items-center rounded-[10px] bg-[#58718D] text-white">Contact</a>
+							<a href="/#contact" onClick={(e) => { e.preventDefault(); navigateTo('contact') }} className="inline-flex w-full justify-center h-10 items-center rounded bg-[#58718D] text-white">Contact</a>
 						</li>
 					</ul>
 				</div>
