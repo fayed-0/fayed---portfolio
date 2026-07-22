@@ -17,7 +17,7 @@ export default function CertificationOnlyPage() {
             <div className="text-center">
                 <h2 className="text-2xl sm:text-3xl md:text-3xl font-bold text-[#58718D] dark:text-zinc-100">CERTIFICATE</h2>
               <div className="mt-4 mx-auto w-20 h-1 rounded-full bg-[#58718D] dark:bg-zinc-300" />
-              <p className="mt-3 text-base sm:text-lg md:text-xl text-zinc-500 dark:text-zinc-300">
+              <p className="mt-3 text-base sm:text-lg text-justify md:text-xl text-zinc-500 dark:text-zinc-300">
                 This section presents the certifications I have earned to enhance my competencies and deepen my understanding beyond academic learning. Each certification demonstrates my commitment to continuous self-improvement and my effort to expand my knowledge in web development, user experience design, and data analytics. Through these learning experiences, I strive to develop both the technical and analytical skills required to grow as a well-rounded professional.
               </p>
             </div>

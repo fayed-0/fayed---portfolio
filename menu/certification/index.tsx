@@ -114,7 +114,7 @@ export default function Certification({ hideHeader, limit }: CertificationProps)
 								</Link>
 							</div>
 						</div>
-						<p className="mt-3 text-base sm:text-lg md:text-xl text-zinc-500 dark:text-zinc-300">
+						<p className="mt-3 text-base sm:text-lg text-justify md:text-xl text-zinc-500 dark:text-zinc-300">
 							This section presents the certifications I have earned to enhance my competencies and deepen my understanding beyond academic learning. Each certification demonstrates my commitment to continuous self-improvement and my effort to expand my knowledge in web development, user experience design, and data analytics. Through these learning experiences, I strive to develop both the technical and analytical skills required to grow as a well-rounded professional.
 						</p>
 					</div>

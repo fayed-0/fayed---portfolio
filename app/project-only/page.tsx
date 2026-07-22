@@ -16,7 +16,7 @@ export default function ProjectOnlyPage() {
 						<div className="text-center">
 							<h2 className="text-2xl sm:text-3xl md:text-3xl font-bold text-[#58718D] dark:text-zinc-100">PORTFOLIO</h2>
 							<div className="mt-4 mx-auto w-20 h-1 rounded-full bg-[#58718D] dark:bg-zinc-300" />
-							<p className="mt-3 text-base sm:text-lg md:text-xl text-zinc-500 dark:text-zinc-300">
+							<p className="mt-3 text-base text-justify sm:text-lg md:text-xl text-zinc-500 dark:text-zinc-300">
 								Explore a collection of my featured projects that showcase my passion for design, technology, and problem-solving. 
 							</p>
 						</div>

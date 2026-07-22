@@ -196,7 +196,7 @@ export default function Project({ hideHeader }: ProjectProps) {
 								</Link>
 							</div>
 						</div>
-						<p className="mt-3 max-w-none text-base sm:text-lg md:text-xl text-zinc-500 dark:text-zinc-300">
+						<p className="mt-3 max-w-none text-base text-justify sm:text-lg md:text-xl text-zinc-500 dark:text-zinc-300">
 							Explore a collection of my featured projects that showcase my passion for design, technology, and problem-solving. 
 						</p>
 					</div>
