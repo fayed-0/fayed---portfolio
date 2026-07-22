@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import ImgLight from '../../source/bg-light.png'
 import ImgDark from '../../source/bg-dark.png'
+import ImgBg from '../../source/bg.png'
 
 type Props = {
   backgroundImage?: string
@@ -13,14 +14,14 @@ export default function Header({ backgroundImage }: Props) {
   {/* Top spacer removed to keep gaps balanced across pages */}
 
   {/* Hero background (full width) - +100px taller on mobile/tablet */}
-  <div className="absolute left-0 top-0 w-full rounded-b-[20px] overflow-hidden z-0 h-[510px] sm:h-[630px] md:h-[750px] lg:h-[928px]">
+  <div className="absolute left-0 top-0 w-full overflow-hidden z-0 h-[510px] sm:h-[630px] md:h-[750px] lg:h-[928px]">
     <div className="absolute inset-0 bg-zinc-400 dark:bg-zinc-700" />
 
   {/* Mobile background image - centered crop */}
     <div className="lg:hidden absolute inset-0">
       {/* Light */}
       <Image
-        src={ImgLight}
+        src={ImgBg}
         alt="Hero background mobile"
         fill
         priority
@@ -29,7 +30,7 @@ export default function Header({ backgroundImage }: Props) {
       />
       {/* Dark */}
       <Image
-        src={ImgDark}
+        src={ImgBg}
         alt="Hero background mobile dark"
         fill
         priority
@@ -42,7 +43,7 @@ export default function Header({ backgroundImage }: Props) {
     <div className="hidden lg:block absolute inset-0">
       {/* Light */}
       <Image
-        src={ImgLight}
+        src={ImgBg}
         alt="Hero background desktop"
         fill
         priority
@@ -51,7 +52,7 @@ export default function Header({ backgroundImage }: Props) {
       />
       {/* Dark */}
       <Image
-        src={ImgDark}
+        src={ImgBg}
         alt="Hero background desktop dark"
         fill
         priority
@@ -61,7 +62,7 @@ export default function Header({ backgroundImage }: Props) {
     </div>
 
   {/* Dark overlay on top of images to improve text contrast */}
-  <div className="absolute inset-0 bg-black/50 dark:bg-black/50" />
+  <div className="absolute inset-0 bg-black/10 dark:bg-black/10" />
 
         {/* Text overlay on image for mobile/tablet (inside image box, 5px gap) */}
   <div className="lg:hidden absolute left-0 right-0 bottom-[40px] z-20 text-white px-2 sm:left-4 md:left-5 sm:right-4 md:right-5">
