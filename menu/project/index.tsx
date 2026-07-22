@@ -4,7 +4,10 @@ import Image, { type StaticImageData } from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import ImgReWorn from './source/RE  WORN.png'
-import ImgRentIn from "./source/Rent'in.png"
+import ImgRentIn1 from "./source/rentin-1.png"
+import ImgRentIn2 from "./source/rentin-2.png"
+import ImgRentIn3 from "./source/rentin-3.png"
+import ImgRentIn4 from "./source/rentin-4.png"
 import ImgBellara from "./source/Bellara.png"
 import ImgMentari from "./source/Mentari Hospital.png"
 import ImgArticle1 from "./source/Article1.png"
@@ -70,8 +73,8 @@ export const projects: ProjectItem[] = [
 		category: 'UI/UX',
 		year: '2026',
 		description: "Rent’in is a technopreneurship project that introduces an innovative idea of providing an online costume rental service. The concept was developed in response to the limited availability of accessible costume rental platforms on the internet. Rent’in aims to simplify the costume rental experience by allowing users to browse, reserve, and rent costumes easily through a digital platform. This project focuses on combining creativity, practicality, and technology to offer a modern solution for individuals and event organizers seeking costume rentals efficiently and conveniently.",
-		src: ImgRentIn,
-		images: [ImgRentIn],
+		src: ImgRentIn1,
+		images: [ImgRentIn1, ImgRentIn2, ImgRentIn3, ImgRentIn4],
 		prototypeUrl:
 			'https://www.figma.com/proto/EWNGwZLVP5ERkNj2ygc1fI/Untitled?page-id=135%3A16713&node-id=135-17699&viewport=510%2C431%2C0.13&t=1D9S3jy1ccsb06v3-1&scaling=min-zoom&starting-point-node-id=135%3A17011'
 	},

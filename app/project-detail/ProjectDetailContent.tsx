@@ -97,7 +97,7 @@ export default function ProjectDetailContent() {
                 {[galleryImages[1], galleryImages[2]].map((img, idx) => (
                   <div
                     key={idx}
-                    className="relative w-full h-[120px] sm:h-[260px] md:h-[320px] rounded overflow-hidden bg-zinc-100 dark:bg-zinc-800"
+                    className="relative w-full h-[120px] sm:h-[260px] md:h-[340px] rounded overflow-hidden bg-zinc-100 dark:bg-zinc-800"
                   >
                     {img ? (
                       <Image
